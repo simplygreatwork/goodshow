@@ -1,0 +1,188 @@
+
+what is the simplest way to enter application state and return to any state?
+    this includes data binding
+    
+maybe the component: reveal could work with state
+    anything that reveals something else can define state
+    and when you reveal, you also pass metadata/context
+    
+enhancement: pen drawings calls create instructions
+    then the instructions do the drawing
+    this will also allow path drawing animation
+
+try to consolidate the components: scroll and drag to -> "Move.js"
+    because the user is moving the viewport
+
+need to be able to register new component types on Entity
+
+if constrain is missing flex or width/height/extent, maybe insert flex or width/height/extent 
+
+change sidebar layer to Drawer layer
+
+for scrollable, the mask is actually moved within bounds
+
+next up
+    dialog blur
+    header strip for messages
+    shapes (animated)
+
+idea: implement painters for list selection, list dividers, elevation shadow, ripples
+
+create the layout for a message panel
+be able to add a message panel programatically
+add the basis for the other panels
+add blur to the dialog
+implement ripple with animated painters
+consider how to make animation super simple
+    use Broadcast to know when started, finished, cancelled (and direction)
+    don't use tweening callbacks
+    may need to tween postions and extents (widths/heights)
+    just create a super simple tweening mechanism
+    
+get broadcast to work for specific components - and not just universal
+
+focus more on inline menus, sidebars, messages, dialogs
+    and less on overlays
+    
+might still want a master header and master footer for the content layer
+    master header for example for announcements
+    
+when I slide in and out sidebar panels - I can add the panel offscreen
+    slide the entire widened panel - and then reduce width
+    
+simple color math
+
+dialog as: dialog, sheet, document
+
+I ought to create a reveal panel
+    menus could slide out from under headers
+    messages could slide of from under footers
+    sidebars could slide in from the sides
+
+change properties to options
+ensure that every component has defaults
+
+my cascades and component will draw need to know the full (parent) path
+    to be able to lookup context from parent (themes, etc)
+    
+commonality
+    sliders & list scrolling both have bounds
+        maybe switches too - is a toggle just a slider?
+        maybe determinite progress bars come into play as well
+        scrollbars too?
+        carousel as well
+        
+    so : switch, scrollbar, carousel, progress bar, slider, list
+        
+    boundable?
+    
+idea: transition an inline card to a dialog card
+
+why acn't I just attach a message to the top of the content?
+why do I gace to frame things? do I need to add a new Panel just to frame new vertical/horizontal content?
+
+inset+cleanroom+impart+playset+playscape+workspace+workscape+pathscape
+
+goodshow
+goodshow.io
+showplace
+goodplace
+showgood
+goodshow (could be goods how?) problem
+good
+goodwork
+show
+SHOWPLACE
+showroom
+pathmaker
+goodshow
+goodstuff
+showcase
+showboat
+showoff
+showman
+goodshow
+showspot
+spotlight
+blacklight
+cleanlight
+inspot
+goodspot
+shower
+showscape
+showspace
+showpalace
+showplace
+sideshow
+slideshow
+foreshow
+airshow
+showdown
+showplace
+room
+showroom
+showlight
+goodroom
+goodlight
+goodplace
+goodspace
+goodlines
+goodspot
+hotlight
+simple
+unit
+showup
+showit
+cleanshow
+spotspace
+
+pray
+study
+shadow
+foreshadow
+
+hard
+easy
+please
+pleasure
+
+block
+stone
+corner
+cornerstone
+blockplace
+placeblock
+showblock
+pad
+margin
+vite
+magic
+mage
+imagine
+imag-ine
+shrine
+maging
+dragon
+fireplace
+hotplace
+firespot
+
+real
+realplace
+realworld
+
+showworld
+reality
+store
+rect
+
+peat
+repeat
+ensure
+sureplace
+surething
+
+insight
+masterplan
+blueprint
+pixistix

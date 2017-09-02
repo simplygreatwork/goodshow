@@ -1,0 +1,25 @@
+
+at least display message toasts in snackbar if a buttons does nothing
+handle omission of arranger property, children property, flex property (and so forth)
+master header
+move primary layers into nested stacks
+reimplement fab using components
+paint shadows on each mill panel border to separate
+more painters including shadow w/ elevation
+fix message panel margins
+fix message panel arranging when dismissing
+consolidate arrangers (horizonal and vertical) (minor/major for padding/margins)
+deterministic layout height for text, images, containers - and for parent containers
+basic mousewheel scrolling with bounds and maybe even simple inertia easing and bounce
+ripples and actions for toolbar buttons
+hover effects for toolbar buttons
+work on revealer consolidation for menus, drawers, tabs, dialogs, and miller panels
+demo styling cascade hooks
+basic text editor overlay
+very basic reactive UI (with diffsync)
+implement selection component
+separate the projects into subprojects
+implement lazy providing of children (for when scrolling)
+tween drawer animation
+tween message animation
+tween dialog animation

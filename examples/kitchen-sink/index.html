@@ -1,0 +1,107 @@
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=no" />
+	<title>Kitchen Sink</title>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/3.0.11/pixi.js"></script>
+	<script type="text/javascript" src="../../goodshow/core/Foundation.js"></script>
+	<script type="text/javascript" src="../../goodshow/core/Class.js"></script>
+	<script type="text/javascript" src="../../goodshow/core/Broadcast.js"></script>
+	<script type="text/javascript" src="../../goodshow/core/Utility.js"></script>
+	<script type="text/javascript" src="../../goodshow/core/Main.js"></script>
+	<script type="text/javascript" src="../../goodshow/core/Lorem.js"></script>
+	<script type="text/javascript" src="../../goodshow/entity/Graphics.js"></script>
+	<script type="text/javascript" src="../../goodshow/entity/Text.js"></script>
+	<script type="text/javascript" src="../../goodshow/entity/Image.js"></script>
+	<script type="text/javascript" src="../../goodshow/component/Component.js"></script>
+	<script type="text/javascript" src="../../goodshow/component/Arrange.js"></script>
+	<script type="text/javascript" src="../../goodshow/component/Bound.js"></script>
+	<script type="text/javascript" src="../../goodshow/component/Contain.js"></script>
+	<script type="text/javascript" src="../../goodshow/component/Constrain.js"></script>
+	<script type="text/javascript" src="../../goodshow/component/Filter.js"></script>
+	<script type="text/javascript" src="../../goodshow/component/Invoke.js"></script>
+	<script type="text/javascript" src="../../goodshow/component/Mask.js"></script>
+	<script type="text/javascript" src="../../goodshow/component/Paint.js"></script>
+	<script type="text/javascript" src="../../goodshow/component/Reveal.js"></script>
+	<script type="text/javascript" src="../../goodshow/component/Ripple.js"></script>
+	<script type="text/javascript" src="../../goodshow/component/Scroll.js"></script>
+	<script type="text/javascript" src="../../goodshow/component/Transform.js"></script>
+	<script type="text/javascript" src="../../goodshow/control/Component.js"></script>
+	<script type="text/javascript" src="../../goodshow/control/Panel.js"></script>
+	<script type="text/javascript" src="../../goodshow/control/Card.js"></script>
+	<script type="text/javascript" src="../../goodshow/control/Button.js"></script>
+	<script type="text/javascript" src="../../goodshow/control/Image.js"></script>
+	<script type="text/javascript" src="../../goodshow/control/Floater.js"></script>
+	<script type="text/javascript" src="../../goodshow/control/Label.js"></script>
+	<script type="text/javascript" src="../../goodshow/control/TextArea.js"></script>
+	<script type="text/javascript" src="../../goodshow/control/ListItem.js"></script>
+	<script type="text/javascript" src="../../goodshow/arranger/index.js"></script>
+	<script type="text/javascript" src="../../goodshow/painter/index.js"></script>
+	<script type="text/javascript" src="extras/index.js"></script>
+	<script type="text/javascript" src="layers/index.js"></script>
+	<script type="text/javascript" src="panels/index.js"></script>
+	<script type="text/javascript" src="panels/master.js"></script>
+	<script type="text/javascript" src="panels/panels.js"></script>
+	<script type="text/javascript" src="panels/text.js"></script>
+	<script type="text/javascript" src="panels/images.js"></script>
+	<script type="text/javascript" src="panels/shapes.js"></script>
+	<script type="text/javascript" src="panels/painters.js"></script>
+	<script type="text/javascript" src="panels/cards.js"></script>
+	<script type="text/javascript" src="panels/buttons.js"></script>
+	<script type="text/javascript" src="panels/lists.js"></script>
+	<script type="text/javascript" src="panels/overlays.js"></script>
+	<script type="text/javascript" src="panels/responsive.js"></script>
+	<script type="text/javascript" src="panels/rippling.js"></script>
+	
+	<style>
+		html,
+		body {
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			background-color: white;
+		}
+	</style>
+</head>
+
+<body>
+	<script>
+		
+		example = example || {};
+		goodshow.Main.ready(function(stage, renderer) {
+			
+			var panel = new MainStack({});
+			stage.addChild(panel);
+			panel.draw();
+			window.panel = panel;
+		});
+		
+		MainStack = goodshow.Panel.extend({
+			
+			initialize: function(properties) {
+				
+				Object.assign(properties, {
+					bounds: new PIXI.Rectangle(0, 0, window.innerWidth, window.innerHeight),
+					contain : {
+						arranger: new goodshow.arranger.Stack(),
+						children: [
+							new example.layer.Content({
+								content : new MillerPanel({
+									content : new example.panels.master.Panel()
+								})
+							}),
+							// new example.layer.drawer.Layer({}),
+							// new example.layer.message.Layer({}),
+							// new example.layer.dialog.Layer({})
+						]
+					}
+				});
+				goodshow.Panel.prototype.initialize.call(this, properties);
+			}
+		});
+		
+	</script>
+</body>
+
+</html>
