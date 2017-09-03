@@ -8,6 +8,7 @@ goodshow.component.Contain = goodshow.component.Component.extend({
     
     install : function(entity) {
 		
+		entity.removeChildren();
 		this.children = this.children || [];
 		this.children.forEach(function(child, index) {
 			entity.addChild(child);

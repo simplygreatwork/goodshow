@@ -34,6 +34,11 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									},
 									pivot : {
 										y : -4
+									},
+									invoke : {
+										action : function() {
+											goodshow.Broadcast.publish('open-drawer', {});
+										}
 									}
 								}),
 								new goodshow.Label({
@@ -58,6 +63,13 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									},
 									pivot : {
 										y : -4
+									},
+									invoke : {
+										action : function() {
+											application.layer.message.display(new example.layer.message.Panel({
+												text : 'Search!'
+											}));
+										}.bind(this)
 									}
 								}),
 								new goodshow.Label({
@@ -70,6 +82,13 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									},
 									pivot : {
 										y : -4
+									},
+									invoke : {
+										action : function() {
+											application.layer.message.display(new example.layer.message.Panel({
+												text : 'Print!'
+											}));
+										}.bind(this)
 									}
 								}),
 								new goodshow.Label({
@@ -82,6 +101,13 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									},
 									pivot : {
 										y : -4
+									},
+									invoke : {
+										action : function() {
+											application.layer.message.display(new example.layer.message.Panel({
+												text : 'Menu!'
+											}));
+										}.bind(this)
 									}
 								})
 							]

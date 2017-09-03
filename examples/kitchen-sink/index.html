@@ -32,8 +32,8 @@
 	<script type="text/javascript" src="../../goodshow/control/Card.js"></script>
 	<script type="text/javascript" src="../../goodshow/control/Button.js"></script>
 	<script type="text/javascript" src="../../goodshow/control/Image.js"></script>
-	<script type="text/javascript" src="../../goodshow/control/Floater.js"></script>
 	<script type="text/javascript" src="../../goodshow/control/Label.js"></script>
+	<script type="text/javascript" src="../../goodshow/control/Floater.js"></script>
 	<script type="text/javascript" src="../../goodshow/control/TextArea.js"></script>
 	<script type="text/javascript" src="../../goodshow/control/ListItem.js"></script>
 	<script type="text/javascript" src="../../goodshow/arranger/index.js"></script>
@@ -71,33 +71,68 @@
 		example = example || {};
 		goodshow.Main.ready(function(stage, renderer) {
 			
-			var panel = new MainStack({});
+			application.layer = {};
+			var panel = new Structure({});
 			stage.addChild(panel);
 			panel.draw();
 			window.panel = panel;
+			
+			goodshow.Broadcast.subscribe('open-drawer', function(object) {
+				application.layer.drawer.drawer.left.visible = true;
+				application.layer.drawer.drawer.left.draw();
+			});
 		});
 		
-		MainStack = goodshow.Panel.extend({
+		Structure = goodshow.Panel.extend({
 			
-			initialize: function(properties) {
+			initialize: function(options) {
 				
-				Object.assign(properties, {
+				goodshow.Panel.prototype.initialize.call(this, Object.assign({
 					bounds: new PIXI.Rectangle(0, 0, window.innerWidth, window.innerHeight),
 					contain : {
-						arranger: new goodshow.arranger.Stack(),
+						arranger: new goodshow.arranger.Vertical(),
 						children: [
-							new example.layer.Content({
-								content : new MillerPanel({
-									content : new example.panels.master.Panel()
-								})
+							new goodshow.Panel({
+								background : 0xEEEE77,
+								constrain : {
+									height : 50
+								},
+								contain : {
+									arranger : new goodshow.arranger.Vertical(),
+									children : [
+										new goodshow.Label({
+											text : 'This is a "kitchen sink" demo of GoodShow - a hackable entity-component UI system for WebGL.',
+											font : '16px Roboto',
+											foreground: 'black',
+											constrain : {
+												flex : 1,
+												margin : {
+													left : 0,
+													right : 0
+												}
+											}
+										})
+									]
+								}
 							}),
-							// new example.layer.drawer.Layer({}),
-							// new example.layer.message.Layer({}),
-							// new example.layer.dialog.Layer({})
+							new goodshow.Panel({
+								contain : {
+									arranger : new goodshow.arranger.Stack(),
+									children: [
+										application.layer.content = new example.layer.Content({
+											content : new MillerPanel({
+												content : new example.panels.master.Panel()
+											})
+										}),
+										application.layer.drawer = new example.layer.drawer.Layer({}),
+										application.layer.message = new example.layer.message.Layer({}),
+										application.layer.dialog = new example.layer.dialog.Layer({})
+									]
+								}
+							}),
 						]
 					}
-				});
-				goodshow.Panel.prototype.initialize.call(this, properties);
+				}, options || {}));
 			}
 		});
 		

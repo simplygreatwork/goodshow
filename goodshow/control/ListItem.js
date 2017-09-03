@@ -24,7 +24,9 @@ goodshow.ListItem = goodshow.Panel.extend({
 						},
 						paint : {
 							painters : [
-								new goodshow.painter.Avatar()
+								new goodshow.painter.Avatar({
+									color : 0xffa500
+								})
 							],
 							append : true
 						},

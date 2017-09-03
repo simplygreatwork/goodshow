@@ -41,7 +41,7 @@ goodshow.painter.Background = goodshow.painter.Painter.extend({
 	}
 });
 
-goodshow.painter.Avatar = goodshow.painter.Painter.extend({
+goodshow.painter.Circular = goodshow.painter.Painter.extend({
 	
 	initialize: function(options) {
 		
@@ -53,11 +53,13 @@ goodshow.painter.Avatar = goodshow.painter.Painter.extend({
 	
 	paint : function(graphics) {
 		
-		graphics.beginFill(0xFF77AA);
+		graphics.beginFill(this.options.color);
 		var bounds = graphics.options.bounds;
-		graphics.drawCircle(bounds.x + (bounds.width / 2), bounds.y + (bounds.height / 2), 22);
+		graphics.drawCircle(bounds.x + (bounds.width / 2), bounds.y + (bounds.height / 2), bounds.width / 2);
 	}
 });
+
+goodshow.painter.Avatar = goodshow.painter.Circular;
 
 goodshow.painter.Divider = goodshow.painter.Painter.extend({
 	
@@ -76,7 +78,9 @@ goodshow.painter.Ripple = goodshow.painter.Painter.extend({
 	
 	initialize: function(options) {
 		
-        this.options = options;
+        this.options = Object.assign({
+        	color : 0x999999
+        }, options || {});
 	},
 	
 	paint : function(entity) {
@@ -91,7 +95,7 @@ goodshow.painter.Ripple = goodshow.painter.Painter.extend({
 					var bounds = entity.options.bounds;
 					var radius = Math.max(bounds.width, bounds.height) * (diff / 1000) * 1.1
 					var position = event.position;
-					entity.beginFill(0x999999, alpha);
+					entity.beginFill(this.options.color, alpha);
 					entity.drawCircle(position.x, position.y, radius);
 				}
 			}.bind(this));

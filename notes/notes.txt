@@ -1,4 +1,6 @@
 
+combine Utility.validate and Utility.inset
+
 what is the simplest way to enter application state and return to any state?
     this includes data binding
     

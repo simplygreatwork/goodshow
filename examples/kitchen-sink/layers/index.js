@@ -20,12 +20,26 @@ example.layer.Content = goodshow.Panel.extend({
 				children: [options.content]
 			}
 		}, options || {}));
+		this.blurring = false;
 		if (this.blurring) {
-			var filter = new PIXI.filters.BlurFilter();
-			filter.blur = 1;
-			filter.quality = 4;
-			this.filters = [filter];
+			this.filters = [Object.assign(new PIXI.filters.BlurFilter(), {
+				blur : 3,
+				quality : 4
+			})];
 		}
+	}
+});
+
+example.layer.Heading = goodshow.Panel.extend({
+	
+	initialize: function(options) {
+		
+		goodshow.Panel.prototype.initialize.call(this, Object.assign(options, {
+			contain : {
+				arranger: new goodshow.arranger.Stack(),
+				children: [options.content]
+			}
+		}, options || {}));
 	}
 });
 
@@ -40,35 +54,37 @@ example.layer.drawer.Layer = goodshow.Panel.extend({
 			contain : {
 				arranger: new goodshow.arranger.Horizontal(),
 				children: [
-					this.drawer.west = new goodshow.Panel({
+					this.drawer.left = new goodshow.Panel({
 						background: 0x444444,
 						constrain : {
-							width: 200
+							width: 250
+						},
+						invoke : {
+							action : function() {
+								this.drawer.left.visible = false;
+								this.parent.draw();
+							}.bind(this)
 						}
 					}),
 					new goodshow.Panel({
 						background: 0x000000,
 						alpha: 0,
 					}),
-					this.drawer.east = new goodshow.Panel({
+					this.drawer.right = new goodshow.Panel({
 						background: 0x444444,
 						constrain : {
-							width: 200
+							width: 250
+						},
+						invoke : {
+							action : function() {
+								this.drawer.right.visible = false;
+								this.parent.draw();
+							}.bind(this)
 						}
 					})
 				]
 			}
 		}, options || {}));
-		this.drawer.west.interactive = true;
-		this.drawer.west.on('mousedown', function() {
-			this.drawer.west.visible = false;
-			this.drawer.west.parent.draw();
-		}.bind(this));
-		this.drawer.east.interactive = true;
-		this.drawer.east.on('mousedown', function() {
-			this.drawer.east.visible = false;
-			this.drawer.east.parent.draw();
-		}.bind(this));
 	}
 });
 
@@ -95,7 +111,6 @@ example.layer.dialog.Overlay = goodshow.Panel.extend({
 	
 	initialize: function(options) {
 		
-		if (false) this.blurring = false;
 		goodshow.Panel.prototype.initialize.call(this, Object.assign({
 			background: 0x111111,
 			alpha: 0.7,
@@ -109,12 +124,6 @@ example.layer.dialog.Overlay = goodshow.Panel.extend({
 			event.stopPropagation();
 			return true;
 		}.bind(this));
-		if (this.blurring) {		// issue: needs nested stacks for this to work well
-			var filter = new PIXI.filters.BlurFilter();
-			filter.blur = 8;
-			filter.quality = 4;
-			this.filters = [filter];
-		}
 	}
 });
 
@@ -186,11 +195,11 @@ example.layer.message.Layer = goodshow.Panel.extend({
 				arranger: new goodshow.arranger.Horizontal(),
 				children: [
 					new goodshow.Panel(),
-					new goodshow.Panel({
+					this.list = new goodshow.Panel({
 						constrain : {
 							width: 600,
-							margin : {
-								bottom : 80					// fix arranger jumping
+							padding : {
+								bottom : 60					// fix arranger jumping
 							}
 						},
 						contain : {
@@ -213,6 +222,13 @@ example.layer.message.Layer = goodshow.Panel.extend({
 				]
 			}
 		}, options || {}));
+	},
+	
+	display : function(message) {
+		
+		this.list.options.contain.children.push(message);
+		this.list.install();
+		this.list.draw();
 	}
 });
 
@@ -230,6 +246,10 @@ example.layer.message.Panel = goodshow.Panel.extend({
 					bottom: 5,
 					right: 0,
 					left: 0
+				},
+				padding : {
+					left : 24,
+					right : 24
 				}
 			},
 			contain : {
@@ -239,27 +259,14 @@ example.layer.message.Panel = goodshow.Panel.extend({
 						text : options.text,
 						font : '16px Roboto',
 						foreground: 'white',
-						align : 'left',
-						constrain : {
-							flex : 1,
-							margin : {
-								left : 24,
-								right : 0
-							}
-						}
+						align : 'left'
 					}),
 					new Flexible(),
 					new goodshow.Label({
 						text : 'CLOSE',
 						font : '16px Roboto',
 						foreground: 'yellow',
-						constrain : {
-							flex : 1,
-							margin : {
-								left : 30,
-								right : 0
-							}
-						}
+						align : 'right'
 					})
 				]
 			}

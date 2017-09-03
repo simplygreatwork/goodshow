@@ -32,6 +32,11 @@ goodshow.Label = goodshow.entity.Graphics.extend({
 			this.text.pivot.x = 0;
 			this.text.y = this.options.bounds.y + (this.options.bounds.height / 2);
 			this.text.pivot.y = (this.text.height / 2);
+		} else if (this.options.align == 'right') {
+			this.text.x = this.options.bounds.x + this.options.bounds.width;
+			this.text.pivot.x = this.text.width;
+			this.text.y = this.options.bounds.y + (this.options.bounds.height / 2);
+			this.text.pivot.y = (this.text.height / 2);
 		}
 		if (this.options.pivot && this.options.pivot.x) {
 			this.text.pivot.x = this.text.pivot.x + this.options.pivot.x;

@@ -12,7 +12,9 @@ goodshow.component.Constrain = goodshow.component.Component.extend({
     
     install : function(entity) {
         
-        
+		if (this.width || this.height) {
+			delete this.flex;
+		}
     },
     
     draw : function(entity) {

@@ -42,6 +42,13 @@ example.panels.images.Panel = goodshow.Panel.extend({
 									},
 									pivot : {
 										y : -4
+									},
+									invoke : {
+										action : function() {
+											application.layer.message.display(new example.layer.message.Panel({
+												text : 'Menu!'
+											}));
+										}.bind(this)
 									}
 								})
 							]
