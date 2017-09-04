@@ -1,6 +1,6 @@
 
 example.panels.master.Panel = goodshow.Panel.extend({
-
+	
 	initialize: function(options) {
 		
 		goodshow.Panel.prototype.initialize.call(this, Object.assign({
@@ -64,6 +64,11 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									pivot : {
 										y : -4
 									},
+									ripple : {
+										maximum : 10,
+										color : 0xFFFFFF,
+										radius : 44
+									},
 									invoke : {
 										action : function() {
 											application.layer.message.display(new example.layer.message.Panel({
@@ -119,10 +124,8 @@ example.panels.master.Panel = goodshow.Panel.extend({
 						constrain : {
 							flex : 1,
 							margin : {
-								top : 20,
-								bottom : 20,
-								left : 20,
-								right : 20
+								top : 10,
+								bottom : 10,
 							}
 						},
 						contain : {

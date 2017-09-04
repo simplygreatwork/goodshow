@@ -1,18 +1,13 @@
 
-goodshow.Button = goodshow.Component.extend({
+goodshow.Button = goodshow.Label.extend({
 	
 	initialize: function(options) {
 		
-		goodshow.Component.prototype.initialize.call(this);
-		goodshow.Utility.merge(options, this.options);
-		this.draw();
+		goodshow.Label.prototype.initialize.call(this, Object.assign({}, options));
 	},
 	
 	draw: function() {
 		
-		if (this.options.background) this.beginFill(0x39AC39);
-		if (this.options.foreground) this.lineStyle(5, 0x509550);
-		if (this.options.painter) this.drawRectangle(new PIXI.Rectangle(0, 0, 100, 100), 20);
-		this.drawRectangle(new PIXI.Rectangle(0, 0, 100, 100), 20);
+		goodshow.Label.prototype.draw.call(this);
 	}
 });

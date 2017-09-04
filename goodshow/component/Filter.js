@@ -8,6 +8,8 @@ goodshow.component.Filter = goodshow.component.Component.extend({
     
     install : function(entity) {
         
-        
+        if (this.filters && this.filters.length > 0) {
+            entity.filters = this.filters;
+        }
     }
 });

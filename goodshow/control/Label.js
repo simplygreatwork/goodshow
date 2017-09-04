@@ -3,9 +3,19 @@ goodshow.Label = goodshow.entity.Graphics.extend({
 	
 	initialize: function(options) {
 		
-		options.font = options.font || '20px Roboto';
-		options.foreground = options.foreground || 0x000000;
-		options.align = options.align || 'center';
+		options = Object.assign({
+			font : '20px Roboto',
+			foreground : 0x000000,
+			align : 'center'
+		}, goodshow.enhance(options) || {});
+		if (options.background) {
+			options.paint = options.paint || {
+				painters : []
+			};
+			options.paint.painters.unshift(new goodshow.painter.Background({
+				color : options.background,
+			}));
+		}
 		goodshow.entity.Graphics.prototype.initialize.call(this, Object.assign({
 			contain : {
 				arranger : new goodshow.arranger.Vertical(),
@@ -16,7 +26,7 @@ goodshow.Label = goodshow.entity.Graphics.extend({
 					}, 2)
 				]
 			}
-		}, options));
+		}, options || {}));
 	},
 	
 	draw: function() {
@@ -44,6 +54,5 @@ goodshow.Label = goodshow.entity.Graphics.extend({
 		if (this.options.pivot && this.options.pivot.y) {
 			this.text.pivot.y = this.text.pivot.y + this.options.pivot.y;
 		}
-		goodshow.entity.Graphics.prototype.draw.call(this);
 	}
 });

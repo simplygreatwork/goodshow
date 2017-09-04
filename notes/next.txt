@@ -1,26 +1,42 @@
 
+// be able to register additional component types
+
+if a component is declared with a primitive and not an object,
+    convert to an object
+
+make a separate test page for arranger height determination
+    
+switch to pixi v4
+ripples, hovers, and actions for toolbar buttons
+hover effects for toolbar buttons
+ripple painters actually need to paint above and not behind
+handle omission of arranger property, children property, flex property (and so forth)
+basic mousewheel scrolling with bounds and maybe even simple inertia easing and bounce
+basic text editor overlay
+deterministic layout height for text, images, containers - and for parent containers
+
+move alignment from label into a component
+
 reimplement fab using components
 be able to show dialog, drawers, etc from buttons
 implement selection component
 paint shadows on each mill panel border to separate
-deterministic layout height for text, images, containers - and for parent containers
 at least display message toasts in snackbar if a buttons does nothing
-handle omission of arranger property, children property, flex property (and so forth)
 master header
-move primary layers into nested stacks
+move primary layers into nested stacks (for blur)
 more painters including shadow w/ elevation
 fix message panel margins
 fix message panel arranging when dismissing
 consolidate arrangers (horizonal and vertical) (minor/major for padding/margins)
-basic mousewheel scrolling with bounds and maybe even simple inertia easing and bounce
-ripples and actions for toolbar buttons
-hover effects for toolbar buttons
 work on revealer consolidation for menus, drawers, tabs, dialogs, and miller panels
 demo styling cascade hooks
-basic text editor overlay
 very basic reactive UI (with diffsync)
 separate the projects into subprojects
 implement lazy providing of children (for when scrolling)
 tween drawer animation
 tween message animation
 tween dialog animation
+
+use revealers to help with state/history management
+
+DONE...

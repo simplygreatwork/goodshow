@@ -41,6 +41,8 @@ goodshow.painter.Background = goodshow.painter.Painter.extend({
 	}
 });
 
+goodshow.painter.Selection = goodshow.painter.Background;
+
 goodshow.painter.Circular = goodshow.painter.Painter.extend({
 	
 	initialize: function(options) {
@@ -93,7 +95,7 @@ goodshow.painter.Ripple = goodshow.painter.Painter.extend({
 				if (diff < 1000) {
 					var alpha = 0.3 * ((1000 - diff) / 1000);
 					var bounds = entity.options.bounds;
-					var radius = Math.max(bounds.width, bounds.height) * (diff / 1000) * 1.1
+					var radius = (entity.options.ripple.radius || Math.max(bounds.width, bounds.height)) * (diff / 1000) * 1.1
 					var position = event.position;
 					entity.beginFill(this.options.color, alpha);
 					entity.drawCircle(position.x, position.y, radius);
@@ -104,19 +106,6 @@ goodshow.painter.Ripple = goodshow.painter.Painter.extend({
 });
 
 goodshow.painter.Shadow = goodshow.painter.Painter.extend({
-	
-	initialize: function(options) {
-		
-        this.options = options;
-	},
-	
-	paint : function(entity) {
-		
-		
-	}
-});
-
-goodshow.painter.Selection = goodshow.painter.Painter.extend({
 	
 	initialize: function(options) {
 		

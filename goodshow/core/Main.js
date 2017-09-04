@@ -8,8 +8,6 @@ goodshow.Main = Class.extend({
 		this.initializeFonts(function() {
 			this.initializeStage();
 			this.animate();
-			this.initializeModifiers();
-			this.initializeComponents();
 			this.initializeResizing();
 			options.callback(this.stage, this.renderer);
 		}.bind(this));
@@ -73,29 +71,15 @@ goodshow.Main = Class.extend({
 		}());
 	},
 	
-	initializeModifiers: function() {
-        
-		this.modifier = new goodshow.Modifer();
-	},
-    
-	initializeComponents: function() {
-		
-	},
-	
 	initializeResizing : function() {
 		
 		window.onresize = function() {
-			this.resize();
+			this.renderer.resize(window.innerWidth, window.innerHeight);
+			window.panel.bounds = new PIXI.Rectangle(0, 0, window.innerWidth, window.innerHeight);
+			window.panel.options.bounds = new PIXI.Rectangle(0, 0, window.innerWidth, window.innerHeight);
+			window.panel.draw();
 		}.bind(this);
-	},
-	
-	resize : function() {
-		
-		this.renderer.resize(window.innerWidth, window.innerHeight);
-		window.panel.bounds = new PIXI.Rectangle(0, 0, window.innerWidth, window.innerHeight);
-		window.panel.options.bounds = new PIXI.Rectangle(0, 0, window.innerWidth, window.innerHeight);
-		window.panel.draw();
-	},
+	}
 });
 
 goodshow.Main.ready = function(callback) {
@@ -104,24 +88,3 @@ goodshow.Main.ready = function(callback) {
         callback : callback
     });
 }
-
-goodshow.Modifer = Class.extend({
-	
-	initialize: function() {
-
-		goodshow.Broadcast.subscribe('component-will-draw', function(data) {
-			this.modify(data.component);
-		}.bind(this));
-	},
-
-	modify: function(component) {
-        
-        if (false) {
-    		if (component instanceof goodshow.Label) {
-    			if (goodshow.Utility.random(1, 4) == 1) {
-    				component.options.background = 0xFF0000;
-    			}
-    		}
-        }
-	}
-});

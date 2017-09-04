@@ -5,7 +5,11 @@ goodshow.ListItem = goodshow.Panel.extend({
 		
 		goodshow.Panel.prototype.initialize.call(this, Object.assign({
 			constrain : {
-				height : 50
+				height : 50,
+				padding : {
+					left : 10,
+					right : 10
+				}
 			},
 			contain : {
 				arranger : new goodshow.arranger.Horizontal(),
@@ -29,11 +33,10 @@ goodshow.ListItem = goodshow.Panel.extend({
 								})
 							],
 							append : true
-						},
+						}
 					}),
 					this.label = new goodshow.Label({
 						name : 'list-item-text',
-						background : 0xFFFFFF,
 						text : options.text,
 						align : 'left',
 						constrain : {
@@ -45,15 +48,10 @@ goodshow.ListItem = goodshow.Panel.extend({
 					})
 				]
 			},
-			ripple : {
-				maximum : 10
-			},
 			mask : {},
-			paint : {
-				painters : [
-					new goodshow.painter.Ripple({})
-				],
-				append : true
+			ripple : {
+				color : 0x999999,
+				maximum : 10
 			}
 		}, options || {}));
 	},

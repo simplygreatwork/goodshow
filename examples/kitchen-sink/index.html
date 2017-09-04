@@ -30,14 +30,15 @@
 	<script type="text/javascript" src="../../goodshow/control/Component.js"></script>
 	<script type="text/javascript" src="../../goodshow/control/Panel.js"></script>
 	<script type="text/javascript" src="../../goodshow/control/Card.js"></script>
-	<script type="text/javascript" src="../../goodshow/control/Button.js"></script>
 	<script type="text/javascript" src="../../goodshow/control/Image.js"></script>
 	<script type="text/javascript" src="../../goodshow/control/Label.js"></script>
+	<script type="text/javascript" src="../../goodshow/control/Button.js"></script>
 	<script type="text/javascript" src="../../goodshow/control/Floater.js"></script>
 	<script type="text/javascript" src="../../goodshow/control/TextArea.js"></script>
 	<script type="text/javascript" src="../../goodshow/control/ListItem.js"></script>
 	<script type="text/javascript" src="../../goodshow/arranger/index.js"></script>
 	<script type="text/javascript" src="../../goodshow/painter/index.js"></script>
+	<script type="text/javascript" src="enhancers/index.js"></script>
 	<script type="text/javascript" src="extras/index.js"></script>
 	<script type="text/javascript" src="layers/index.js"></script>
 	<script type="text/javascript" src="panels/index.js"></script>
@@ -81,6 +82,8 @@
 				application.layer.drawer.drawer.left.visible = true;
 				application.layer.drawer.drawer.left.draw();
 			});
+			
+			new example.Enhancer()
 		});
 		
 		Structure = goodshow.Panel.extend({
@@ -129,13 +132,13 @@
 										application.layer.dialog = new example.layer.dialog.Layer({})
 									]
 								}
-							}),
+							})
 						]
 					}
 				}, options || {}));
 			}
 		});
-		
+
 	</script>
 </body>
 

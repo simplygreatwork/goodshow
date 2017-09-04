@@ -3,7 +3,10 @@ goodshow.component.Contain = goodshow.component.Component.extend({
     
     initialize : function(options) {
 		
-		goodshow.component.Component.prototype.initialize.call(this, options);
+		goodshow.component.Component.prototype.initialize.call(this, Object.assign({
+			arranger : new goodshow.arranger.Stack(),
+			children : []
+		}, options || {}));
     },
     
     install : function(entity) {

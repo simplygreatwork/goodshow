@@ -19,36 +19,29 @@ goodshow.entity.Graphics = Class.extend({
 		this.options = Object.assign({
 			bounds: new PIXI.Rectangle(0, 0, 0, 0),
 			alpha : 1,
-			contain : {
-				arranger : new goodshow.arranger.Vertical(),
-				children : []
-			},
-			constrain : {
-				flex : 1,
-				padding : {},
-				margin : {}
-			}
-		}, options);
+			contain : {},
+			constrain : {}
+		}, options || {});
+		goodshow.Broadcast.publish('entity-created', this);
 		this.resolve(this.options);
 		if (this.options.alpha) {
 			this.alpha = this.options.alpha;
 		}
-		this.install();
+		this.install(this.options);
 	},
 	
-	resolve : function(options) {
+	resolve : function() {
 		
-		Object.keys(options).forEach(function(key) {
+		Object.keys(this.options).forEach(function(key) {
 			if (components.indexOf(key) > -1) {
 				var clazz = key.charAt(0).toUpperCase() + key.slice(1);
-				options[key] = new goodshow.component[clazz](options[key]);
+				this.options[key] = new goodshow.component[clazz](this.options[key]);
 			}
 		}.bind(this));
 	},
 	
-	install : function() {						// be able to register additional component types
+	install : function(options) {
 		
-		this.clear();
 		if (this.options.bound) this.options.bound.install(this);
 		if (this.options.constrain) this.options.constrain.install(this);
 		if (this.options.contain) this.options.contain.install(this);
@@ -62,9 +55,6 @@ goodshow.entity.Graphics = Class.extend({
 	
 	draw: function() {
 		
-		goodshow.Broadcast.publish('entity-will-draw', {
-			entity: this
-		});
 		this.clear();
 		if (this.options.bound) this.options.bound.draw(this);
 		if (this.options.constrain) this.options.constrain.draw(this);

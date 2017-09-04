@@ -57,6 +57,49 @@ example.panels.overlays.Panel = goodshow.Panel.extend({
 					new goodshow.Panel({
 						name: 'content',
 						background: 0xDDDDDD,
+						constrain : {
+							padding : {
+								top : 20,
+								bottom : 20,
+								left : 20,
+								right : 20
+							}
+						},
+						contain : {
+							arranger: new goodshow.arranger.Vertical(),
+							children: [
+								new goodshow.Button({
+									trait : 'basic-button',
+									text : 'OPEN DIALOG',
+									invoke : {
+										action : function() {
+											application.layer.dialog.toggle();
+										}
+									}
+								}),
+								new goodshow.Button({
+									trait : 'basic-button',
+									text : 'OPEN LEFT DRAWER',
+									invoke : {
+										action : function() {
+											application.layer.drawer.drawer.left.visible = true;
+											application.layer.drawer.drawer.left.draw();
+										}
+									}
+								}),
+								new goodshow.Button({
+									trait : 'basic-button',
+									text : 'OPEN RIGHT DRAWER',
+									invoke : {
+										action : function() {
+											application.layer.drawer.drawer.right.visible = true;
+											application.layer.drawer.drawer.right.draw();
+										}
+									}
+								}),
+								new goodshow.Panel()
+							]
+						}
 					}),
 					new goodshow.Panel({
 						name: 'footer',

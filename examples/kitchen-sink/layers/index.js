@@ -102,12 +102,16 @@ example.layer.dialog.Layer = goodshow.Panel.extend({
 				]
 			}
 		}, options || {}));
+	},
+	
+	toggle : function() {
+		
+		this.visible = ! this.visible;
+		this.draw();
 	}
 });
 
-// add a blur filter to the overlay
-
-example.layer.dialog.Overlay = goodshow.Panel.extend({
+example.layer.dialog.Overlay = goodshow.Panel.extend({		// add a blur filter to the overlay
 	
 	initialize: function(options) {
 		
@@ -120,7 +124,7 @@ example.layer.dialog.Overlay = goodshow.Panel.extend({
 			}
 		}, options || {}));
 		this.interactive = true;
-		this.on('mousedown', function(event) {			// todo : use invoker
+		this.on('mousedown', function(event) {				// todo : use invoker
 			event.stopPropagation();
 			return true;
 		}.bind(this));
@@ -135,7 +139,7 @@ example.layer.dialog.Dialog = goodshow.Panel.extend({
 			contain : {
 				arranger: new goodshow.arranger.Horizontal(),
 				children: [
-					new Flexible(),
+					new goodshow.Panel(),
 					new goodshow.Panel({
 						constrain : {
 							width: 800
@@ -143,7 +147,7 @@ example.layer.dialog.Dialog = goodshow.Panel.extend({
 						contain : {
 							arranger: new goodshow.arranger.Vertical(),
 							children: [
-								new Flexible(),
+								new goodshow.Panel(),
 								this.dialog = new goodshow.Panel({
 									background: 0xFFFFFF,
 									constrain : {
@@ -152,25 +156,25 @@ example.layer.dialog.Dialog = goodshow.Panel.extend({
 									contain : {
 										arranger: new goodshow.arranger.Horizontal(),
 										children: []
+									},
+									invoke : {
+										action : function() {
+											application.layer.dialog.toggle();
+										}.bind(this)
 									}
 								}),
-								new Flexible({
+								new goodshow.Panel({
 									constrain : {
 										flex : 4
 									}
-								}),
+								})
 							]
 						}
 					}),
-					new Flexible()
+					new goodshow.Panel()
 				]
 			}
 		}, options || {}));
-		this.dialog.interactive = true;
-		this.dialog.on('mousedown', function() {			// todo : use invoker
-			this.parent.visible = false;
-			this.parent.draw();
-		}.bind(this));
 	}
 });
 
@@ -261,7 +265,7 @@ example.layer.message.Panel = goodshow.Panel.extend({
 						foreground: 'white',
 						align : 'left'
 					}),
-					new Flexible(),
+					new goodshow.Panel(),
 					new goodshow.Label({
 						text : 'CLOSE',
 						font : '16px Roboto',

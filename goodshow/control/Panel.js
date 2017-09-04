@@ -13,7 +13,7 @@ goodshow.Panel = goodshow.entity.Graphics.extend({
 				painters : []
 			};
 			options.paint.painters.unshift(new goodshow.painter.Background({
-				color : options.background,
+				color : options.background
 			}));
 		}
 		goodshow.entity.Graphics.prototype.initialize.call(this, options);

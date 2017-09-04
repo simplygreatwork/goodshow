@@ -2,15 +2,24 @@
 goodshow.component.Ripple = goodshow.component.Component.extend({
 	
     initialize : function(options) {
-        
+		
 		goodshow.component.Component.prototype.initialize.call(this, Object.assign({
 			maximum : 10,
-			events : []
+			events : [],
+			color : 0x999999
 		}, options || {}));
     },
     
     install : function(entity) {
         
+        if (entity.options.paint === undefined) {
+        	entity.options.paint = new goodshow.component.Paint({
+				painters : []
+        	});
+        }
+		entity.options.paint.painters.push(new goodshow.painter.Ripple({
+			color : this.color
+		}));
 		entity.interactive = true;
 		entity.on('mousedown', function(event) {
 			if (false) event.stopPropagation();

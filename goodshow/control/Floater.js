@@ -10,9 +10,6 @@ goodshow.Floater = goodshow.Label.extend({
 				painters : [
 					this.painter = new goodshow.painter.Circular({
 						color : options.background,
-					}),
-					new goodshow.painter.Ripple({
-						color : 0xFFFFFF
 					})
 				]
 			},
@@ -22,14 +19,17 @@ goodshow.Floater = goodshow.Label.extend({
 				],
 			},
 			ripple : {
+				color : 0xFFFFFF,
 				maximum : 10
+			},
+			filter : {
+				filters : [Object.assign(new PIXI.filters.DropShadowFilter(), {
+					color : 0x888888,
+					alpha : 0.4,
+					blur : 4,
+					distance : 5
+				})]
 			}
 		}, options || {}));
-		this.filters = [Object.assign(new PIXI.filters.DropShadowFilter(), {
-			color : 0x888888,
-			alpha : 0.4,
-			blur : 4,
-			distance : 5
-		})];
 	}
 });
