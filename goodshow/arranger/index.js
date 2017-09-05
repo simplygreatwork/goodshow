@@ -1,5 +1,6 @@
 
-goodshow.arranger = {};
+window.goodshow = window.goodshow || {};
+goodshow.arranger = goodshow.arranger || {};
 
 goodshow.arranger.Planar = Class.extend({
 	
@@ -28,16 +29,16 @@ goodshow.arranger.Planar = Class.extend({
 				child.options.bounds[this.axis.minor] = entity.options.bounds[this.axis.minor] + padding[this.direction.west] + margin[this.direction.west];
 				child.options.bounds[this.axis.major] = entity.options.bounds[this.axis.major] + counter + margin[this.direction.north];
 				child.options.bounds[this.extent.minor] = entity.options.bounds[this.extent.minor] - ((padding[this.direction.west] + padding[this.direction.east]) + (margin[this.direction.west] + margin[this.direction.east]));
-				counter = counter + margin[this.direction.north];
 				if (child.options.constrain[this.extent.major] !== undefined) {
 					child.options.bounds[this.extent.major] = child.options.constrain[this.extent.major] - (margin[this.direction.north] + margin[this.direction.south]);
 					counter = counter + child.options.constrain[this.extent.major];
 				}
 				else {
 					child.options.bounds[this.extent.major] = (child.options.constrain.flex * subweight) - (margin[this.direction.north] + margin[this.direction.south]);
+					counter = counter + margin[this.direction.north];
 					counter = counter + child.options.bounds[this.extent.major];
+					counter = counter + margin[this.direction.south];
 				}
-				counter = counter + margin[this.direction.south];
 			}
 		}.bind(this));
 	},
@@ -47,7 +48,8 @@ goodshow.arranger.Planar = Class.extend({
 		var result = 0;
 		entity.children.forEach(function(child, index) {
 			if (child.visible && child.options && child.options.constrain && child.options.constrain.flex) {
-				result = result + child.options.constrain.flex;
+				var constrain = child.options.constrain;
+				result = result + constrain.flex;
 			}
 		}.bind(this));
 		return result;

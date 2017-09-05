@@ -61,8 +61,13 @@ example.layer.drawer.Layer = goodshow.Panel.extend({
 						},
 						invoke : {
 							action : function() {
-								this.drawer.left.visible = false;
-								this.parent.draw();
+								goodshow.tween.pivot({
+									entity : this.drawer.left,
+									pivot : {
+										x : 300,
+										y : 0
+									}
+								});
 							}.bind(this)
 						}
 					}),
@@ -77,8 +82,13 @@ example.layer.drawer.Layer = goodshow.Panel.extend({
 						},
 						invoke : {
 							action : function() {
-								this.drawer.right.visible = false;
-								this.parent.draw();
+								goodshow.tween.pivot({
+									entity : this.drawer.right,
+									pivot : {
+										x : -300,
+										y : 0
+									}
+								});
 							}.bind(this)
 						}
 					})
@@ -106,8 +116,25 @@ example.layer.dialog.Layer = goodshow.Panel.extend({
 	
 	toggle : function() {
 		
-		this.visible = ! this.visible;
-		this.draw();
+		if (this.visible) {
+			goodshow.tween.alpha({
+				entity : application.layer.dialog,
+				alpha : 0,
+				finish : function() {
+					this.visible = false;
+					this.draw();
+				}.bind(this)
+			});
+		} else {
+			this.visible = true;
+			goodshow.tween.alpha({
+				entity : application.layer.dialog,
+				alpha : 1,
+				finish : function() {
+
+				}.bind(this)
+			});
+		}
 	}
 });
 
@@ -190,7 +217,7 @@ example.layer.message.Layer = goodshow.Panel.extend({
 				flex : 1,
 				margin: {
 					top: 0,
-					bottom: 10,
+					bottom: 0,
 					right: 0,
 					left: 0
 				}
@@ -203,22 +230,13 @@ example.layer.message.Layer = goodshow.Panel.extend({
 						constrain : {
 							width: 600,
 							padding : {
-								bottom : 60					// fix arranger jumping
+								bottom : 5
 							}
 						},
 						contain : {
 							arranger: new goodshow.arranger.Vertical(),
 							children: [
-								new goodshow.Panel(),		// fix arranger jumping
-								this.message.one = new example.layer.message.Panel({
-									text : 'All you need is love.'
-								}),
-								this.message.two = new example.layer.message.Panel({
-									text : 'Love is all you need.'
-								}),
-								this.message.three = new example.layer.message.Panel({
-									text : 'Love is all you need.'
-								})
+								new goodshow.Panel(),
 							]
 						}
 					}),
@@ -230,9 +248,46 @@ example.layer.message.Layer = goodshow.Panel.extend({
 	
 	display : function(message) {
 		
-		this.list.options.contain.children.push(message);
-		this.list.install();
-		this.list.draw();
+		this.queue = this.queue || [];
+		this.queue.push(message);
+		this.manage();
+	},
+	
+	manage : function(message) {
+		
+		if (this.managing !== true) {
+			if (this.queue.length > 0) {
+				var message = this.queue.shift();
+				var y = this.list.pivot.y;
+				this.list.pivot.y = this.list.pivot.y - 70;
+				this.list.options.contain.children.push(message);
+				this.list.install();
+				this.list.draw();
+				this.managing = true;
+				goodshow.tween.pivot({
+					entity : this.list,
+					pivot : {
+						x : 0,
+						y : y
+					},
+					finish : function() {
+						this.managing = false;
+						this.manage();
+					}.bind(this)
+				});
+				window.setTimeout(function() {
+					goodshow.tween.alpha({
+						entity : message,
+						alpha : 0,
+						finish : function() {
+							goodshow.Utility.remove(this.list.options.contain.children, message);
+							this.list.install();
+							this.list.draw();
+						}.bind(this)
+					});
+				}.bind(this), 5000);
+			}
+		}
 	}
 });
 

@@ -1,5 +1,6 @@
 
-goodshow.painter = {};
+window.goodshow = window.goodshow || {};
+goodshow.painter = goodshow.painter || {};
 
 goodshow.painter.Painter = Class.extend({
 	

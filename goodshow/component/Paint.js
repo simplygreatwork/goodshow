@@ -8,7 +8,7 @@ goodshow.component.Paint = goodshow.component.Component.extend({
     
     install : function(entity) {
 		
-		
+        goodshow.component.Component.prototype.install.call(this, entity);
     },
     
     draw : function(entity) {

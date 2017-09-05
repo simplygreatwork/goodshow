@@ -20,10 +20,14 @@ goodshow.Label = goodshow.entity.Graphics.extend({
 			contain : {
 				arranger : new goodshow.arranger.Vertical(),
 				children : [
-					this.text = new PIXI.Text(options.text, {
+					this.text = new goodshow.entity.Text({
+						text : options.text,
 						font: options.font,
 						fill: options.foreground,
-					}, 2)
+						constrain : {
+							flex : 1
+						}
+					})
 				]
 			}
 		}, options || {}));

@@ -1,0 +1,23 @@
+{
+  "name": "goodshow",
+  "version": "0.1.0",
+  "description": "GoodShow - a hackable entity-component UI system for WebGL.",
+  "main": "index.html",
+  "dependencies": {
+    "shifty": "^2.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simplygreatwork/goodshow.git"
+  },
+  "author": "Philip Weaver",
+  "license": "not-licensed",
+  "bugs": {
+    "url": "https://github.com/simplygreatwork/goodshow/issues"
+  },
+  "homepage": "https://github.com/simplygreatwork/goodshow#readme"
+}

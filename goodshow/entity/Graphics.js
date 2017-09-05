@@ -22,7 +22,6 @@ goodshow.entity.Graphics = Class.extend({
 			contain : {},
 			constrain : {}
 		}, options || {});
-		goodshow.Broadcast.publish('entity-created', this);
 		this.resolve(this.options);
 		if (this.options.alpha) {
 			this.alpha = this.options.alpha;
@@ -40,7 +39,7 @@ goodshow.entity.Graphics = Class.extend({
 		}.bind(this));
 	},
 	
-	install : function(options) {
+	install : function() {
 		
 		if (this.options.bound) this.options.bound.install(this);
 		if (this.options.constrain) this.options.constrain.install(this);

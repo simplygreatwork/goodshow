@@ -37,7 +37,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									},
 									invoke : {
 										action : function() {
-											goodshow.Broadcast.publish('open-drawer', {});
+											goodshow.Broadcast.publish('open-left-drawer', {});
 										}
 									}
 								}),

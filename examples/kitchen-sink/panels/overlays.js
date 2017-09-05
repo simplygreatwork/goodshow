@@ -82,8 +82,13 @@ example.panels.overlays.Panel = goodshow.Panel.extend({
 									text : 'OPEN LEFT DRAWER',
 									invoke : {
 										action : function() {
-											application.layer.drawer.drawer.left.visible = true;
-											application.layer.drawer.drawer.left.draw();
+											goodshow.tween.pivot({
+												entity : application.layer.drawer.drawer.left,
+												pivot : {
+													x : 0,
+													y : 0
+												}
+											});
 										}
 									}
 								}),
@@ -92,9 +97,32 @@ example.panels.overlays.Panel = goodshow.Panel.extend({
 									text : 'OPEN RIGHT DRAWER',
 									invoke : {
 										action : function() {
-											application.layer.drawer.drawer.right.visible = true;
-											application.layer.drawer.drawer.right.draw();
+											goodshow.tween.pivot({
+												entity : application.layer.drawer.drawer.right,
+												pivot : {
+													x : 0,
+													y : 0
+												}
+											});
 										}
+									}
+								}),
+								new goodshow.Button({
+									trait : 'basic-button',
+									text : 'SHOW MESSAGE',
+									invoke : {
+										action : function() {
+											if (this.shown === undefined) {
+												application.layer.message.display(new example.layer.message.Panel({
+													text : 'All you need is love.'
+												}));
+												this.shown = true;
+											} else {
+												application.layer.message.display(new example.layer.message.Panel({
+													text : 'Love is all you need.'
+												}));
+											}
+										}.bind(this)
 									}
 								}),
 								new goodshow.Panel()
