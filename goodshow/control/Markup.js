@@ -1,5 +1,5 @@
 
-goodshow.List = goodshow.Panel.extend({
+goodshow.Markup = goodshow.Panel.extend({
 	
 	initialize: function(options) {
 		
@@ -9,14 +9,7 @@ goodshow.List = goodshow.Panel.extend({
 				arranger : new goodshow.arranger.Vertical(),
 				children : []
 			},
-			scroll : {},
-			mask : {
-				painters : [
-					new goodshow.painter.Background({
-						color : 0xFFFFFF
-					})
-				]
-			}
+			markup : {}
 		}, options || {}));
 	},
 	

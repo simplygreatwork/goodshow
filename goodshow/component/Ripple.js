@@ -11,7 +11,7 @@ goodshow.component.Ripple = goodshow.component.Component.extend({
     },
     
     install : function(entity) {
-        
+		
         if (entity.options.paint === undefined) {
         	entity.options.paint = new goodshow.component.Paint({
 				painters : []

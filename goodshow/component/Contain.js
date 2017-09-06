@@ -9,8 +9,14 @@ goodshow.component.Contain = goodshow.component.Component.extend({
 		}, options || {}));
     },
     
+    proxy : function(entity) {
+    	
+    	return this;
+    },
+    
     install : function(entity) {
 		
+		this.entity = entity;
 		entity.removeChildren();
 		this.children = this.children || [];
 		this.children.forEach(function(child, index) {
@@ -28,5 +34,17 @@ goodshow.component.Contain = goodshow.component.Component.extend({
 				child.draw();
 			}
 		}.bind(this));
+    },
+    
+    addChild : function(child) {			// perhaps instead of this function: use another proxy
+    	
+    	this.children.push(child);
+    	this.entity.addChild(child);
+    },
+    
+    removeChild : function(child) {			// perhaps instead of this function: use another proxy
+    	
+		goodshow.Utility.remove(this.children, child);
+		this.entity.removeChild(child);
     }
 });

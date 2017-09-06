@@ -1,5 +1,5 @@
 
-example.panels.markdown.Panel = goodshow.Panel.extend({
+example.panels.markup.Panel = goodshow.Panel.extend({
     
 	initialize: function(options) {
 		
@@ -22,7 +22,7 @@ example.panels.markdown.Panel = goodshow.Panel.extend({
 							children: [
 								new goodshow.Label({
 									name: 'header-text',
-									text: 'Markdown',
+									text: 'Markup',
 									foreground: 'white',
 									align : 'left',
 									constrain : {
@@ -47,8 +47,9 @@ example.panels.markdown.Panel = goodshow.Panel.extend({
 							]
 						},
 					}),
-					new goodshow.Panel({
-						name: 'content'
+					new goodshow.Markup({
+						name: 'markup-content',
+						path : 'http://'
 					}),
 					new goodshow.Panel({
 						name: 'footer',

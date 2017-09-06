@@ -111,7 +111,7 @@ example.panels.overlays.Panel = goodshow.Panel.extend({
 									trait : 'basic-button',
 									text : 'SHOW MESSAGE',
 									invoke : {
-										action : function() {
+										action : function(entity) {
 											if (this.shown === undefined) {
 												application.layer.message.display(new example.layer.message.Panel({
 													text : 'All you need is love.'
@@ -122,6 +122,12 @@ example.panels.overlays.Panel = goodshow.Panel.extend({
 													text : 'Love is all you need.'
 												}));
 											}
+											entity.options.constrain.margin = {
+												top : 10,
+												bottom : 10,
+												left : 10,
+												right : 10
+											};
 										}.bind(this)
 									}
 								}),

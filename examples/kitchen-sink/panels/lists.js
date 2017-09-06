@@ -54,9 +54,8 @@ example.panels.lists.Panel = goodshow.Panel.extend({
 							]
 						},
 					}),
-					new goodshow.Panel({
+					new goodshow.List({
 						name: 'content',
-						background : 0xFFFFFF,
 						constrain : {
 							flex : 1,
 							margin : {
@@ -108,14 +107,6 @@ example.panels.lists.Panel = goodshow.Panel.extend({
 											console.log('five');
 										}
 									}
-								})
-							]
-						},
-						paint : {
-							painters : [
-								new goodshow.painter.Background({
-									color : 0xFFFFFF,
-									alpha : 1
 								})
 							]
 						}

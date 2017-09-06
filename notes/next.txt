@@ -1,8 +1,14 @@
 
-if I use Object.defineProperty as a construct for property changes,
-    try to define completely dynamically to avoid boilerplate code
+need to clip (mouse) interaction in addition to drawing
+
+scrollbars don't need to be a child
+    can be an overlay
+
+still a problem with alpha being zero and not being detected
 
 goodshow Card needs updating/modernization
+
+investigate using Kefir/FRP for trait/enhancer processing
 
 allow for enhancing in other controls besides Label
 allow options for enhancers to be "provided" e.g. theming, font sizes

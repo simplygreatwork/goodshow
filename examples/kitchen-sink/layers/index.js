@@ -95,7 +95,27 @@ example.layer.drawer.Layer = goodshow.Panel.extend({
 				]
 			}
 		}, options || {}));
-	}
+		
+    	goodshow.Broadcast.subscribe('open-left-drawer', function(object) {
+    		goodshow.tween.pivot({
+    			entity : application.layer.drawer.drawer.left,
+    			pivot : {
+    				x : 0,
+    				y : 0
+    			}
+    		});
+    	});
+		
+    	goodshow.Broadcast.subscribe('open-right-drawer', function(object) {
+    		goodshow.tween.pivot({
+    			entity : application.layer.drawer.drawer.right,
+    			pivot : {
+    				x : 0,
+    				y : 0
+    			}
+    		});
+    	});
+	},
 });
 
 example.layer.dialog.Layer = goodshow.Panel.extend({
@@ -120,6 +140,7 @@ example.layer.dialog.Layer = goodshow.Panel.extend({
 			goodshow.tween.alpha({
 				entity : application.layer.dialog,
 				alpha : 0,
+				duration : 300,
 				finish : function() {
 					this.visible = false;
 					this.draw();
@@ -130,6 +151,7 @@ example.layer.dialog.Layer = goodshow.Panel.extend({
 			goodshow.tween.alpha({
 				entity : application.layer.dialog,
 				alpha : 1,
+				duration : 300,
 				finish : function() {
 
 				}.bind(this)
@@ -260,8 +282,7 @@ example.layer.message.Layer = goodshow.Panel.extend({
 				var message = this.queue.shift();
 				var y = this.list.pivot.y;
 				this.list.pivot.y = this.list.pivot.y - 70;
-				this.list.options.contain.children.push(message);
-				this.list.install();
+				this.list.options.contain.addChild(message);
 				this.list.draw();
 				this.managing = true;
 				goodshow.tween.pivot({
@@ -280,8 +301,7 @@ example.layer.message.Layer = goodshow.Panel.extend({
 						entity : message,
 						alpha : 0,
 						finish : function() {
-							goodshow.Utility.remove(this.list.options.contain.children, message);
-							this.list.install();
+							this.list.options.contain.removeChild(message);
 							this.list.draw();
 						}.bind(this)
 					});

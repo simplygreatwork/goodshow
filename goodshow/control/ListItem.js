@@ -52,6 +52,11 @@ goodshow.ListItem = goodshow.Panel.extend({
 			ripple : {
 				color : 0x999999,
 				maximum : 10
+			},
+			paint : {
+				painters : [
+					new goodshow.painter.Divider()
+				]
 			}
 		}, options || {}));
 	},

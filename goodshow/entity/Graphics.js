@@ -1,14 +1,16 @@
 
 var components = [
-	'arrange',
+	'bound',
 	'contain',
 	'constrain',
-	'mask',
 	'paint',
+	'mask',
+	'scroll',
+	'ripple',
 	'invoke',
 	'filter',
-	'ripple',
 	'transform',
+	'markup',
 ];
 
 goodshow.entity.Graphics = Class.extend({
@@ -22,11 +24,15 @@ goodshow.entity.Graphics = Class.extend({
 			contain : {},
 			constrain : {}
 		}, options || {});
-		this.resolve(this.options);
+		this.resolve();
+		this.options = this.proxy(this.options, this);
 		if (this.options.alpha) {
 			this.alpha = this.options.alpha;
 		}
-		this.install(this.options);
+		this.install();
+		this.on('removed', function() {
+			this.removeChildren();
+		});
 	},
 	
 	resolve : function() {
@@ -34,36 +40,51 @@ goodshow.entity.Graphics = Class.extend({
 		Object.keys(this.options).forEach(function(key) {
 			if (components.indexOf(key) > -1) {
 				var clazz = key.charAt(0).toUpperCase() + key.slice(1);
-				this.options[key] = new goodshow.component[clazz](this.options[key]);
+				var component = new goodshow.component[clazz](this.options[key]);
+				this.options[key] = component.proxy(this);
 			}
 		}.bind(this));
 	},
 	
+	proxy : function(object, entity) {
+		
+		if (window.Proxy) {
+			return new Proxy(object, {
+				set: function(target, name, value) {
+					target[name] = value;								// todo: redraw only if the value changes
+					if (entity.parent && entity.parent.draw) {			// review: why are these checks needed?
+						entity.parent.draw();							// review: queue redraws
+					} else if (entity.draw) {
+						entity.draw();									// performance issues?
+					}; 
+					return true;
+				}
+			});
+		} else {
+			return object;
+		}
+	},
+	
 	install : function() {
 		
-		if (this.options.bound) this.options.bound.install(this);
-		if (this.options.constrain) this.options.constrain.install(this);
-		if (this.options.contain) this.options.contain.install(this);
-		if (this.options.paint) this.options.paint.install(this);
-		if (this.options.mask) this.options.mask.install(this);
-		if (this.options.filter) this.options.filter.install(this);
-		if (this.options.ripple) this.options.ripple.install(this);
-		if (this.options.invoke) this.options.invoke.install(this);
-		if (this.options.transform) this.options.transform.install(this);
+		components.forEach(function(component) {
+			if (this.options[component]) this.options[component].install(this);
+		}.bind(this));
 	},
+	
+    uninstall : function(entity) {
+        
+		components.forEach(function(component) {
+			if (this.options[component]) this.options[component].uninstall(this);
+		}.bind(this));
+    },
 	
 	draw: function() {
 		
 		this.clear();
-		if (this.options.bound) this.options.bound.draw(this);
-		if (this.options.constrain) this.options.constrain.draw(this);
-		if (this.options.contain) this.options.contain.draw(this);
-		if (this.options.paint) this.options.paint.draw(this);
-		if (this.options.mask) this.options.mask.draw(this);
-		if (this.options.filter) this.options.filter.draw(this);
-		if (this.options.ripple) this.options.ripple.draw(this);
-		if (this.options.invoke) this.options.invoke.draw(this);
-		if (this.options.transform) this.options.transform.draw(this);
+		components.forEach(function(component) {
+			if (this.options[component]) this.options[component].draw(this);
+		}.bind(this));
 	}
-
+	
 }, PIXI.Graphics);

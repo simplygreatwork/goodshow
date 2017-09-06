@@ -118,9 +118,8 @@ example.panels.master.Panel = goodshow.Panel.extend({
 							]
 						}
 					}),
-					new goodshow.Panel({
+					new goodshow.List({
 						name: 'content',
-						background: 0xFFFFFF,
 						constrain : {
 							flex : 1,
 							margin : {
@@ -135,7 +134,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									text : 'Panels',
 									invoke : {
 										action : function() {
-											var miller = goodshow.Utility.ancestor(this, MillerPanel);
+											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
 											miller.advance(new example.panels.panels.One());
 										}.bind(this)
 									}
@@ -144,7 +143,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									text : 'Text',
 									invoke : {
 										action : function() {
-											var miller = goodshow.Utility.ancestor(this, MillerPanel);
+											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
 											miller.advance(new example.panels.text.Panel());
 										}.bind(this)
 									}
@@ -153,7 +152,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									text : 'Images',
 									invoke : {
 										action : function() {
-											var miller = goodshow.Utility.ancestor(this, MillerPanel);
+											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
 											miller.advance(new example.panels.images.Panel());
 										}.bind(this)
 									}
@@ -162,7 +161,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									text : 'Pen Drawing',
 									invoke : {
 										action : function() {
-											var miller = goodshow.Utility.ancestor(this, MillerPanel);
+											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
 											miller.advance(new example.panels.shapes.Panel());
 										}.bind(this)
 									}
@@ -171,7 +170,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									text : 'Painters',
 									invoke : {
 										action : function() {
-											var miller = goodshow.Utility.ancestor(this, MillerPanel);
+											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
 											miller.advance(new example.panels.painters.Panel());
 										}.bind(this)
 									}
@@ -180,7 +179,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									text : 'Cards',
 									invoke : {
 										action : function() {
-											var miller = goodshow.Utility.ancestor(this, MillerPanel);
+											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
 											miller.advance(new example.panels.cards.Panel());
 										}.bind(this)
 									}
@@ -189,7 +188,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									text : 'Buttons',
 									invoke : {
 										action : function() {
-											var miller = goodshow.Utility.ancestor(this, MillerPanel);
+											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
 											miller.advance(new example.panels.buttons.Panel());
 										}.bind(this)
 									}
@@ -198,7 +197,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									text : 'Lists',
 									invoke : {
 										action : function() {
-											var miller = goodshow.Utility.ancestor(this, MillerPanel);
+											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
 											miller.advance(new example.panels.lists.Panel());
 										}.bind(this)
 									}
@@ -207,7 +206,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									text : 'Overlays',
 									invoke : {
 										action : function() {
-											var miller = goodshow.Utility.ancestor(this, MillerPanel);
+											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
 											miller.advance(new example.panels.overlays.Panel());
 										}.bind(this)
 									}
@@ -216,7 +215,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									text : 'Responsive',
 									invoke : {
 										action : function() {
-											var miller = goodshow.Utility.ancestor(this, MillerPanel);
+											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
 											miller.advance(new example.panels.responsive.Panel());
 										}.bind(this)
 									}
@@ -225,13 +224,28 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									text : 'Rippling',
 									invoke : {
 										action : function() {
-											var miller = goodshow.Utility.ancestor(this, MillerPanel);
+											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
 											miller.advance(new example.panels.rippling.Panel());
 										}.bind(this)
 									}
 								}),
-								new goodshow.Panel({
-									
+								new goodshow.ListItem({
+									text : 'Markup',
+									invoke : {
+										action : function() {
+											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
+											miller.advance(new example.panels.markup.Panel());
+										}.bind(this)
+									}
+								}),
+								new goodshow.ListItem({
+									text : 'Markdown',
+									invoke : {
+										action : function() {
+											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
+											miller.advance(new example.panels.markdown.Panel());
+										}.bind(this)
+									}
 								})
 							]
 						}
@@ -241,8 +255,13 @@ example.panels.master.Panel = goodshow.Panel.extend({
 						background: 0x3368d4,
 						constrain : {
 							height: 64
+						},
+						invoke : {
+							action : function(entity) {
+								entity.options.background = 0xFF0000;
+							}.bind(this)
 						}
-					}),
+					})
 				]
 			}
 		}, options || {}));

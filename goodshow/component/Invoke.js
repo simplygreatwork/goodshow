@@ -11,7 +11,7 @@ goodshow.component.Invoke = goodshow.component.Component.extend({
 		entity.interactive = true;
 		entity.on('mousedown', function(event) {
 			if (false) event.stopPropagation();
-			this.action.call(this);
+			this.action.call(this, entity);
 			if (false) return true;
 		}.bind(this));
     }

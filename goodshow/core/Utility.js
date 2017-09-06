@@ -1,15 +1,6 @@
 
 goodshow.Utility = {
 	
-	merge: function(options, object) {
-		
-		for (var property in options) {
-			if (options.hasOwnProperty(property)) {
-				object[property] = options[property];
-			}
-		}
-	},
-	
 	remove : function(array, element) {
 		
 		var index = array.indexOf(element);
@@ -42,31 +33,6 @@ goodshow.Utility = {
 		return rectangle;
 	},
 	
-	outset: function() {
-		
-		
-	},
-	
-	center: function(component) {
-		
-		var offset = {
-			width: (component.parent.getLocalBounds().width - component.getLocalBounds().width) / 2,
-			height: (component.parent.getLocalBounds().height - component.getLocalBounds().height) / 2,
-		}
-		component.x = component.x + offset.width;
-		component.y = component.y + offset.height;
-	},
-	
-	middle: function(component) {
-		
-		var offset = {
-			// width: (component.parent.getLocalBounds().width - component.getLocalBounds().width) / 2,
-			height: (component.parent.getLocalBounds().height - component.getLocalBounds().height) / 2,
-		}
-		// component.x = component.x + offset.width;
-		component.y = component.y + offset.height;
-	},
-	
 	random: function(begin, end) {
 		
 		return begin + Math.floor(Math.random() * (end - begin));
@@ -85,5 +51,23 @@ goodshow.Utility = {
 		}
 		
 		return result;
+	},
+	
+	loadText: function(options) {
+    	
+		var request = new XMLHttpRequest();
+		request.onreadystatechange = function() {
+			var DONE = this.DONE || 4;
+			if (this.readyState === DONE) {
+				try {
+					options.callback(request.responseText);
+				} catch (e) {
+					options.callback(null);
+				}
+			}
+		};
+		request.open('GET', options.url, true);
+		request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+		request.send(null);
 	}
 };

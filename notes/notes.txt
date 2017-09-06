@@ -1,4 +1,17 @@
 
+consolidate:
+    this.list.options.contain.children.push(message);
+        this.list.addChild(message);
+    goodshow.Utility.remove(this.list.options.contain.children, message);
+        this.list.removeChild(message);
+
+idea: be able to pivot on more than just position
+    be able to pivot width/height/z-index, etc
+    so a component can be arranged AND be fluid
+
+if I use Object.defineProperty as a construct for property changes,
+    try to define completely dynamically to avoid boilerplate code
+
 combine Utility.validate and Utility.inset
 
 what is the simplest way to enter application state and return to any state?

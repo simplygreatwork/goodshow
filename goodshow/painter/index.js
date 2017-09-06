@@ -2,17 +2,14 @@
 window.goodshow = window.goodshow || {};
 goodshow.painter = goodshow.painter || {};
 
-goodshow.painter.Painter = Class.extend({
+goodshow.painter.Root = Class.extend({
 	
 	initialize: function(options) {
 		
-        this.options = options;
+		Object.assign(this, options);
 	},
 	
-	paint : function(entity) {
-		
-		
-	},
+	paint : function(entity) {},
 	
 	drawRectangle: function(graphics, rectangle, corner) {
 		
@@ -24,39 +21,40 @@ goodshow.painter.Painter = Class.extend({
 	}
 });
 
-goodshow.painter.Background = goodshow.painter.Painter.extend({
+goodshow.painter.Background = goodshow.painter.Root.extend({
 	
 	initialize: function(options) {
 		
-		options = options || {};
-		Object.assign(this, options);
-		this.color = this.color || 0xDDDDDD;
-		this.alpha = this.alpha || 1;
+		goodshow.painter.Root.prototype.initialize.call(this, Object.assign({
+			color : 0xFFFFFF,
+			alpha : 1
+		}, options || {}));
 	},
 	
-	paint : function(graphics) {
+	paint : function(entity) {
 		
-		graphics.beginFill(this.color, this.alpha);
-		graphics.lineStyle(0, 0x000000);
-		this.drawRectangle(graphics, graphics.options.bounds);
+		var color = entity.options.background;
+		var alpha = entity.options.alpha;
+		entity.beginFill(color, alpha);
+		this.drawRectangle(entity, entity.options.bounds);
 	}
 });
 
 goodshow.painter.Selection = goodshow.painter.Background;
 
-goodshow.painter.Circular = goodshow.painter.Painter.extend({
+goodshow.painter.Circular = goodshow.painter.Root.extend({
 	
 	initialize: function(options) {
 		
-		this.options = options;
-		this.options = this.options || {};
-		this.options.color = this.options.color || 0xDDDDDD;
-		this.options.alpha = this.options.alpha || 1;
+		goodshow.painter.Root.prototype.initialize.call(this, Object.assign({
+			color : 0xDDDDDD,
+			alpha : 1
+		}, options || {}));
 	},
 	
 	paint : function(graphics) {
 		
-		graphics.beginFill(this.options.color);
+		graphics.beginFill(this.color);
 		var bounds = graphics.options.bounds;
 		graphics.drawCircle(bounds.x + (bounds.width / 2), bounds.y + (bounds.height / 2), bounds.width / 2);
 	}
@@ -64,20 +62,24 @@ goodshow.painter.Circular = goodshow.painter.Painter.extend({
 
 goodshow.painter.Avatar = goodshow.painter.Circular;
 
-goodshow.painter.Divider = goodshow.painter.Painter.extend({
+goodshow.painter.Divider = goodshow.painter.Root.extend({
 	
 	initialize: function(options) {
 		
-        this.options = options;
+		goodshow.painter.Root.prototype.initialize.call(this, Object.assign({
+			color : 0xE7E7E7
+		}, options || {}));
 	},
 	
-	paint : function(entity) {
+	paint : function(graphics) {
 		
-		
+		graphics.beginFill(this.color);
+		var bounds = graphics.options.bounds;
+		graphics.drawRect(bounds.x, bounds.y, bounds.width, 0.75);
 	}
 });
 
-goodshow.painter.Ripple = goodshow.painter.Painter.extend({
+goodshow.painter.Ripple = goodshow.painter.Root.extend({
 	
 	initialize: function(options) {
 		
@@ -106,7 +108,7 @@ goodshow.painter.Ripple = goodshow.painter.Painter.extend({
 	}
 });
 
-goodshow.painter.Shadow = goodshow.painter.Painter.extend({
+goodshow.painter.Shadow = goodshow.painter.Root.extend({
 	
 	initialize: function(options) {
 		
@@ -119,7 +121,7 @@ goodshow.painter.Shadow = goodshow.painter.Painter.extend({
 	}
 });
 
-goodshow.painter.Canvas = goodshow.painter.Painter.extend({
+goodshow.painter.Canvas = goodshow.painter.Root.extend({
 	
 	initialize: function(options) {
 		

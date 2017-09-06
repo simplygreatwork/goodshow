@@ -14,4 +14,6 @@ window.example.panels = {
 	overlays : {},
 	rippling : {},
 	responsive : {},
+	markup : {},
+	markdown : {}
 };

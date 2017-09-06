@@ -24,7 +24,7 @@ goodshow.tween = {
 			to: {
 				alpha : options.alpha
 			},
-			duration: 1000,
+			duration: 300,
 			easing: 'easeInOutCubic',
 			step: function(state) {
 				entity.alpha = state.alpha;
@@ -48,7 +48,7 @@ goodshow.tween = {
 				x : options.position.x,
 				y : options.position.y
 			},
-			duration: 1000,
+			duration: 300,
 			easing: 'easeInOutCubic',
 			step: function(state) {
 				console.log('Tweenable.step');
@@ -72,7 +72,7 @@ goodshow.tween = {
 				x : options.pivot.x,
 				y : options.pivot.y
 			},
-			duration: 500,
+			duration: 300,
 			easing: 'easeInOutCubic',
 			step: function(state) {
 				entity.pivot.x = state.x;

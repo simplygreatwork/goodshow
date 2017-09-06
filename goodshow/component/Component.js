@@ -6,7 +6,17 @@ goodshow.component.Component = Class.extend({
         Object.assign(this, options);
     },
     
+    proxy : function(entity) {
+        
+        return entity.proxy(this, entity);
+    },
+    
     install : function(entity) {
+        
+        
+    },
+
+    uninstall : function(entity) {
         
         
     },
