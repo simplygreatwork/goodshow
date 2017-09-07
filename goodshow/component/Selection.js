@@ -12,11 +12,14 @@ goodshow.component.Selection = goodshow.component.Component.extend({
         
         goodshow.component.Component.prototype.install.call(this);
         goodshow.Broadcast.subscribe('select', function(options) {
-            this.selection.forEach(function(entity) {
-                entity.options.select.select(false)
-            });
-            this.selection.splice(0, this.selection.length);
-            this.selection.push(options.entity);
+            var connected = goodshow.Utility.related(options.entity, entity);
+            if (connected) {
+                this.selection.forEach(function(entity) {
+                    entity.options.select.select(false);
+                });
+                this.selection.splice(0, this.selection.length);
+                this.selection.push(options.entity);
+            }
         }.bind(this));
         entity.draw();
     },

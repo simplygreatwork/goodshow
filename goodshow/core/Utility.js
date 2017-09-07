@@ -50,6 +50,20 @@ goodshow.Utility = {
 		return result;
 	},
 	
+	related : function(lower, upper) {
+		
+		var result = false;
+		while (lower.parent) {
+			if (lower.parent == upper) {
+				result = true;
+				break;
+			} else {
+				lower = lower.parent;
+			}
+		}
+		return result;
+	},
+	
 	loadText: function(options) {
     	
 		var request = new XMLHttpRequest();

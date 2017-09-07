@@ -31,7 +31,7 @@ goodshow.component.Select = goodshow.component.Component.extend({
     select : function(selected) {
         
         this.selected = selected;
-        if (selected) {
+        if (this.selected) {
             this.entity.options.background.wrap(0x4444FF);
             this.entity.options.foreground.wrap('white');
         } else {

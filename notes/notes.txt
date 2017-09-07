@@ -1,7 +1,8 @@
 
-for list items
-    a ripple can transform into a selection
+how to use Object.assign and allow multiple invokers?
 
+for list items
+    a ripple should be able to transform into a selection
 
 it would be good to have a selection painter
     to solve alpha transition issues
