@@ -1,4 +1,8 @@
 
+issue: unable to re-select a prior selected item
+
+use a proxy for selection colors? 
+
 need to clip (mouse) interaction in addition to drawing
 
 scrollbars don't need to be a child

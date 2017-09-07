@@ -131,6 +131,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 							arranger: new goodshow.arranger.Vertical(),
 							children: [
 								new goodshow.ListItem({
+									name : 'panels-list-item',
 									text : 'Panels',
 									invoke : {
 										action : function() {

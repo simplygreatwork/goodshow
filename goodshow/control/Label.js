@@ -5,7 +5,7 @@ goodshow.Label = goodshow.entity.Graphics.extend({
 		
 		options = Object.assign({
 			font : '20px Roboto',
-			foreground : 0x000000,
+			foreground : new goodshow.Value(0x000000),
 			align : 'center'
 		}, goodshow.enhance(options) || {});
 		if (options.background) {
@@ -36,6 +36,8 @@ goodshow.Label = goodshow.entity.Graphics.extend({
 	draw: function() {
 		
 		goodshow.entity.Graphics.prototype.draw.call(this);
+		this.text.style.fill = this.options.foreground.valueOf();   	// shouldn't need to do this
+		this.text.style = this.text.style;                      		// shouldn't need to do this
 		if (this.options.align == 'center') {
 			this.text.x = this.options.bounds.x + (this.options.bounds.width / 2);
 			this.text.pivot.x = this.text.width / 2;

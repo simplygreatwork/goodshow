@@ -22,7 +22,6 @@ goodshow.component.Ripple = goodshow.component.Component.extend({
 		}));
 		entity.interactive = true;
 		entity.on('mousedown', function(event) {
-			if (false) event.stopPropagation();
 			var timeStamp = event.data.originalEvent.timeStamp;		    // unexpected behavior
 			timeStamp = Date.now();
 			this.events.push({
@@ -43,9 +42,9 @@ goodshow.component.Ripple = goodshow.component.Component.extend({
 			this.timeout = window.setTimeout(function(){
 				if (this.interval) {
 					window.clearInterval(this.interval);
+					delete this.interval;
 				}
-			}, 1000);
-			if (false) return true;
+			}.bind(this), 1000);
 		}.bind(this));
     }
 });

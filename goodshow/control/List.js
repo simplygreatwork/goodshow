@@ -16,7 +16,8 @@ goodshow.List = goodshow.Panel.extend({
 						color : 0xFFFFFF
 					})
 				]
-			}
+			},
+			selection : {}
 		}, options || {}));
 	},
 	

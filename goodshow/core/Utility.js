@@ -21,10 +21,7 @@ goodshow.Utility = {
 	
 	inset: function(rectangle, margin) {
 		
-		margin.top = margin.top || 0;
-		margin.bottom = margin.bottom || 0;
-		margin.left = margin.left || 0;
-		margin.right = margin.right || 0;
+		margin = goodshow.Utility.validate(margin);
 		rectangle.x = rectangle.x + margin.left;
 		rectangle.y = rectangle.y + margin.top;
 		rectangle.width = rectangle.width - (margin.left + margin.right);

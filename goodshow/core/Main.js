@@ -75,7 +75,6 @@ goodshow.Main = Class.extend({
 		
 		window.onresize = function() {
 			this.renderer.resize(window.innerWidth, window.innerHeight);
-			window.panel.bounds = new PIXI.Rectangle(0, 0, window.innerWidth, window.innerHeight);
 			window.panel.options.bounds = new PIXI.Rectangle(0, 0, window.innerWidth, window.innerHeight);
 			window.panel.draw();
 		}.bind(this);

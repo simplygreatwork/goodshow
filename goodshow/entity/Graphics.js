@@ -5,6 +5,8 @@ var components = [
 	'constrain',
 	'paint',
 	'mask',
+	'selection',
+	'select',
 	'scroll',
 	'ripple',
 	'invoke',

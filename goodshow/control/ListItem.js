@@ -3,6 +3,12 @@ goodshow.ListItem = goodshow.Panel.extend({
 	
 	initialize: function(options) {
 		
+		options = Object.assign({
+			foreground : 'black',
+			background : 0xFFFFFF,
+		}, options || {});
+		options.foreground = new goodshow.Value(options.foreground);
+		options.background = new goodshow.Value(options.background);
 		goodshow.Panel.prototype.initialize.call(this, Object.assign({
 			constrain : {
 				height : 50,
@@ -38,6 +44,7 @@ goodshow.ListItem = goodshow.Panel.extend({
 					this.label = new goodshow.Label({
 						name : 'list-item-text',
 						text : options.text,
+						foreground : options.foreground,
 						align : 'left',
 						constrain : {
 							flex : 1,
@@ -57,7 +64,8 @@ goodshow.ListItem = goodshow.Panel.extend({
 				painters : [
 					new goodshow.painter.Divider()
 				]
-			}
+			},
+			select : {}
 		}, options || {}));
 	},
 	

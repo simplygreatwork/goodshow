@@ -40,7 +40,24 @@ goodshow.painter.Background = goodshow.painter.Root.extend({
 	}
 });
 
-goodshow.painter.Selection = goodshow.painter.Background;
+goodshow.painter.Select = goodshow.painter.Root.extend({
+	
+	initialize: function(options) {
+		
+		goodshow.painter.Root.prototype.initialize.call(this, Object.assign({
+			color : 0x6666FF,
+			alpha : 1
+		}, options || {}));
+	},
+	
+	paint : function(entity) {
+		
+		if (entity.options.selected) {
+			entity.beginFill(this.color, this.alpha);
+			this.drawRectangle(entity, entity.options.bounds);
+		}
+	}
+});
 
 goodshow.painter.Circular = goodshow.painter.Root.extend({
 	

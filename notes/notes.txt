@@ -1,4 +1,11 @@
 
+for list items
+    a ripple can transform into a selection
+
+
+it would be good to have a selection painter
+    to solve alpha transition issues
+
 consolidate:
     this.list.options.contain.children.push(message);
         this.list.addChild(message);
