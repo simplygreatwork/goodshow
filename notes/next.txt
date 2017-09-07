@@ -1,4 +1,6 @@
 
+for listsm allow to click/tap and drag
+
 issue: unable to re-select a prior selected item
 
 use a proxy for selection colors? 

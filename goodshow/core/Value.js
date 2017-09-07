@@ -3,28 +3,25 @@ goodshow.Value = Class.extend({
 	
 	initialize: function(value) {
 		
-		this.primary = value;
-		this.secondary = undefined;
-		this.wrapped = false;
+		this.value = value;
 	},
 	
 	wrap : function(value) {
 		
-		this.secondary = value;
-		this.wrapped = true;
+		this.wrapped = value;
 	},
 	
 	unwrap : function() {
 		
-		this.wrapped = false;
+		delete this.wrapped;
 	},
 	
 	valueOf : function() {
 		
-		if (this.wrapped) {
-			return this.secondary;
+		if (this.wrapped === undefined) {
+			return this.value;
 		} else {
-			return this.primary;
+			return this.wrapped;
 		}
 	}
 });
