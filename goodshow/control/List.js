@@ -17,7 +17,9 @@ goodshow.List = goodshow.Panel.extend({
 					})
 				]
 			},
-			selection : {}
+			selection : {
+				quantity : 0
+			}
 		}, options || {}));
 	},
 	

@@ -16,24 +16,6 @@ Application = Class.extend({
 		this.initializeEnhancer();
 		this.initializeInterface();
 		this.initializeMessages();
-		
-		if (false) {
-			var woot = 2;
-			var number1 = new Object()
-			number1.valueOf = function() {
-				return 1;
-			};
-			var number2 = new Object()
-			number2.valueOf = function() {
-				return woot;
-			};
-			var result = number1 + number2;
-			console.log('number1: ' + number1);
-			console.log('number2: ' + number2);
-			console.log('number1 + number2: ' + (number1 + number2));
-			woot++;
-			console.log('number1 + number2: ' + (number1 + number2));
-		}
 	},
 	
 	initializeEnhancer : function() {

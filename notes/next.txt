@@ -1,5 +1,12 @@
 
-for listsm allow to click/tap and drag
+Selection need to select Select and not Select itself
+    this may be helpful with zero selection
+    this may be helpful with zero, one, and multiple selection
+
+when clicking on a message it actually needs to fade away
+    but should really be clicking on "CLOSE"
+
+for lists allow to click/tap and drag
 
 issue: unable to re-select a prior selected item
 

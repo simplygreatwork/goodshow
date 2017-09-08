@@ -65,7 +65,6 @@ goodshow.ListItem = goodshow.Panel.extend({
 					new goodshow.painter.Divider()
 				]
 			},
-			select : {}
 		}, options || {}));
 	},
 	

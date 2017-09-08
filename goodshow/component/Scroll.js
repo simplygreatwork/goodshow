@@ -5,19 +5,22 @@ goodshow.component.Scroll = goodshow.component.Component.extend({
         
         goodshow.component.Component.prototype.initialize.call(this, Object.assign({
             axis : 'y',
-            bounds : [0, 0]
+            bounds : [0, 0],
+            delta : {
+               x : 'deltaX',
+               y : 'deltaY'
+            }
         }, options || {}));
     },
     
     install : function(entity) {
         
         goodshow.component.Component.prototype.install.call(this);
-        var delta = (this.axis == 'y') ? 'deltaY' : 'deltaX';
         document.addEventListener('mousewheel', function(event) {
             if (entity.options.bounds.contains(event.x, event.y)) {
                 entity.children.forEach(function(child) {
                     if (child.options && child.options.constrain) {
-                        child.pivot[this.axis] = child.pivot[this.axis] + event[delta];
+                        child.pivot[this.axis] = child.pivot[this.axis] + event[this.delta[this.axis]];
                     }
                 }.bind(this));
             }
