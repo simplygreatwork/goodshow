@@ -10,7 +10,7 @@ goodshow.Broadcast = {
 			channels[key] = [];
 		}
 		channels[key].push(handler);
-
+		
 		return {
 			channel: channels[key],
 			handler: handler

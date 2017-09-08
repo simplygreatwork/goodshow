@@ -10,8 +10,6 @@ goodshow.component.Markup = goodshow.component.Component.extend({
     
     install : function(entity) {
         
-        console.log('component.Markup.install');
-        console.log('entity.options.name: ' + entity.options.name);
         goodshow.component.Component.prototype.install.call(this, entity);
 		this.element = document.createElement('div');
 		this.element.className = 'element';

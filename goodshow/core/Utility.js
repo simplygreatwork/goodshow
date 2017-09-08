@@ -64,6 +64,42 @@ goodshow.Utility = {
 		return result;
 	},
 	
+	children : {
+		
+		first : function(entity) {
+			
+			var result = null;
+			entity.children.forEach(function(child) {
+				if (result === null) {
+					if (child.options && child.options.constrain) {
+						result = child;
+					}
+				}
+			}.bind(this));
+			return result;
+		},
+		
+		last : function(entity) {
+			
+			var result = null;
+			entity.children.forEach(function(child) {
+				if (child.options && child.options.constrain) {
+					result = child;
+				}
+			}.bind(this));
+			return result;
+		},
+		
+		iterate : function(entity, handler) {
+			
+			entity.children.forEach(function(child) {
+				if (child.options && child.options.constrain) {
+					handler.call(this, child);
+				}
+			}.bind(this));
+		}
+	},
+	
 	loadText: function(options) {
     	
 		var request = new XMLHttpRequest();

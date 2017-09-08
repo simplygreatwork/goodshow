@@ -258,7 +258,7 @@ example.layer.message.Layer = goodshow.Panel.extend({
 						contain : {
 							arranger: new goodshow.arranger.Vertical(),
 							children: [
-								new goodshow.Panel(),
+								new goodshow.Panel()
 							]
 						}
 					}),

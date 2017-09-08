@@ -5,7 +5,7 @@ var components = [
 	'constrain',
 	'paint',
 	'mask',
-	'selection',		// ordering: mask issue with select, selection
+	'selection',				// ordering: mask issue with select, selection
 	'select',
 	'scroll',
 	'ripple',

@@ -15,10 +15,11 @@ goodshow.component.Constrain = goodshow.component.Component.extend({
 		if (this.width || this.height) {
 			delete this.flex;
 		}
+		goodshow.component.Component.prototype.install.call(this, entity);
     },
     
     draw : function(entity) {
         
-        
+		goodshow.component.Component.prototype.draw.call(this, entity);
     }
 });
