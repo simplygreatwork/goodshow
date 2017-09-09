@@ -39,15 +39,15 @@ goodshow.component.Scroll = goodshow.component.Component.extend({
       }.bind(this), false);
    },
    
+   draw: function(entity) {
+      
+      goodshow.component.Component.prototype.draw.call(this);
+   },
+   
    scrollBy : function(entity, delta) {
       
       goodshow.Utility.children.iterate(entity, function(child) {
          child.pivot[this.axis] = child.pivot[this.axis] + delta;
       }.bind(this));
    },
-   
-   draw: function(entity) {
-      
-      goodshow.component.Component.prototype.draw.call(this);
-   }
 });

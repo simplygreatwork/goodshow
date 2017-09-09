@@ -73,10 +73,41 @@ example.panels.cards.Panel = goodshow.Panel.extend({
 									constrain : {
 										flex : 1,
 										margin : {
-											top : 6,
-											bottom : 6,
-											left : 6,
-											right : 6
+											top : 10,
+											bottom : 10,
+											left : 10,
+											right : 10
+										}
+									},
+									contain : {
+										arranger: new goodshow.arranger.Vertical(),
+										children: [
+											new goodshow.TextArea({
+												name : 'two-card-b-text',
+												text: window.lorem,
+												font: '1.8em Roboto',
+												foreground : '#333333',
+												constrain : {
+													flex : 1,
+													margin: {
+														top: 15,
+														bottom: 15,
+														left: 15,
+														right: 15
+													}
+												}
+											}),
+										]
+									}
+								}),
+								new goodshow.Card({
+									constrain : {
+										flex : 1,
+										margin : {
+											top : 10,
+											bottom : 10,
+											left : 10,
+											right : 10
 										}
 									},
 									contain : {
@@ -92,41 +123,33 @@ example.panels.cards.Panel = goodshow.Panel.extend({
 									constrain : {
 										flex : 1,
 										margin : {
-											top : 6,
-											bottom : 6,
-											left : 6,
-											right : 6
+											top : 10,
+											bottom : 10,
+											left : 10,
+											right : 10
 										}
 									},
 									contain : {
 										arranger: new goodshow.arranger.Vertical(),
-										children : [
-											new goodshow.Panel({
-												background : 0xFFFFFF
-											})
-										]
-									}
-								}),
-								new goodshow.Card({
-									constrain : {
-										flex : 1,
-										margin : {
-											top : 6,
-											bottom : 6,
-											left : 6,
-											right : 6
-										}
-									},
-									contain : {
-										arranger: new goodshow.arranger.Vertical(),
-										children : [
-											new goodshow.Panel({
-												background : 0xFFFFFF
-											})
+										children: [
+											new goodshow.TextArea({
+												name : 'two-card-b-text',
+												text: window.lorem,
+												font: '1.8em Roboto',
+												foreground : '#333333',
+												constrain : {
+													flex : 1,
+													margin: {
+														top: 15,
+														bottom: 15,
+														left: 15,
+														right: 15
+													}
+												}
+											}),
 										]
 									}
 								})
-
 							]
 						}
 					}),

@@ -8,6 +8,11 @@ goodshow.component.Reveal = goodshow.component.Component.extend({
     
     install : function(entity) {
         
+        goodshow.component.Component.prototype.install.call(this);
+    },
+    
+    draw : function(entity) {
         
+        goodshow.component.Component.prototype.draw.call(this);
     }
 });

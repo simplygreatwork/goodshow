@@ -32,7 +32,7 @@ goodshow.Miller = goodshow.Panel.extend({
 		this.secondary.draw();
 		this.advanced = false;
 	},
-
+	
 	toggle: function(component) {
 		
 		if (this.advanced) {
