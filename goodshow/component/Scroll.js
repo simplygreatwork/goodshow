@@ -40,7 +40,7 @@ goodshow.component.Scroll = goodshow.component.Component.extend({
       goodshow.Utility.children.iterate(entity, function(child) {
          child.pivot[this.axis] = child.pivot[this.axis] + delta;
       }.bind(this));
-   }
+   },
    
    draw: function(entity) {
       
