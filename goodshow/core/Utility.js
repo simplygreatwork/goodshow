@@ -68,26 +68,27 @@ goodshow.Utility = {
 		
 		first : function(entity) {
 			
-			var result = null;
-			entity.children.forEach(function(child) {
-				if (result === null) {
-					if (child.options && child.options.constrain) {
-						result = child;
-					}
+			var i;
+			for (i = 0; i < entity.children.length; i++) {
+				var child = entity.children[i];
+				if (child.options && child.options.constrain) {
+					return child;
+					break;
 				}
-			}.bind(this));
+			}
 			return result;
 		},
 		
 		last : function(entity) {
 			
-			var result = null;
-			entity.children.forEach(function(child) {
+			var i;
+			for (i = entity.children.length - 1; i >=0 ; i--) {
+				var child = entity.children[i];
 				if (child.options && child.options.constrain) {
-					result = child;
+					return child;
+					break;
 				}
-			}.bind(this));
-			return result;
+			}
 		},
 		
 		iterate : function(entity, handler) {
