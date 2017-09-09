@@ -22,14 +22,18 @@ goodshow.component.Scroll = goodshow.component.Component.extend({
             var delta = event[this.delta[this.axis]]
             if (delta > 0) {
                var child = goodshow.Utility.children.last(entity);      // potential issue: lowest and not last
-               var afford = ((child.options.bounds[this.axis] + child.options.bounds[this.extent] - child.pivot[this.axis]) - (entity.options.bounds[this.axis] + entity.options.bounds[this.extent]));
-               if (delta > afford) delta = afford;
-               this.scrollBy(entity, delta);
+               if (child) {
+                  var afford = ((child.options.bounds[this.axis] + child.options.bounds[this.extent] - child.pivot[this.axis]) - (entity.options.bounds[this.axis] + entity.options.bounds[this.extent]));
+                  if (delta > afford) delta = afford;
+                  this.scrollBy(entity, delta);
+               }
             } else if (delta < 0) {
                var child = goodshow.Utility.children.first(entity);     // potential issue: highest and not first
-               var afford = ((child.options.bounds[this.axis] - child.pivot[this.axis]) - (entity.options.bounds[this.axis]));
-               if (delta < afford) delta = afford;
-               this.scrollBy(entity, delta);
+               if (child) {
+                  var afford = ((child.options.bounds[this.axis] - child.pivot[this.axis]) - (entity.options.bounds[this.axis]));
+                  if (delta < afford) delta = afford;
+                  this.scrollBy(entity, delta);
+               }
             }
          }
       }.bind(this), false);

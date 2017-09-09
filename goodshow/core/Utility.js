@@ -76,7 +76,6 @@ goodshow.Utility = {
 					break;
 				}
 			}
-			return result;
 		},
 		
 		last : function(entity) {
