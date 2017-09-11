@@ -1,5 +1,5 @@
 
-example.panels.panels.One = goodshow.Panel.extend({
+example.panels.panels.Panel = goodshow.Panel.extend({
 	
 	initialize: function(options) {
 		
@@ -15,6 +15,10 @@ example.panels.panels.One = goodshow.Panel.extend({
 			miller.toggle(new example.panels.panels.Two());
 		}.bind(this));
 	}
+});
+
+example.panels.panels.One = example.panels.panels.Panel.extend({
+	
 });
 
 example.panels.panels.Two = goodshow.Panel.extend({

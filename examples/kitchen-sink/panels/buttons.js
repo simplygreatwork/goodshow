@@ -88,26 +88,11 @@ example.panels.buttons.Panel = goodshow.Panel.extend({
 											}),
 											new goodshow.Button({
 												trait : 'basic-button',
-												text : 'BASIC BUTTON (NO HOVER)',
-												invoke : {
-													action : function(entity) {
-														application.layer.message.display(new example.layer.message.Panel({
-															text : 'The basic button was pressed.'
-														}));
-														application.layer.message.display(new example.layer.message.Panel({
-															text : 'All you need is love.'
-														}));
-													}.bind(this)
-												},
-												hover : null
-											}),
-											new goodshow.Button({
-												trait : 'basic-button',
 												text : 'BASIC BUTTON (NO RIPPLE)',
 												invoke : {
 													action : function(entity) {
 														application.layer.message.display(new example.layer.message.Panel({
-															text : 'The basic button was pressed.'
+															text : 'The basic button with no ripple was pressed.'
 														}));
 														application.layer.message.display(new example.layer.message.Panel({
 															text : 'All you need is love.'
@@ -115,6 +100,21 @@ example.panels.buttons.Panel = goodshow.Panel.extend({
 													}.bind(this)
 												},
 												ripple : null
+											}),
+											new goodshow.Button({
+												trait : 'basic-button',
+												text : 'BASIC BUTTON (NO HOVER)',
+												invoke : {
+													action : function(entity) {
+														application.layer.message.display(new example.layer.message.Panel({
+															text : 'The basic button with no hover was pressed.'
+														}));
+														application.layer.message.display(new example.layer.message.Panel({
+															text : 'All you need is love.'
+														}));
+													}.bind(this)
+												},
+												hover : null
 											}),
 											new goodshow.Panel()
 										]

@@ -1,6 +1,6 @@
 
-example.panels.rippling.Panel = goodshow.Panel.extend({
-    
+example.panels.flows.Panel = goodshow.Panel.extend({
+
 	initialize: function(options) {
 		
 		goodshow.Panel.prototype.initialize.call(this, Object.assign({
@@ -22,7 +22,7 @@ example.panels.rippling.Panel = goodshow.Panel.extend({
 							children: [
 								new goodshow.Label({
 									name: 'header-text',
-									text: 'Rippling',
+									text: 'Flow',
 									foreground: 'white',
 									align : 'left',
 									constrain : {
@@ -56,24 +56,25 @@ example.panels.rippling.Panel = goodshow.Panel.extend({
 					}),
 					new goodshow.Panel({
 						name: 'content',
-						background: 0xDDDDDD,
+						background: 0xFFFFFF,
 						contain : {
-							arranger : new goodshow.arranger.Vertical(),
-							children : [
-								new goodshow.Panel({
-									background: 0xFFFFFF,
+							arranger: new goodshow.arranger.Vertical(),
+							children: [
+								new goodshow.TextArea({
+									name : 'two-card-b-text',
+									text: 'Content which flows vertically will reposition and expand their containers.',
+									font: '1.8em Roboto',
+									foreground : '#333333',
 									constrain : {
 										flex : 1,
-										margin : {
-											top : 30,
-											bottom : 30,
-											left : 30,
-											right : 30
+										margin: {
+											top: 30,
+											bottom: 30,
+											left: 30,
+											right: 30
 										}
-									},
-									mask : {},
-									ripple : {}
-								})
+									}
+								}),
 							]
 						}
 					}),

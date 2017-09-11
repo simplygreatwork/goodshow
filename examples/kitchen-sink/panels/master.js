@@ -131,12 +131,29 @@ example.panels.master.Panel = goodshow.Panel.extend({
 							arranger: new goodshow.arranger.Vertical(),
 							children: [
 								new goodshow.ListItem({
-									name : 'panels-list-item',
-									text : 'Milling',
+									text : 'Mill',
 									invoke : {
 										action : function() {
 											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
-											miller.advance(new example.panels.panels.One());
+											miller.advance(new example.panels.panels.Panel());
+										}.bind(this)
+									}
+								}),
+								new goodshow.ListItem({
+									text : 'Reveal',
+									invoke : {
+										action : function() {
+											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
+											miller.advance(new example.panels.reveals.Panel());
+										}.bind(this)
+									}
+								}),
+								new goodshow.ListItem({
+									text : 'Flow',
+									invoke : {
+										action : function() {
+											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
+											miller.advance(new example.panels.flows.Panel());
 										}.bind(this)
 									}
 								}),
@@ -150,7 +167,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									}
 								}),
 								new goodshow.ListItem({
-									text : 'Images',
+									text : 'Image',
 									invoke : {
 										action : function() {
 											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
@@ -159,7 +176,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									}
 								}),
 								new goodshow.ListItem({
-									text : 'Drawing',
+									text : 'Draw',
 									invoke : {
 										action : function() {
 											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
@@ -168,16 +185,16 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									}
 								}),
 								new goodshow.ListItem({
-									text : 'Changing',
+									text : 'Change',
 									invoke : {
 										action : function() {
 											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
-											miller.advance(new example.panels.changing.Panel());
+											miller.advance(new example.panels.changes.Panel());
 										}.bind(this)
 									}
 								}),
 								new goodshow.ListItem({
-									text : 'Painters',
+									text : 'Paint',
 									invoke : {
 										action : function() {
 											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
@@ -186,7 +203,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									}
 								}),
 								new goodshow.ListItem({
-									text : 'Cards',
+									text : 'Card',
 									invoke : {
 										action : function() {
 											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
@@ -195,7 +212,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									}
 								}),
 								new goodshow.ListItem({
-									text : 'Buttons',
+									text : 'Button',
 									invoke : {
 										action : function() {
 											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
@@ -204,7 +221,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									}
 								}),
 								new goodshow.ListItem({
-									text : 'Lists',
+									text : 'List',
 									invoke : {
 										action : function() {
 											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
@@ -213,7 +230,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									}
 								}),
 								new goodshow.ListItem({
-									text : 'Overlays',
+									text : 'Overlay',
 									invoke : {
 										action : function() {
 											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
@@ -231,7 +248,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									}
 								}),
 								new goodshow.ListItem({
-									text : 'Rippling',
+									text : 'Ripple',
 									invoke : {
 										action : function() {
 											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);

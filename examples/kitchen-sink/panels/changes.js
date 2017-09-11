@@ -1,5 +1,5 @@
 
-example.panels.changing.Panel = goodshow.Panel.extend({
+example.panels.changes.Panel = goodshow.Panel.extend({
     
 	initialize: function(options) {
 		
@@ -22,7 +22,7 @@ example.panels.changing.Panel = goodshow.Panel.extend({
 							children: [
 								new goodshow.Label({
 									name: 'header-text',
-									text: 'Changing',
+									text: 'Change',
 									foreground: 'white',
 									align : 'left',
 									constrain : {
@@ -82,12 +82,27 @@ example.panels.changing.Panel = goodshow.Panel.extend({
 										}.bind(this)
 									}
 								}),
+								// new goodshow.Button({
+								// 	trait : 'basic-button',
+								// 	text : 'CHANGE PADDING',
+								// 	visible : false,
+								// 	invoke : {
+								// 		action : function(entity) {
+								// 			entity.options.constrain.padding = {
+								// 				top : 10,
+								// 				bottom : 10,
+								// 				left : 10,
+								// 				right : 10
+								// 			};
+								// 		}.bind(this)
+								// 	}
+								// }),
 								new goodshow.Button({
 									trait : 'basic-button',
 									text : 'CHANGE BACKGROUND',
 									invoke : {
 										action : function(entity) {
-											entity.options.background = 0xFFFF00;
+											entity.options.background = 0xFF9900;
 										}.bind(this)
 									}
 								}),

@@ -1,5 +1,5 @@
 
-example.panels.text.Panel = goodshow.Panel.extend({
+example.panels.reveals.Panel = goodshow.Panel.extend({
 
 	initialize: function(options) {
 		
@@ -22,7 +22,7 @@ example.panels.text.Panel = goodshow.Panel.extend({
 							children: [
 								new goodshow.Label({
 									name: 'header-text',
-									text: 'Text',
+									text: 'Reveal',
 									foreground: 'white',
 									align : 'left',
 									constrain : {
@@ -62,7 +62,7 @@ example.panels.text.Panel = goodshow.Panel.extend({
 							children: [
 								new goodshow.TextArea({
 									name : 'two-card-b-text',
-									text: window.lorem,
+									text: 'Miller panels reveal inline panels, buttons reveal dialogs, buttons reveal inline menus, tabs reveal inline content.',
 									font: '1.8em Roboto',
 									foreground : '#333333',
 									constrain : {

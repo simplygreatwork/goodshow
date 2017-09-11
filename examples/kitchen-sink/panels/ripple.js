@@ -1,6 +1,6 @@
 
-example.panels.text.Panel = goodshow.Panel.extend({
-
+example.panels.ripple.Panel = goodshow.Panel.extend({
+    
 	initialize: function(options) {
 		
 		goodshow.Panel.prototype.initialize.call(this, Object.assign({
@@ -22,7 +22,7 @@ example.panels.text.Panel = goodshow.Panel.extend({
 							children: [
 								new goodshow.Label({
 									name: 'header-text',
-									text: 'Text',
+									text: 'Rippling',
 									foreground: 'white',
 									align : 'left',
 									constrain : {
@@ -56,25 +56,24 @@ example.panels.text.Panel = goodshow.Panel.extend({
 					}),
 					new goodshow.Panel({
 						name: 'content',
-						background: 0xFFFFFF,
+						background: 0xDDDDDD,
 						contain : {
-							arranger: new goodshow.arranger.Vertical(),
-							children: [
-								new goodshow.TextArea({
-									name : 'two-card-b-text',
-									text: window.lorem,
-									font: '1.8em Roboto',
-									foreground : '#333333',
+							arranger : new goodshow.arranger.Vertical(),
+							children : [
+								new goodshow.Panel({
+									background: 0xFFFFFF,
 									constrain : {
 										flex : 1,
-										margin: {
-											top: 30,
-											bottom: 30,
-											left: 30,
-											right: 30
+										margin : {
+											top : 30,
+											bottom : 30,
+											left : 30,
+											right : 30
 										}
-									}
-								}),
+									},
+									mask : {},
+									ripple : {}
+								})
 							]
 						}
 					}),
