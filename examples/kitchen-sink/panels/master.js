@@ -252,7 +252,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									invoke : {
 										action : function() {
 											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
-											miller.advance(new example.panels.rippling.Panel());
+											miller.advance(new example.panels.ripple.Panel());
 										}.bind(this)
 									}
 								}),
