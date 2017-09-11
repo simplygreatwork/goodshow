@@ -1,6 +1,6 @@
 
-example.panels.flows.Panel = goodshow.Panel.extend({
-
+example.panels.change.Panel = goodshow.Panel.extend({
+    
 	initialize: function(options) {
 		
 		goodshow.Panel.prototype.initialize.call(this, Object.assign({
@@ -22,7 +22,7 @@ example.panels.flows.Panel = goodshow.Panel.extend({
 							children: [
 								new goodshow.Label({
 									name: 'header-text',
-									text: 'Flow',
+									text: 'Change',
 									foreground: 'white',
 									align : 'left',
 									constrain : {
@@ -56,25 +56,57 @@ example.panels.flows.Panel = goodshow.Panel.extend({
 					}),
 					new goodshow.Panel({
 						name: 'content',
-						background: 0xFFFFFF,
+						background: 0xDDDDDD,
+						constrain : {
+							padding : {
+								top : 20,
+								bottom : 20,
+								left : 20,
+								right : 20
+							}
+						},
 						contain : {
 							arranger: new goodshow.arranger.Vertical(),
 							children: [
-								new goodshow.TextArea({
-									name : 'two-card-b-text',
-									text: 'Content which flows vertically will reposition and expand their containers.',
-									font: '1.8em Roboto',
-									foreground : '#333333',
-									constrain : {
-										flex : 1,
-										margin: {
-											top: 30,
-											bottom: 30,
-											left: 30,
-											right: 30
-										}
+								new goodshow.Button({
+									trait : 'basic-button',
+									text : 'CHANGE MARGIN',
+									invoke : {
+										action : function(entity) {
+											entity.options.constrain.margin = {
+												top : 10,
+												bottom : 10,
+												left : 10,
+												right : 10
+											};
+										}.bind(this)
 									}
 								}),
+								// new goodshow.Button({
+								// 	trait : 'basic-button',
+								// 	text : 'CHANGE PADDING',
+								// 	visible : false,
+								// 	invoke : {
+								// 		action : function(entity) {
+								// 			entity.options.constrain.padding = {
+								// 				top : 10,
+								// 				bottom : 10,
+								// 				left : 10,
+								// 				right : 10
+								// 			};
+								// 		}.bind(this)
+								// 	}
+								// }),
+								new goodshow.Button({
+									trait : 'basic-button',
+									text : 'CHANGE BACKGROUND',
+									invoke : {
+										action : function(entity) {
+											entity.options.background = 0xFF9900;
+										}.bind(this)
+									}
+								}),
+								new goodshow.Panel()
 							]
 						}
 					}),

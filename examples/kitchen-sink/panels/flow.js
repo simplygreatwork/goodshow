@@ -1,6 +1,6 @@
 
-example.panels.lists.Panel = goodshow.Panel.extend({
-   
+example.panels.flow.Panel = goodshow.Panel.extend({
+
 	initialize: function(options) {
 		
 		goodshow.Panel.prototype.initialize.call(this, Object.assign({
@@ -22,7 +22,7 @@ example.panels.lists.Panel = goodshow.Panel.extend({
 							children: [
 								new goodshow.Label({
 									name: 'header-text',
-									text: 'Lists',
+									text: 'Flow',
 									foreground: 'white',
 									align : 'left',
 									constrain : {
@@ -54,60 +54,27 @@ example.panels.lists.Panel = goodshow.Panel.extend({
 							]
 						},
 					}),
-					new goodshow.List({
+					new goodshow.Panel({
 						name: 'content',
-						constrain : {
-							flex : 1,
-							margin : {
-								top : 20,
-								bottom : 20,
-								left : 20,
-								right : 20
-							}
-						},
+						background: 0xFFFFFF,
 						contain : {
-							arranger : new goodshow.arranger.Vertical(),
-							children : [
-								new goodshow.ListItem({
-									text : 'One',
-									invoke : {
-										action : function() {
-											console.log('one');
+							arranger: new goodshow.arranger.Vertical(),
+							children: [
+								new goodshow.TextArea({
+									name : 'two-card-b-text',
+									text: 'Content which flows vertically will reposition and expand their containers.',
+									font: '1.8em Roboto',
+									foreground : '#333333',
+									constrain : {
+										flex : 1,
+										margin: {
+											top: 30,
+											bottom: 30,
+											left: 30,
+											right: 30
 										}
 									}
 								}),
-								new goodshow.ListItem({
-									text : 'Two',
-									invoke : {
-										action : function() {
-											console.log('two');
-										}
-									}
-								}),
-								new goodshow.ListItem({
-									text : 'Three',
-									invoke : {
-										action : function() {
-											console.log('three');
-										}
-									}
-								}),
-								new goodshow.ListItem({
-									text : 'Four',
-									invoke : {
-										action : function() {
-											console.log('four');
-										}
-									}
-								}),
-								new goodshow.ListItem({
-									text : 'Five',
-									invoke : {
-										action : function() {
-											console.log('five');
-										}
-									}
-								})
 							]
 						}
 					}),

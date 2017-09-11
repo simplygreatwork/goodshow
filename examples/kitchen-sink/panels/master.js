@@ -135,7 +135,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									invoke : {
 										action : function() {
 											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
-											miller.advance(new example.panels.panels.Panel());
+											miller.advance(new example.panels.panel.Panel());
 										}.bind(this)
 									}
 								}),
@@ -144,7 +144,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									invoke : {
 										action : function() {
 											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
-											miller.advance(new example.panels.reveals.Panel());
+											miller.advance(new example.panels.reveal.Panel());
 										}.bind(this)
 									}
 								}),
@@ -153,7 +153,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									invoke : {
 										action : function() {
 											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
-											miller.advance(new example.panels.flows.Panel());
+											miller.advance(new example.panels.flow.Panel());
 										}.bind(this)
 									}
 								}),
@@ -171,7 +171,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									invoke : {
 										action : function() {
 											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
-											miller.advance(new example.panels.images.Panel());
+											miller.advance(new example.panels.image.Panel());
 										}.bind(this)
 									}
 								}),
@@ -180,7 +180,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									invoke : {
 										action : function() {
 											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
-											miller.advance(new example.panels.drawing.Panel());
+											miller.advance(new example.panels.draw.Panel());
 										}.bind(this)
 									}
 								}),
@@ -189,7 +189,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									invoke : {
 										action : function() {
 											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
-											miller.advance(new example.panels.changes.Panel());
+											miller.advance(new example.panels.change.Panel());
 										}.bind(this)
 									}
 								}),
@@ -198,7 +198,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									invoke : {
 										action : function() {
 											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
-											miller.advance(new example.panels.painters.Panel());
+											miller.advance(new example.panels.paint.Panel());
 										}.bind(this)
 									}
 								}),
@@ -207,7 +207,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									invoke : {
 										action : function() {
 											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
-											miller.advance(new example.panels.cards.Panel());
+											miller.advance(new example.panels.card.Panel());
 										}.bind(this)
 									}
 								}),
@@ -216,7 +216,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									invoke : {
 										action : function() {
 											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
-											miller.advance(new example.panels.buttons.Panel());
+											miller.advance(new example.panels.button.Panel());
 										}.bind(this)
 									}
 								}),
@@ -225,7 +225,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									invoke : {
 										action : function() {
 											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
-											miller.advance(new example.panels.lists.Panel());
+											miller.advance(new example.panels.list.Panel());
 										}.bind(this)
 									}
 								}),
@@ -234,7 +234,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									invoke : {
 										action : function() {
 											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
-											miller.advance(new example.panels.overlays.Panel());
+											miller.advance(new example.panels.overlay.Panel());
 										}.bind(this)
 									}
 								}),

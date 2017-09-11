@@ -1,6 +1,6 @@
 
-example.panels.reveals.Panel = goodshow.Panel.extend({
-
+example.panels.filter.Panel = goodshow.Panel.extend({
+    
 	initialize: function(options) {
 		
 		goodshow.Panel.prototype.initialize.call(this, Object.assign({
@@ -22,7 +22,7 @@ example.panels.reveals.Panel = goodshow.Panel.extend({
 							children: [
 								new goodshow.Label({
 									name: 'header-text',
-									text: 'Reveal',
+									text: 'Filter',
 									foreground: 'white',
 									align : 'left',
 									constrain : {
@@ -42,13 +42,6 @@ example.panels.reveals.Panel = goodshow.Panel.extend({
 									},
 									pivot : {
 										y : -4
-									},
-									invoke : {
-										action : function() {
-											application.layer.message.display(new example.layer.message.Panel({
-												text : 'Menu!'
-											}));
-										}.bind(this)
 									}
 								})
 							]
@@ -56,27 +49,7 @@ example.panels.reveals.Panel = goodshow.Panel.extend({
 					}),
 					new goodshow.Panel({
 						name: 'content',
-						background: 0xFFFFFF,
-						contain : {
-							arranger: new goodshow.arranger.Vertical(),
-							children: [
-								new goodshow.TextArea({
-									name : 'two-card-b-text',
-									text: 'Miller panels reveal inline panels, buttons reveal dialogs, buttons reveal inline menus, tabs reveal inline content.',
-									font: '1.8em Roboto',
-									foreground : '#333333',
-									constrain : {
-										flex : 1,
-										margin: {
-											top: 30,
-											bottom: 30,
-											left: 30,
-											right: 30
-										}
-									}
-								}),
-							]
-						}
+						background: 0xDDDDDD,
 					}),
 					new goodshow.Panel({
 						name: 'footer',

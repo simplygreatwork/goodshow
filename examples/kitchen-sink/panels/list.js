@@ -1,6 +1,6 @@
 
-example.panels.overlays.Panel = goodshow.Panel.extend({
-    
+example.panels.list.Panel = goodshow.Panel.extend({
+   
 	initialize: function(options) {
 		
 		goodshow.Panel.prototype.initialize.call(this, Object.assign({
@@ -22,7 +22,7 @@ example.panels.overlays.Panel = goodshow.Panel.extend({
 							children: [
 								new goodshow.Label({
 									name: 'header-text',
-									text: 'Overlays',
+									text: 'List',
 									foreground: 'white',
 									align : 'left',
 									constrain : {
@@ -54,11 +54,11 @@ example.panels.overlays.Panel = goodshow.Panel.extend({
 							]
 						},
 					}),
-					new goodshow.Panel({
+					new goodshow.List({
 						name: 'content',
-						background: 0xDDDDDD,
 						constrain : {
-							padding : {
+							flex : 1,
+							margin : {
 								top : 20,
 								bottom : 20,
 								left : 20,
@@ -66,66 +66,48 @@ example.panels.overlays.Panel = goodshow.Panel.extend({
 							}
 						},
 						contain : {
-							arranger: new goodshow.arranger.Vertical(),
-							children: [
-								new goodshow.Button({
-									trait : 'basic-button',
-									text : 'OPEN DIALOG',
+							arranger : new goodshow.arranger.Vertical(),
+							children : [
+								new goodshow.ListItem({
+									text : 'One',
 									invoke : {
 										action : function() {
-											application.layer.dialog.toggle();
+											console.log('one');
 										}
 									}
 								}),
-								new goodshow.Button({
-									trait : 'basic-button',
-									text : 'OPEN LEFT DRAWER',
+								new goodshow.ListItem({
+									text : 'Two',
 									invoke : {
 										action : function() {
-											goodshow.tween.pivot({
-												entity : application.layer.drawer.drawer.left,
-												pivot : {
-													x : 0,
-													y : 0
-												}
-											});
+											console.log('two');
 										}
 									}
 								}),
-								new goodshow.Button({
-									trait : 'basic-button',
-									text : 'OPEN RIGHT DRAWER',
+								new goodshow.ListItem({
+									text : 'Three',
 									invoke : {
 										action : function() {
-											goodshow.tween.pivot({
-												entity : application.layer.drawer.drawer.right,
-												pivot : {
-													x : 0,
-													y : 0
-												}
-											});
+											console.log('three');
 										}
 									}
 								}),
-								new goodshow.Button({
-									trait : 'basic-button',
-									text : 'SHOW MESSAGE',
+								new goodshow.ListItem({
+									text : 'Four',
 									invoke : {
-										action : function(entity) {
-											if (this.shown === undefined) {
-												application.layer.message.display(new example.layer.message.Panel({
-													text : 'All you need is love.'
-												}));
-												this.shown = true;
-											} else {
-												application.layer.message.display(new example.layer.message.Panel({
-													text : 'Love is all you need.'
-												}));
-											}
-										}.bind(this)
+										action : function() {
+											console.log('four');
+										}
 									}
 								}),
-								new goodshow.Panel()
+								new goodshow.ListItem({
+									text : 'Five',
+									invoke : {
+										action : function() {
+											console.log('five');
+										}
+									}
+								})
 							]
 						}
 					}),

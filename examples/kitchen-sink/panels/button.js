@@ -1,5 +1,5 @@
 
-example.panels.buttons.Panel = goodshow.Panel.extend({
+example.panels.button.Panel = goodshow.Panel.extend({
     
 	initialize: function(options) {
 		
@@ -26,7 +26,7 @@ example.panels.buttons.Panel = goodshow.Panel.extend({
 										children: [
 											new goodshow.Label({
 												name: 'header-text',
-												text: 'Buttons',
+												text: 'Button',
 												foreground: 'white',
 												align : 'left',
 												constrain : {

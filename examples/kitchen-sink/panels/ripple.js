@@ -22,7 +22,7 @@ example.panels.ripple.Panel = goodshow.Panel.extend({
 							children: [
 								new goodshow.Label({
 									name: 'header-text',
-									text: 'Rippling',
+									text: 'Ripple',
 									foreground: 'white',
 									align : 'left',
 									constrain : {

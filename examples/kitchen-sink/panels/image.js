@@ -1,6 +1,6 @@
 
-example.panels.painters.Panel = goodshow.Panel.extend({
-    
+example.panels.image.Panel = goodshow.Panel.extend({
+
 	initialize: function(options) {
 		
 		goodshow.Panel.prototype.initialize.call(this, Object.assign({
@@ -22,7 +22,7 @@ example.panels.painters.Panel = goodshow.Panel.extend({
 							children: [
 								new goodshow.Label({
 									name: 'header-text',
-									text: 'Painters',
+									text: 'Image',
 									foreground: 'white',
 									align : 'left',
 									constrain : {
@@ -57,12 +57,53 @@ example.panels.painters.Panel = goodshow.Panel.extend({
 					new goodshow.Panel({
 						name: 'content',
 						background: 0xDDDDDD,
+						contain : {
+							arranger: new goodshow.arranger.Vertical(),
+							children: [
+								new goodshow.Image({
+									constrain : {
+										flex : 1,
+										margin : {
+											top : 10,
+											bottom : 10,
+											left : 10,
+											right : 10
+										}
+									},
+									path : '../assets/images/hydrocodone-pills.jpg'
+								}),
+								new goodshow.Image({
+									constrain : {
+										flex : 1,
+										margin : {
+											top : 10,
+											bottom : 10,
+											left : 10,
+											right : 10
+										}
+									},
+									path : '../assets/images/hydrocodone-pills.jpg'
+								}),
+								new goodshow.Image({
+									constrain : {
+										flex : 1,
+										margin : {
+											top : 10,
+											bottom : 10,
+											left : 10,
+											right : 10
+										}
+									},
+									path : '../assets/images/hydrocodone-pills.jpg'
+								})
+							]
+						}
 					}),
 					new goodshow.Panel({
 						name: 'footer',
 						background: 0x3368d4,
 						constrain : {
-							height: 64,
+							height: 64
 						}
 					})
 				]

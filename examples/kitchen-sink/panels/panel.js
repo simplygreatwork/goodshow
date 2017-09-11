@@ -1,5 +1,5 @@
 
-example.panels.panels.Panel = goodshow.Panel.extend({
+example.panels.panel.Panel = goodshow.Panel.extend({
 	
 	initialize: function(options) {
 		
@@ -12,16 +12,16 @@ example.panels.panels.Panel = goodshow.Panel.extend({
 		this.interactive = true;
 		this.on('mousedown', function() {
 			var miller = this.parent;
-			miller.toggle(new example.panels.panels.Two());
+			miller.toggle(new example.panels.panel.Two());
 		}.bind(this));
 	}
 });
 
-example.panels.panels.One = example.panels.panels.Panel.extend({
+example.panels.panel.One = example.panels.panel.Panel.extend({
 	
 });
 
-example.panels.panels.Two = goodshow.Panel.extend({
+example.panels.panel.Two = goodshow.Panel.extend({
 	
 	initialize: function(options) {
 		
@@ -34,12 +34,12 @@ example.panels.panels.Two = goodshow.Panel.extend({
 		this.interactive = true;
 		this.on('mousedown', function() {
 			var miller = this.parent;
-			miller.toggle(new example.panels.panels.Three());
+			miller.toggle(new example.panels.panel.Three());
 		}.bind(this));
 	}
 });
 
-example.panels.panels.Three = goodshow.Panel.extend({
+example.panels.panel.Three = goodshow.Panel.extend({
 	
 	initialize: function(options) {
 		
@@ -52,12 +52,12 @@ example.panels.panels.Three = goodshow.Panel.extend({
 		this.interactive = true;
 		this.on('mousedown', function() {
 			var miller = this.parent;
-			miller.toggle(new example.panels.panels.Four());
+			miller.toggle(new example.panels.panel.Four());
 		}.bind(this));
 	}
 });
 
-example.panels.panels.Four = goodshow.Panel.extend({
+example.panels.panel.Four = goodshow.Panel.extend({
 	
 	initialize: function(options) {
 		
@@ -70,12 +70,12 @@ example.panels.panels.Four = goodshow.Panel.extend({
 		this.interactive = true;
 		this.on('mousedown', function() {
 			var miller = this.parent;
-			miller.toggle(new example.panels.panels.Five());
+			miller.toggle(new example.panels.panel.Five());
 		}.bind(this));
 	}
 });
 
-example.panels.panels.Five = goodshow.Panel.extend({
+example.panels.panel.Five = goodshow.Panel.extend({
 	
 	initialize: function(options) {
 		
@@ -88,7 +88,7 @@ example.panels.panels.Five = goodshow.Panel.extend({
 		this.interactive = true;
 		this.on('mousedown', function() {
 			var miller = this.parent;
-			miller.toggle(new example.panels.panels.One());
+			miller.toggle(new example.panels.panel.One());
 		}.bind(this));
 	}
 });
