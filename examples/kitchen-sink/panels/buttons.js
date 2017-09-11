@@ -61,6 +61,64 @@ example.panels.buttons.Panel = goodshow.Panel.extend({
 								new goodshow.Panel({
 									name: 'content',
 									background: 0xDDDDDD,
+									constrain : {
+										padding : {
+											top : 15,
+											bottom : 15,
+											left : 15,
+											right : 15
+										}
+									},
+									contain : {
+										arranger : new goodshow.arranger.Vertical(),
+										children : [
+											new goodshow.Button({
+												trait : 'basic-button',
+												text : 'BASIC BUTTON (HOVER & RIPPLE)',
+												invoke : {
+													action : function(entity) {
+														application.layer.message.display(new example.layer.message.Panel({
+															text : 'The basic button was pressed.'
+														}));
+														application.layer.message.display(new example.layer.message.Panel({
+															text : 'All you need is love.'
+														}));
+													}.bind(this)
+												}
+											}),
+											new goodshow.Button({
+												trait : 'basic-button',
+												text : 'BASIC BUTTON (NO HOVER)',
+												invoke : {
+													action : function(entity) {
+														application.layer.message.display(new example.layer.message.Panel({
+															text : 'The basic button was pressed.'
+														}));
+														application.layer.message.display(new example.layer.message.Panel({
+															text : 'All you need is love.'
+														}));
+													}.bind(this)
+												},
+												hover : null
+											}),
+											new goodshow.Button({
+												trait : 'basic-button',
+												text : 'BASIC BUTTON (NO RIPPLE)',
+												invoke : {
+													action : function(entity) {
+														application.layer.message.display(new example.layer.message.Panel({
+															text : 'The basic button was pressed.'
+														}));
+														application.layer.message.display(new example.layer.message.Panel({
+															text : 'All you need is love.'
+														}));
+													}.bind(this)
+												},
+												ripple : null
+											}),
+											new goodshow.Panel()
+										]
+									}
 								}),
 								new goodshow.Panel({
 									name: 'footer',
@@ -112,7 +170,12 @@ example.panels.buttons.Panel = goodshow.Panel.extend({
 															},
 															invoke : {
 																action : function() {
-																	console.log('Floater invoked.');
+																	application.layer.message.display(new example.layer.message.Panel({
+																		text : 'The floating button was pressed.'
+																	}));
+																	application.layer.message.display(new example.layer.message.Panel({
+																		text : 'All you need is love.'
+																	}));
 																}
 															}
                                           })

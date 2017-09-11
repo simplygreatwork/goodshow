@@ -40,6 +40,25 @@ goodshow.painter.Background = goodshow.painter.Root.extend({
 	}
 });
 
+goodshow.painter.Hover = goodshow.painter.Root.extend({
+	
+	initialize: function(options) {
+		
+		goodshow.painter.Root.prototype.initialize.call(this, Object.assign({
+			color : 0xFFFFFF,
+			alpha : 1
+		}, options || {}));
+	},
+	
+	paint : function(entity) {
+		
+		var color = this.color;
+		var alpha = this.alpha;
+		entity.beginFill(color, alpha);
+		this.drawRectangle(entity, entity.options.bounds);
+	}
+});
+
 goodshow.painter.Select = goodshow.painter.Root.extend({
 	
 	initialize: function(options) {
@@ -242,7 +261,7 @@ goodshow.painter.Pen = Class.extend({
 	left: function(distance) {
 		return this.goto(this.point.x - distance, this.point.y);
 	},
-
+	
 	right: function(distance) {
 		return this.goto(this.point.x + distance, this.point.y);
 	},

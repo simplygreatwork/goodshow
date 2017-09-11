@@ -13,9 +13,11 @@ goodshow.component.Paint = goodshow.component.Component.extend({
     
     draw : function(entity) {
         
+        // console.log('Paint.draw');
+        goodshow.component.Component.prototype.draw.call(this, entity);        
 		if (this.painters) {
 			this.painters.forEach(function(painter) {
-				painter.paint(entity);
+				if ((painter.visible === undefined) || (painter.visible)) painter.paint(entity);
 			}.bind(this));
 		}
     }

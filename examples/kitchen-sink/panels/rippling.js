@@ -57,6 +57,25 @@ example.panels.rippling.Panel = goodshow.Panel.extend({
 					new goodshow.Panel({
 						name: 'content',
 						background: 0xDDDDDD,
+						contain : {
+							arranger : new goodshow.arranger.Vertical(),
+							children : [
+								new goodshow.Panel({
+									background: 0xFFFFFF,
+									constrain : {
+										flex : 1,
+										margin : {
+											top : 30,
+											bottom : 30,
+											left : 30,
+											right : 30
+										}
+									},
+									mask : {},
+									ripple : {}
+								})
+							]
+						}
 					}),
 					new goodshow.Panel({
 						name: 'footer',

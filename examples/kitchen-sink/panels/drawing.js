@@ -1,5 +1,5 @@
 
-example.panels.shapes.Panel = goodshow.Panel.extend({
+example.panels.drawing.Panel = goodshow.Panel.extend({
     
 	initialize: function(options) {
 		
@@ -22,7 +22,7 @@ example.panels.shapes.Panel = goodshow.Panel.extend({
 							children: [
 								new goodshow.Label({
 									name: 'header-text',
-									text: 'Shapes',
+									text: 'Pen Vector Drawing',
 									foreground: 'white',
 									align : 'left',
 									constrain : {

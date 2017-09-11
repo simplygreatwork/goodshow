@@ -1,6 +1,16 @@
 
 goodshow.Utility = {
 	
+	assign : function(to, from) {
+		
+		Object.keys(from).forEach(function(key) {
+			if (to.hasOwnProperty(key)) {
+				from[key].__prior = to[key];
+			}
+		});
+		return Object.assign(to, from);
+	},
+	
 	remove : function(array, element) {
 		
 		var index = array.indexOf(element);

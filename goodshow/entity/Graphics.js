@@ -1,15 +1,16 @@
 
-var components = [
-	'bound',
+var components = [				// the ordering of these is so very important
+	'bound',					// pertaining to masking, hover, select, etc: study
 	'contain',
 	'constrain',
+	'invoke',
 	'paint',
 	'mask',
+	'hover',
 	'selection',				// ordering: mask issue with select, selection
 	'select',
 	'scroll',
 	'ripple',
-	'invoke',
 	'filter',
 	'transform',
 	'markup',
@@ -40,10 +41,12 @@ goodshow.entity.Graphics = Class.extend({
 	resolve : function() {
 		
 		Object.keys(this.options).forEach(function(key) {
-			if (components.indexOf(key) > -1) {
-				var clazz = key.charAt(0).toUpperCase() + key.slice(1);
-				var component = new goodshow.component[clazz](this.options[key]);
-				this.options[key] = component.proxy(this);
+			if (this.options[key] !== null) {							// if an options has been reset to null, ignore
+				if (components.indexOf(key) > -1) {
+					var clazz = key.charAt(0).toUpperCase() + key.slice(1);
+					var component = new goodshow.component[clazz](this.options[key]);
+					this.options[key] = component.proxy(this);
+				}
 			}
 		}.bind(this));
 	},

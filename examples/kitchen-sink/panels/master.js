@@ -132,7 +132,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 							children: [
 								new goodshow.ListItem({
 									name : 'panels-list-item',
-									text : 'Panels',
+									text : 'Milling',
 									invoke : {
 										action : function() {
 											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
@@ -159,11 +159,20 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									}
 								}),
 								new goodshow.ListItem({
-									text : 'Pen Drawing',
+									text : 'Drawing',
 									invoke : {
 										action : function() {
 											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
-											miller.advance(new example.panels.shapes.Panel());
+											miller.advance(new example.panels.drawing.Panel());
+										}.bind(this)
+									}
+								}),
+								new goodshow.ListItem({
+									text : 'Changing',
+									invoke : {
+										action : function() {
+											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
+											miller.advance(new example.panels.changing.Panel());
 										}.bind(this)
 									}
 								}),

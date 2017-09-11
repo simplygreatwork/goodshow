@@ -266,6 +266,17 @@ example.layer.message.Layer = goodshow.Panel.extend({
 				]
 			}
 		}, options || {}));
+		
+		goodshow.Broadcast.subscribe('message.dismiss', function(message) {
+			goodshow.tween.alpha({
+				entity : message,
+				alpha : 0,
+				finish : function() {
+					this.list.options.contain.removeChild(message);
+					this.list.draw();
+				}.bind(this)
+			});
+		}.bind(this));
 	},
 	
 	display : function(message) {
@@ -297,14 +308,7 @@ example.layer.message.Layer = goodshow.Panel.extend({
 					}.bind(this)
 				});
 				window.setTimeout(function() {
-					goodshow.tween.alpha({
-						entity : message,
-						alpha : 0,
-						finish : function() {
-							this.list.options.contain.removeChild(message);
-							this.list.draw();
-						}.bind(this)
-					});
+					goodshow.Broadcast.publish('message.dismiss', message)
 				}.bind(this), 5000);
 			}
 		}
@@ -352,8 +356,7 @@ example.layer.message.Panel = goodshow.Panel.extend({
 		}, options || {}));
 		this.interactive = true;
 		this.on('mousedown', function() {			// todo : use invoker
-			this.visible = false;
-			this.parent.draw();
+			goodshow.Broadcast.publish('message.dismiss', this)
 		}.bind(this));
 	}
 });

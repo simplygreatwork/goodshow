@@ -1,29 +1,41 @@
 
+scrolling issue: if content is shorter that viewport
+    scrolling jumps
+
+buttons need hover behavior, buttons need press behavior
+
+important: add some sort of hyperlink to the top header.
+
+work on all matters and concerns of revealing
+
+work on drag component
+    work on drag + scroll component eventually
+
+realize every reason to employ Object.assign combining
+
+I could use a variant of Object.assign which retains history
+    then components such as Invoker, Paint, Filter can individually combine their childen
+
 issue: mouse interaction issue after scrolling
     example: scroll a list and the toolbar buttons stop working (are covered)
     example: an animating ripple of a list item can affect other riiples
 
-improve Card control code to be more declarative
-    I tried once before - make it work!
-    the solution is likely: the card needs to be a Stack!
-        after reviewing this, I'm actually trying this - so make it work!!!!
-
 if a list item is selected, change ripple color
     maybe use goodshow.Value
 
-scrolling issue: if content is shorter that viewport
-    scrolling jumps
+be able to transform a ripple into a selection
 
-Selection needs to select Select and not Select itself
+Selection needs to select Select and not Select selecting itself
     this may be helpful with zero selection
     this may be helpful with zero, one, and multiple selection
+    think this is complete
 
 when clicking on a message it actually needs to fade away
     but should really be clicking on "CLOSE"
 
 for lists allow to click/tap and drag
 
-issue: unable to re-select a prior selected item
+issue: unable to re-select a prior selected item (complete)
 
 use a proxy for selection colors? 
 
@@ -36,7 +48,7 @@ distinction: entity alpha vs. painter alpha
 
 still a problem with alpha being zero and not being detected
 
-goodshow Card needs updating/modernization
+goodshow Card needs updating/modernization (complete)
 
 investigate using Kefir/FRP for trait/enhancer processing
 

@@ -1,4 +1,6 @@
 
+change "draw" to "update"
+
 change Entity.draw to Entity.update?
 
 should padding be moved into constrain?

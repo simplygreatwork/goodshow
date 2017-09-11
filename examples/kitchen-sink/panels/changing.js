@@ -1,5 +1,5 @@
 
-example.panels.overlays.Panel = goodshow.Panel.extend({
+example.panels.changing.Panel = goodshow.Panel.extend({
     
 	initialize: function(options) {
 		
@@ -22,7 +22,7 @@ example.panels.overlays.Panel = goodshow.Panel.extend({
 							children: [
 								new goodshow.Label({
 									name: 'header-text',
-									text: 'Overlays',
+									text: 'Changing',
 									foreground: 'white',
 									align : 'left',
 									constrain : {
@@ -70,58 +70,24 @@ example.panels.overlays.Panel = goodshow.Panel.extend({
 							children: [
 								new goodshow.Button({
 									trait : 'basic-button',
-									text : 'OPEN DIALOG',
-									invoke : {
-										action : function() {
-											application.layer.dialog.toggle();
-										}
-									}
-								}),
-								new goodshow.Button({
-									trait : 'basic-button',
-									text : 'OPEN LEFT DRAWER',
-									invoke : {
-										action : function() {
-											goodshow.tween.pivot({
-												entity : application.layer.drawer.drawer.left,
-												pivot : {
-													x : 0,
-													y : 0
-												}
-											});
-										}
-									}
-								}),
-								new goodshow.Button({
-									trait : 'basic-button',
-									text : 'OPEN RIGHT DRAWER',
-									invoke : {
-										action : function() {
-											goodshow.tween.pivot({
-												entity : application.layer.drawer.drawer.right,
-												pivot : {
-													x : 0,
-													y : 0
-												}
-											});
-										}
-									}
-								}),
-								new goodshow.Button({
-									trait : 'basic-button',
-									text : 'SHOW MESSAGE',
+									text : 'CHANGE MARGIN',
 									invoke : {
 										action : function(entity) {
-											if (this.shown === undefined) {
-												application.layer.message.display(new example.layer.message.Panel({
-													text : 'All you need is love.'
-												}));
-												this.shown = true;
-											} else {
-												application.layer.message.display(new example.layer.message.Panel({
-													text : 'Love is all you need.'
-												}));
-											}
+											entity.options.constrain.margin = {
+												top : 10,
+												bottom : 10,
+												left : 10,
+												right : 10
+											};
+										}.bind(this)
+									}
+								}),
+								new goodshow.Button({
+									trait : 'basic-button',
+									text : 'CHANGE BACKGROUND',
+									invoke : {
+										action : function(entity) {
+											entity.options.background = 0xFFFF00;
 										}.bind(this)
 									}
 								}),
