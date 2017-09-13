@@ -10,7 +10,7 @@ example.panels.button.Panel = goodshow.Panel.extend({
 					new goodshow.Panel({
 						background: 0xFFFFFF,
 						constrain : {
-							width: 350
+							extent: 350
 						},
 						contain : {
 							arranger: new goodshow.arranger.Vertical(),
@@ -19,7 +19,7 @@ example.panels.button.Panel = goodshow.Panel.extend({
 									name: 'header',
 									background: 0x3368d4,
 									constrain : {
-										height: 64
+										extent: 64
 									},
 									contain : {
 										arranger: new goodshow.arranger.Horizontal(),
@@ -42,7 +42,7 @@ example.panels.button.Panel = goodshow.Panel.extend({
 												foreground: 'white',
 												font: '24px Material Icons',
 												constrain : {
-													width: 64
+													extent: 64
 												},
 												pivot : {
 													y : -4
@@ -124,7 +124,7 @@ example.panels.button.Panel = goodshow.Panel.extend({
 									name: 'footer',
 									background: 0x3368d4,
 									constrain : {
-										height: 64
+										extent: 64
 									}
 								})
 							]
@@ -138,7 +138,7 @@ example.panels.button.Panel = goodshow.Panel.extend({
 								new goodshow.Panel(),
 								new goodshow.Panel({
 									constrain : {
-										height : 80,
+										extent: 80,
 									},
 									contain : {
 										arranger : new goodshow.arranger.Horizontal(),
@@ -146,7 +146,7 @@ example.panels.button.Panel = goodshow.Panel.extend({
 											new goodshow.Panel(),
 											new goodshow.Panel({
 												constrain : {
-													width : 80
+													extent: 80
 												},
 												contain : {
 													arranger : new goodshow.arranger.Vertical(),
@@ -187,7 +187,7 @@ example.panels.button.Panel = goodshow.Panel.extend({
 								}),
 								new goodshow.Panel({
 									constrain : {
-										height : 80
+										extent: 80
 									}
 								}),
 							]

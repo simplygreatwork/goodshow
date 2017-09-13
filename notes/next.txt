@@ -1,4 +1,34 @@
 
+idea: extent could be
+    'inherit', or 'flex' 'flex2', 'flex3', 'flex4', (if flex)
+    or numeric
+
+in general, the arranger code, want to work with extent objects and not primitives
+
+    extent : {
+        kind : 'fixed',
+        value : 100
+    }
+    extent : {
+        fixed : 100
+    }
+    extent : 100
+    extent : {
+        kind : 'flex',
+        value : 4
+    }
+    extent : {
+        flex : 4
+    }
+    extent : {
+        kind : 'inherited'
+    }
+    extent : {
+        inherit : true
+    }
+
+scrolling needs to take into account: container padding
+
 scrolling issue: if content is shorter that viewport
     scrolling jumps
 

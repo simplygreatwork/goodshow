@@ -29,7 +29,7 @@ example.Enhancer = Class.extend({
 				background : 0x3368d4,
 				font : '16px Roboto',
 				constrain : {
-					height : 64,
+					extent: 64,
 					margin : {
 						top : 3,
 						bottom : 3

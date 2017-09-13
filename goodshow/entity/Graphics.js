@@ -1,13 +1,13 @@
 
 var components = [				// the ordering of these is so very important
-	'bound',					// pertaining to masking, hover, select, etc: study
-	'contain',
-	'constrain',
+	'bound',							// pertaining to masking, hover, select, etc: study
 	'invoke',
+	'contain',
 	'paint',
 	'mask',
+	'constrain',
 	'hover',
-	'selection',				// ordering: mask issue with select, selection
+	'selection',					// ordering: mask issue with select, selection
 	'select',
 	'scroll',
 	'ripple',
@@ -53,20 +53,24 @@ goodshow.entity.Graphics = Class.extend({
 	
 	proxy : function(object, entity) {
 		
-		if (window.Proxy) {
-			return new Proxy(object, {
-				set: function(target, name, value) {
-					target[name] = value;								// todo: redraw only if the value changes
-					if (entity.parent && entity.parent.draw) {			// review: why are these checks needed?
-						entity.parent.draw();							// review: queue redraws
-					} else if (entity.draw) {
-						entity.draw();									// performance issues?
-					}; 
-					return true;
-				}
-			});
-		} else {
+		if (false) {
 			return object;
+		} else {
+			if (window.Proxy) {
+				return new Proxy(object, {
+					set: function(target, name, value) {
+						target[name] = value;								// todo: redraw only if the value changes
+						if (entity.parent && entity.parent.draw) {			// review: why are these checks needed?
+							entity.parent.draw();							// review: queue redraws
+						} else if (entity.draw) {
+							entity.draw();									// performance issues?
+						};
+						return true;
+					}
+				});
+			} else {
+				return object;
+			}
 		}
 	},
 	
@@ -77,12 +81,12 @@ goodshow.entity.Graphics = Class.extend({
 		}.bind(this));
 	},
 	
-    uninstall : function(entity) {
-        
+   uninstall : function(entity) {
+		
 		components.forEach(function(component) {
 			if (this.options[component]) this.options[component].uninstall(this);
 		}.bind(this));
-    },
+   },
 	
 	draw: function() {
 		

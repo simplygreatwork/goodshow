@@ -6,7 +6,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 		goodshow.Panel.prototype.initialize.call(this, Object.assign({
 			background: 0xFFFFFF,
 			constrain : {
-				width: 350
+				extent: 350
 			},
 			contain : {
 				arranger: new goodshow.arranger.Vertical(),
@@ -15,7 +15,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 						name: 'header',
 						background: 0x3368d4,
 						constrain : {
-							height: 64,
+							extent: 64,
 							padding : {
 								left : 8,
 								right : 8
@@ -30,7 +30,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									foreground: 'white',
 									font: '24px Material Icons',
 									constrain : {
-										width: 44,
+										extent: 44,
 									},
 									pivot : {
 										y : -4
@@ -59,7 +59,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									foreground: 'white',
 									font: '24px Material Icons',
 									constrain : {
-										width: 44
+										extent: 44
 									},
 									pivot : {
 										y : -4
@@ -83,7 +83,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									foreground: 'white',
 									font: '24px Material Icons',
 									constrain : {
-										width: 44
+										extent: 44
 									},
 									pivot : {
 										y : -4
@@ -102,7 +102,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									foreground: 'white',
 									font: '24px Material Icons',
 									constrain : {
-										width: 44
+										extent: 44
 									},
 									pivot : {
 										y : -4
@@ -286,7 +286,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 						name: 'footer',
 						background: 0x3368d4,
 						constrain : {
-							height: 64
+							extent: 64
 						},
 						invoke : {
 							action : function(entity) {

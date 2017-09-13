@@ -57,7 +57,7 @@ Structure = goodshow.Panel.extend({
 					new goodshow.Panel({
 						background : 0xEEEE77,
 						constrain : {
-							height : 50
+							extent: 50
 						},
 						contain : {
 							arranger : new goodshow.arranger.Vertical(),

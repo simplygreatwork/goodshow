@@ -57,7 +57,7 @@ example.layer.drawer.Layer = goodshow.Panel.extend({
 					this.drawer.left = new goodshow.Panel({
 						background: 0x444444,
 						constrain : {
-							width: 250
+							extent: 250
 						},
 						invoke : {
 							action : function() {
@@ -78,7 +78,7 @@ example.layer.drawer.Layer = goodshow.Panel.extend({
 					this.drawer.right = new goodshow.Panel({
 						background: 0x444444,
 						constrain : {
-							width: 250
+							extent: 250
 						},
 						invoke : {
 							action : function() {
@@ -191,7 +191,7 @@ example.layer.dialog.Dialog = goodshow.Panel.extend({
 					new goodshow.Panel(),
 					new goodshow.Panel({
 						constrain : {
-							width: 800
+							extent: 800
 						},
 						contain : {
 							arranger: new goodshow.arranger.Vertical(),
@@ -200,7 +200,7 @@ example.layer.dialog.Dialog = goodshow.Panel.extend({
 								this.dialog = new goodshow.Panel({
 									background: 0xFFFFFF,
 									constrain : {
-										height: 300
+										extent: 300
 									},
 									contain : {
 										arranger: new goodshow.arranger.Horizontal(),
@@ -250,7 +250,7 @@ example.layer.message.Layer = goodshow.Panel.extend({
 					new goodshow.Panel(),
 					this.list = new goodshow.Panel({
 						constrain : {
-							width: 600,
+							extent: 600,
 							padding : {
 								bottom : 5
 							}
@@ -323,7 +323,7 @@ example.layer.message.Panel = goodshow.Panel.extend({
 			background: 0x444444,
 			alpha : 1,
 			constrain : {
-				height: 70,
+				extent: 70,
 				margin: {
 					top: 5,
 					bottom: 5,

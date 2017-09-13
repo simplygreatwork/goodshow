@@ -6,7 +6,7 @@ example.panels.image.Panel = goodshow.Panel.extend({
 		goodshow.Panel.prototype.initialize.call(this, Object.assign({
 			background: 0xFFFFFF,
 			constrain : {
-				width: 350
+				extent: 350
 			},
 			contain : {
 				arranger: new goodshow.arranger.Vertical(),
@@ -15,7 +15,7 @@ example.panels.image.Panel = goodshow.Panel.extend({
 						name: 'header',
 						background: 0x3368d4,
 						constrain : {
-							height: 64
+							extent: 64
 						},
 						contain : {
 							arranger: new goodshow.arranger.Horizontal(),
@@ -38,7 +38,7 @@ example.panels.image.Panel = goodshow.Panel.extend({
 									foreground: 'white',
 									font: '24px Material Icons',
 									constrain : {
-										width: 64
+										extent: 64
 									},
 									pivot : {
 										y : -4
@@ -103,7 +103,7 @@ example.panels.image.Panel = goodshow.Panel.extend({
 						name: 'footer',
 						background: 0x3368d4,
 						constrain : {
-							height: 64
+							extent: 64
 						}
 					})
 				]

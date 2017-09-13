@@ -6,7 +6,7 @@ example.panels.panel.Panel = goodshow.Panel.extend({
 		goodshow.Panel.prototype.initialize.call(this, Object.assign({
 			background: 0x581845,
 			constrain : {
-				width: 250
+				extent: 250
 			}
 		}, options || {}));
 		this.interactive = true;
@@ -28,7 +28,7 @@ example.panels.panel.Two = goodshow.Panel.extend({
 		goodshow.Panel.prototype.initialize.call(this, Object.assign({
 			background: 0x900C3F,
 			constrain : {
-				width: 200
+				extent: 200
 			}
 		}, options || {}));
 		this.interactive = true;
@@ -46,7 +46,7 @@ example.panels.panel.Three = goodshow.Panel.extend({
 		goodshow.Panel.prototype.initialize.call(this, Object.assign({
 			background: 0xC70039,
 			constrain : {
-				width: 300
+				extent: 300
 			}
 		}, options || {}));
 		this.interactive = true;
@@ -64,7 +64,7 @@ example.panels.panel.Four = goodshow.Panel.extend({
 		goodshow.Panel.prototype.initialize.call(this, Object.assign({
 			background: 0xFF5733,
 			constrain : {
-				width: 200
+				extent: 200
 			}
 		}, options || {}));
 		this.interactive = true;
@@ -82,7 +82,7 @@ example.panels.panel.Five = goodshow.Panel.extend({
 		goodshow.Panel.prototype.initialize.call(this, Object.assign({
 			background: 0xFFC30f,
 			constrain : {
-				width: 200
+				extent: 200
 			}
 		}, options || {}));
 		this.interactive = true;

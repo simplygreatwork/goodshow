@@ -3,10 +3,10 @@ goodshow.Image = goodshow.Panel.extend({
 	
 	initialize: function(options) {
 		
-		goodshow.Panel.prototype.initialize.call(this, Object.assign({}, options));
-    	this.texture = PIXI.Texture.fromImage(options.path);
+   	this.texture = PIXI.Texture.fromImage(options.path);
 		this.sprite = new PIXI.Sprite(this.texture);
-		this.addChild(this.sprite);
+		goodshow.Panel.prototype.initialize.call(this, Object.assign({}, options));
+ 		this.addChild(this.sprite);
 		if (this.texture.baseTexture.hasLoaded) {
 			this.reposition();
 		} else {

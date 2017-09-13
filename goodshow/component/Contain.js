@@ -36,6 +36,13 @@ goodshow.component.Contain = goodshow.component.Component.extend({
 		}.bind(this));
     },
     
+    invalidate : function() {
+		
+    	goodshow.Broadcast.publish('arranger.invalidate', {
+    		entity : this.entity
+    	});
+    },
+    
     addChild : function(child) {			// perhaps instead of this function: use another proxy
     	
     	this.children.push(child);

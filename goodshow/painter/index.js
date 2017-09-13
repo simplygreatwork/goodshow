@@ -59,7 +59,7 @@ goodshow.painter.Hover = goodshow.painter.Root.extend({
 	}
 });
 
-goodshow.painter.Select = goodshow.painter.Root.extend({
+goodshow.painter.Select = goodshow.painter.Root.extend({						// dead code
 	
 	initialize: function(options) {
 		

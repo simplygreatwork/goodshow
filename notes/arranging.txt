@@ -1,0 +1,29 @@
+
+natural layout flow (deterministic) is currently missing from GoodShow
+any entity (or container) needs to know it's prefered height
+there needs to be a common interface to query preferred height among graphics, container, text, and image (sprite)
+
+consider that I can alter the vertical layout - after the initial layout
+   I can add a phase to run after the normal arranger
+consider that panels can already have heights today
+consider that I can begin with text first - and ignore images
+
+consider using Object.valueOf for extent height/width querying/determination
+I am already using Object.valueOf for foreground/background colors upon selection
+
+the extent of a panel is determined by the extent of its children
+use goodshow.Extent (Object.valueOf) to represent extent
+
+if has flex, use flex to set height
+if no flex, use extent object value
+if height object value has no height, calculate from chidren
+
+do I need to calculate before drawing anything?
+   because children may increase of decrease the extent of the container
+   
+by default the extent of a container is computed from the extents of the children
+the extent of the container can override the calculated extent of the children
+but what if one of the childen is set to flex?
+
+can't layout text height until the width is known
+so maybe layout every Horizontal arranger first then Vertical next

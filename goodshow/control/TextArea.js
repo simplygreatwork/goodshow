@@ -1,5 +1,5 @@
 
-goodshow.TextArea = goodshow.entity.Graphics.extend({
+goodshow.TextArea = goodshow.Panel.extend({
 	
 	initialize: function(options) {
 		
@@ -10,9 +10,9 @@ goodshow.TextArea = goodshow.entity.Graphics.extend({
 			font: '1.5em Roboto',
 			fill: 'black',
 		}, options || {});
-		goodshow.entity.Graphics.prototype.initialize.call(this, Object.assign({
+		goodshow.Panel.prototype.initialize.call(this, Object.assign({
 			contain : {
-				arranger : goodshow.arranger.Vertical(),
+				arranger : new goodshow.arranger.Stack(),
 				children : [
 					this.text = new PIXI.Text(options.text, {
 						font: options.font,
@@ -27,9 +27,15 @@ goodshow.TextArea = goodshow.entity.Graphics.extend({
 	
 	draw: function() {
 		
-		goodshow.entity.Graphics.prototype.draw.call(this);
+		goodshow.Panel.prototype.draw.call(this);
 		this.text.x = this.options.bounds.x;
 		this.text.y = this.options.bounds.y;
 		this.text.style.wordWrapWidth = this.options.bounds.width;
+		if (this.options.constrain.flex === null) {
+			delete this.options.constrain.flex;			// will continue to invalidate if I don't clear flex
+			this.options.constrain.extent = this.text.height + this.options.constrain.margin.top + this.options.constrain.margin.bottom;
+			this.parent.options.contain.invalidate();
+			this.text.style = this.text.style;
+		}
 	}
 });

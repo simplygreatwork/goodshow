@@ -8,11 +8,11 @@ goodshow.component.Align = goodshow.component.Component.extend({
     
     install : function(entity) {
         
-        
+        goodshow.component.Component.prototype.install.call(this, options);
     },
     
     draw : function(entity) {
         
-        
+        goodshow.component.Component.prototype.draw.call(this, options);
     }
 });

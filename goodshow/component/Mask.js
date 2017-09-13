@@ -18,6 +18,11 @@ goodshow.component.Mask = goodshow.component.Component.extend({
         entity.addChild(this.mask);
     },
     
+    proxy : function(entity) {
+    	
+    	return this;
+    },
+    
     draw : function(entity) {
         
         this.mask.clear();

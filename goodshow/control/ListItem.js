@@ -11,7 +11,7 @@ goodshow.ListItem = goodshow.Panel.extend({
 		options.background = new goodshow.Value(options.background);
 		goodshow.Panel.prototype.initialize.call(this, Object.assign({
 			constrain : {
-				height : 50,
+				extent : 50,
 				padding : {
 					left : 10,
 					right : 10
@@ -30,7 +30,7 @@ goodshow.ListItem = goodshow.Panel.extend({
 							y : -4
 						},
 						constrain : {
-							width : 44
+							extent : 44
 						},
 						paint : {
 							painters : [

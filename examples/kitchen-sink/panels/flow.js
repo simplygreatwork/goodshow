@@ -1,12 +1,12 @@
 
 example.panels.flow.Panel = goodshow.Panel.extend({
-
+	
 	initialize: function(options) {
 		
 		goodshow.Panel.prototype.initialize.call(this, Object.assign({
 			background: 0xFFFFFF,
 			constrain : {
-				width: 350
+				extent: 350
 			},
 			contain : {
 				arranger: new goodshow.arranger.Vertical(),
@@ -15,7 +15,7 @@ example.panels.flow.Panel = goodshow.Panel.extend({
 						name: 'header',
 						background: 0x3368d4,
 						constrain : {
-							height: 64
+							extent: 64
 						},
 						contain : {
 							arranger: new goodshow.arranger.Horizontal(),
@@ -38,7 +38,7 @@ example.panels.flow.Panel = goodshow.Panel.extend({
 									foreground: 'white',
 									font: '24px Material Icons',
 									constrain : {
-										width: 64
+										extent: 64
 									},
 									pivot : {
 										y : -4
@@ -57,32 +57,144 @@ example.panels.flow.Panel = goodshow.Panel.extend({
 					new goodshow.Panel({
 						name: 'content',
 						background: 0xFFFFFF,
+						constrain : {
+							padding : {
+								top : 25,
+								bottom : 25,
+								left : 30,
+								right : 30
+							}
+						},
 						contain : {
 							arranger: new goodshow.arranger.Vertical(),
 							children: [
 								new goodshow.TextArea({
-									name : 'two-card-b-text',
-									text: 'Content which flows vertically will reposition and expand their containers.',
+									text: 'Content which stacks vertically will reposition and expand their containers.',
 									font: '1.8em Roboto',
 									foreground : '#333333',
+									background : 0xFFEEEE,
 									constrain : {
-										flex : 1,
+										flex : null,
 										margin: {
-											top: 30,
-											bottom: 30,
-											left: 30,
-											right: 30
+											top: 5,
+											bottom: 5
 										}
 									}
 								}),
+								new goodshow.TextArea({
+									text: window.lorem,
+									font: '1.8em Roboto',
+									foreground : '#333333',
+									background : 0xEEFFEE,
+									constrain : {
+										flex : null,
+										margin: {
+											top: 5,
+											bottom: 5
+										}
+									}
+								}),
+								new goodshow.TextArea({
+									text: 'Need to use two nested vertical arrangers to fully test this.',
+									font: '1.8em Roboto',
+									foreground : '#333333',
+									background : 0xEEEEFF,
+									constrain : {
+										flex : null,
+										margin: {
+											top: 5,
+											bottom: 5
+										}
+									}
+								}),
+								new goodshow.TextArea({
+									text: 'Content which stacks vertically will reposition and expand their containers.',
+									font: '1.8em Roboto',
+									foreground : '#333333',
+									background : 0xFFEEEE,
+									constrain : {
+										flex : null,
+										margin: {
+											top: 5,
+											bottom: 5
+										}
+									}
+								}),
+								new goodshow.TextArea({
+									text: window.lorem,
+									font: '1.8em Roboto',
+									foreground : '#333333',
+									background : 0xEEFFEE,
+									constrain : {
+										flex : null,
+										margin: {
+											top: 5,
+											bottom: 5
+										}
+									}
+								}),
+								new goodshow.TextArea({
+									text: 'Need to use two nested vertical arrangers to fully test this.',
+									font: '1.8em Roboto',
+									foreground : '#333333',
+									background : 0xEEEEFF,
+									constrain : {
+										flex : null,
+										margin: {
+											top: 5,
+											bottom: 5
+										}
+									}
+								}),
+								new goodshow.TextArea({
+									text: 'Content which stacks vertically will reposition and expand their containers.',
+									font: '1.8em Roboto',
+									foreground : '#333333',
+									background : 0xFFEEEE,
+									constrain : {
+										flex : null,
+										margin: {
+											top: 5,
+											bottom: 5
+										}
+									}
+								}),
+								new goodshow.TextArea({
+									text: window.lorem,
+									font: '1.8em Roboto',
+									foreground : '#333333',
+									background : 0xEEFFEE,
+									constrain : {
+										flex : null,
+										margin: {
+											top: 5,
+											bottom: 5
+										}
+									}
+								}),
+								new goodshow.TextArea({
+									text: 'Need to use two nested vertical arrangers to fully test this.',
+									font: '1.8em Roboto',
+									foreground : '#333333',
+									background : 0xEEEEFF,
+									constrain : {
+										flex : null,
+										margin: {
+											top: 5,
+											bottom: 5
+										}
+									}
+								})
 							]
-						}
+						},
+						mask : {},
+						scroll : {}
 					}),
 					new goodshow.Panel({
 						name: 'footer',
 						background: 0x3368d4,
 						constrain : {
-							height: 64,
+							extent: 64,
 						}
 					})
 				]

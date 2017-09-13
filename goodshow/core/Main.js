@@ -9,6 +9,7 @@ goodshow.Main = Class.extend({
 			this.initializeStage();
 			this.animate();
 			this.initializeResizing();
+			this.initializeSubscribing();
 			options.callback(this.stage, this.renderer);
 		}.bind(this));
 	},
@@ -78,6 +79,16 @@ goodshow.Main = Class.extend({
 			window.panel.options.bounds = new PIXI.Rectangle(0, 0, window.innerWidth, window.innerHeight);
 			window.panel.draw();
 		}.bind(this);
+	},
+	
+	initializeSubscribing : function() {
+		
+		goodshow.Broadcast.subscribe('arranger.invalidate', function(options) {
+			var entity = options.entity;
+			window.setTimeout(function() {				// use Ticker?
+				entity.draw();
+			}.bind(this), 1);
+		}.bind(this));
 	}
 });
 
