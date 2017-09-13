@@ -62,7 +62,7 @@ example.panels.reveal.Panel = goodshow.Panel.extend({
 							children: [
 								new goodshow.TextArea({
 									name : 'two-card-b-text',
-									text: 'Miller panels reveal inline panels, buttons reveal dialogs, buttons reveal inline menus, tabs reveal inline content.',
+									text: 'Miller panels reveal inline panels, buttons reveal dialogs, buttons reveal inline expandable content and menus, tabs reveal inline content regions.',
 									font: '1.8em Roboto',
 									foreground : '#333333',
 									constrain : {
