@@ -548,6 +548,87 @@ example.panels.arrange.inherit.Panel = goodshow.Panel.extend({
 										}
 									}
 								}),
+								new goodshow.TextArea({
+									text: 'HEADER',
+									font: '1.8em Roboto',
+									foreground : '#333333',
+									constrain : {
+										extent : 'flow',
+										margin: {
+											top: 5,
+											bottom: 5
+										}
+									}
+								}),
+								new goodshow.Panel({
+									background : 0xFFEEEE,
+									constrain : {
+										extent : 'inherit',
+										padding : {
+											top : 10,
+											bottom : 10,
+											left : 10,
+											right : 10
+										},
+										margin: {
+											top: 5,
+											bottom: 5
+										}
+									},
+									contain : {
+										arranger : new goodshow.arranger.Vertical(),
+										children : [
+											new goodshow.TextArea({
+												text: 'SUBHEADER',
+												font: '1.8em Roboto',
+												foreground : '#333333',
+												constrain : {
+													extent : 'flow',
+													margin: {
+														top: 5,
+														bottom: 5
+													}
+												}
+											}),
+											new goodshow.TextArea({
+												text: 'CONTENT',
+												font: '1.8em Roboto',
+												foreground : '#333333',
+												constrain : {
+													extent : 'flow',
+													margin: {
+														top: 5,
+														bottom: 5
+													}
+												}
+											}),
+											new goodshow.TextArea({
+												text: 'SUBFOOTER',
+												font: '1.8em Roboto',
+												foreground : '#333333',
+												constrain : {
+													extent : 'flow',
+													margin: {
+														top: 5,
+														bottom: 5
+													}
+												}
+											})
+										]
+									}
+								}),
+								new goodshow.TextArea({
+									text: 'FOOTER',
+									font: '1.8em Roboto',
+									foreground : '#333333',
+									constrain : {
+										extent : 'flow',
+										margin: {
+											top: 5,
+											bottom: 25
+										}
+									}
+								})
 							]
 						},
 						mask : {},

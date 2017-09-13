@@ -33,15 +33,17 @@ Application = Class.extend({
 	
 	initializeMessages : function() {
 		
-		application.layer.message.display(new example.layer.message.Panel({
-			text : 'All you need is love.'
-		}));
-		application.layer.message.display(new example.layer.message.Panel({
-			text : 'Love is all you need.'
-		}));
-		application.layer.message.display(new example.layer.message.Panel({
-			text : 'Love is all you need.'
-		}));
+		window.setTimeout(function() {
+			application.layer.message.display(new example.layer.message.Panel({
+				text : 'All you need is love.'
+			}));
+			application.layer.message.display(new example.layer.message.Panel({
+				text : 'Love is all you need.'
+			}));
+			application.layer.message.display(new example.layer.message.Panel({
+				text : 'Love is all you need.'
+			}));
+		}.bind(this), 1000);
 	}
 });
 

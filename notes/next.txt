@@ -1,4 +1,8 @@
 
+get padding working with text area
+
+get flow and inherit extents working horizontally
+
 idea: extent could be
     'inherit', or 'flex' 'flex2', 'flex3', 'flex4', (if flex)
     or numeric

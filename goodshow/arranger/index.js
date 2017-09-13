@@ -50,6 +50,11 @@ goodshow.arranger.Planar = Class.extend({
 				}
 			}
 		}.bind(this));
+		if (entity.options.constrain.extent.kind == 'inherit') {
+			counter = counter + entity.options.constrain.padding.top;
+			counter = counter + entity.options.constrain.padding.bottom;
+			entity.options.constrain.extent.inherited = counter;
+		}
 	},
 	
 	getFullWeight: function(entity) {
