@@ -47,7 +47,7 @@ goodshow.ListItem = goodshow.Panel.extend({
 						foreground : options.foreground,
 						align : 'left',
 						constrain : {
-							flex : 1,
+							extent : 'flex',
 							margin : {
 								left : 10
 							},

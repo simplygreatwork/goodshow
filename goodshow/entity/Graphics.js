@@ -60,11 +60,13 @@ goodshow.entity.Graphics = Class.extend({
 				return new Proxy(object, {
 					set: function(target, name, value) {
 						target[name] = value;								// todo: redraw only if the value changes
-						if (entity.parent && entity.parent.draw) {			// review: why are these checks needed?
-							entity.parent.draw();							// review: queue redraws
-						} else if (entity.draw) {
-							entity.draw();									// performance issues?
-						};
+						window.setTimeout(function() {
+							if (entity.parent && entity.parent.draw) {			// review: why are these checks needed?
+								entity.parent.draw();							// review: queue redraws
+							} else if (entity.draw) {
+								entity.draw();									// performance issues?
+							};
+						}.bind(this), 1);
 						return true;
 					}
 				});

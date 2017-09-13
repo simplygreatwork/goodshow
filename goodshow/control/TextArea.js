@@ -31,9 +31,9 @@ goodshow.TextArea = goodshow.Panel.extend({
 		this.text.x = this.options.bounds.x;
 		this.text.y = this.options.bounds.y;
 		this.text.style.wordWrapWidth = this.options.bounds.width;
-		if (this.options.constrain.flex === null) {
-			delete this.options.constrain.flex;			// will continue to invalidate if I don't clear flex
-			this.options.constrain.extent = this.text.height + this.options.constrain.margin.top + this.options.constrain.margin.bottom;
+		if ((this.options.constrain.extent.kind == 'flow') && (this.options.constrain.extent.value === undefined)) {
+			// this.options.constrain.extent.kind = 'fixed';
+			this.options.constrain.extent.value = this.text.height + this.options.constrain.margin.top + this.options.constrain.margin.bottom;
 			this.parent.options.contain.invalidate();
 			this.text.style = this.text.style;
 		}

@@ -26,7 +26,7 @@ example.panels.card.Panel = goodshow.Panel.extend({
 									foreground: 'white',
 									align : 'left',
 									constrain : {
-										flex : 1,
+										extent : 'flex',
 										margin: {
 											left: 10
 										}
@@ -58,7 +58,7 @@ example.panels.card.Panel = goodshow.Panel.extend({
 						name: 'content',
 						background: 0xDDDDDD,
 						constrain : {
-							flex : 1,
+							extent : 'flex',
 							padding : {
 								top : 12,
 								bottom : 12,
@@ -71,7 +71,7 @@ example.panels.card.Panel = goodshow.Panel.extend({
 							children : [
 								new goodshow.Card({
 									constrain : {
-										flex : 1,
+										extent : 'flex',
 										margin : {
 											top : 10,
 											bottom : 10,
@@ -88,7 +88,7 @@ example.panels.card.Panel = goodshow.Panel.extend({
 												font: '1.8em Roboto',
 												foreground : '#333333',
 												constrain : {
-													flex : 1,
+													extent : 'flex',
 													margin: {
 														top: 15,
 														bottom: 15,
@@ -102,7 +102,7 @@ example.panels.card.Panel = goodshow.Panel.extend({
 								}),
 								new goodshow.Card({
 									constrain : {
-										flex : 1,
+										extent : 'flex',
 										margin : {
 											top : 10,
 											bottom : 10,
@@ -121,7 +121,7 @@ example.panels.card.Panel = goodshow.Panel.extend({
 								}),
 								new goodshow.Card({
 									constrain : {
-										flex : 1,
+										extent : 'flex',
 										margin : {
 											top : 10,
 											bottom : 10,
@@ -138,7 +138,7 @@ example.panels.card.Panel = goodshow.Panel.extend({
 												font: '1.8em Roboto',
 												foreground : '#333333',
 												constrain : {
-													flex : 1,
+													extent : 'flex',
 													margin: {
 														top: 15,
 														bottom: 15,

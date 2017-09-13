@@ -26,7 +26,7 @@ example.panels.text.Panel = goodshow.Panel.extend({
 									foreground: 'white',
 									align : 'left',
 									constrain : {
-										flex : 1,
+										extent : 'flex',
 										margin: {
 											left: 10
 										}
@@ -66,7 +66,7 @@ example.panels.text.Panel = goodshow.Panel.extend({
 									font: '1.8em Roboto',
 									foreground : '#333333',
 									constrain : {
-										flex : 1,
+										extent : 'flex',
 										margin: {
 											top: 30,
 											bottom: 30,

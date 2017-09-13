@@ -214,7 +214,10 @@ example.layer.dialog.Dialog = goodshow.Panel.extend({
 								}),
 								new goodshow.Panel({
 									constrain : {
-										flex : 4
+										extent : {
+											kind : 'flex',
+											value : 4
+										}
 									}
 								})
 							]
@@ -236,7 +239,7 @@ example.layer.message.Layer = goodshow.Panel.extend({
 			background: 0x000000,
 			alpha: 0,
 			constrain : {
-				flex : 1,
+				extent : 'flex',
 				margin: {
 					top: 0,
 					bottom: 0,

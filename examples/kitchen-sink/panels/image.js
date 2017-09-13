@@ -26,7 +26,7 @@ example.panels.image.Panel = goodshow.Panel.extend({
 									foreground: 'white',
 									align : 'left',
 									constrain : {
-										flex : 1,
+										extent : 'flex',
 										margin: {
 											left: 10
 										}
@@ -62,7 +62,7 @@ example.panels.image.Panel = goodshow.Panel.extend({
 							children: [
 								new goodshow.Image({
 									constrain : {
-										flex : 1,
+										extent : 'flex',
 										margin : {
 											top : 10,
 											bottom : 10,
@@ -74,7 +74,7 @@ example.panels.image.Panel = goodshow.Panel.extend({
 								}),
 								new goodshow.Image({
 									constrain : {
-										flex : 1,
+										extent : 'flex',
 										margin : {
 											top : 10,
 											bottom : 10,
@@ -86,7 +86,7 @@ example.panels.image.Panel = goodshow.Panel.extend({
 								}),
 								new goodshow.Image({
 									constrain : {
-										flex : 1,
+										extent : 'flex',
 										margin : {
 											top : 10,
 											bottom : 10,

@@ -26,7 +26,7 @@ example.panels.ripple.Panel = goodshow.Panel.extend({
 									foreground: 'white',
 									align : 'left',
 									constrain : {
-										flex : 1,
+										extent : 'flex',
 										margin: {
 											left: 10
 										}
@@ -63,7 +63,7 @@ example.panels.ripple.Panel = goodshow.Panel.extend({
 								new goodshow.Panel({
 									background: 0xFFFFFF,
 									constrain : {
-										flex : 1,
+										extent : 'flex',
 										margin : {
 											top : 30,
 											bottom : 30,

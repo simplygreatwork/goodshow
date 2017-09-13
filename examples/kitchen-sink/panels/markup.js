@@ -26,7 +26,7 @@ example.panels.markup.Panel = goodshow.Panel.extend({
 									foreground: 'white',
 									align : 'left',
 									constrain : {
-										flex : 1,
+										extent : 'flex',
 										margin: {
 											left: 10
 										}

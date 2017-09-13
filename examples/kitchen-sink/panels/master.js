@@ -46,7 +46,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									text: 'Main',
 									foreground: 'white',
 									constrain : {
-										flex: 1,
+										extent : 'flex',
 										margin : {
 											left : 8
 										}
@@ -121,7 +121,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 					new goodshow.List({
 						name: 'content',
 						constrain : {
-							flex : 1,
+							extent : 'flex',
 							margin : {
 								top : 10,
 								bottom : 10,

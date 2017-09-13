@@ -25,7 +25,7 @@ goodshow.Label = goodshow.entity.Graphics.extend({
 						font: options.font,
 						fill: options.foreground,
 						constrain : {
-							flex : 1
+							extent : 'flex'
 						}
 					})
 				]

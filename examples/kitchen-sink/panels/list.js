@@ -26,7 +26,7 @@ example.panels.list.Panel = goodshow.Panel.extend({
 									foreground: 'white',
 									align : 'left',
 									constrain : {
-										flex : 1,
+										extent : 'flex',
 										margin: {
 											left: 10
 										}
@@ -57,7 +57,7 @@ example.panels.list.Panel = goodshow.Panel.extend({
 					new goodshow.List({
 						name: 'content',
 						constrain : {
-							flex : 1,
+							extent : 'flex',
 							margin : {
 								top : 20,
 								bottom : 20,

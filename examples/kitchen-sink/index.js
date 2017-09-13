@@ -67,7 +67,7 @@ Structure = goodshow.Panel.extend({
 									font : '16px Roboto',
 									foreground: 'black',
 									constrain : {
-										flex : 1,
+										extent : 'flex',
 										margin : {
 											left : 0,
 											right : 0

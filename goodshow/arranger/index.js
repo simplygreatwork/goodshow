@@ -88,16 +88,19 @@ goodshow.arranger.Planar2 = Class.extend({
 				if (child.options.constrain.extent.kind == 'fixed') {
 					child.options.bounds[this.extent.major] = child.options.constrain.extent.value - (margin[this.direction.north] + margin[this.direction.south]);
 					counter = counter + child.options.constrain.extent.value;
-				} else if (child.options.constrain.extent.inherit == 'inherit') {
+				} else if (child.options.constrain.extent.kind == 'flow') {
 					child.options.bounds[this.extent.major] = child.options.constrain.extent.value - (margin[this.direction.north] + margin[this.direction.south]);
 					counter = counter + child.options.constrain.extent.value;
-				} else if (child.options.constrain.extent.inherit == 'flex') {
+				} else if (child.options.constrain.extent.kind == 'inherit') {
+					child.options.bounds[this.extent.major] = child.options.constrain.extent.value - (margin[this.direction.north] + margin[this.direction.south]);
+					counter = counter + child.options.constrain.extent.value;
+				} else if (child.options.constrain.extent.kind == 'flex') {
 					child.options.bounds[this.extent.major] = (child.options.constrain.extent.value * subweight) - (margin[this.direction.north] + margin[this.direction.south]);
 					counter = counter + margin[this.direction.north];
 					counter = counter + child.options.bounds[this.extent.major];
 					counter = counter + margin[this.direction.south];
 				} else {
-					console.warn('Constrain extent in arranger is missing "kind".');
+					console.warn('Constrain extent in arranger is missing "kind": ' + child.options.constrain.extent.kind);
 				}
 			}
 		}.bind(this));
@@ -118,7 +121,7 @@ goodshow.arranger.Planar2 = Class.extend({
 	}
 });
 
-goodshow.arranger.Horizontal = goodshow.arranger.Planar.extend({
+goodshow.arranger.Horizontal = goodshow.arranger.Planar2.extend({
 	
 	initialize: function(options) {
 		
@@ -141,7 +144,7 @@ goodshow.arranger.Horizontal = goodshow.arranger.Planar.extend({
 	}
 });
 
-goodshow.arranger.Vertical = goodshow.arranger.Planar.extend({
+goodshow.arranger.Vertical = goodshow.arranger.Planar2.extend({
 	
 	initialize: function(options) {
 		

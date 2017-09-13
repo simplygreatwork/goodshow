@@ -30,7 +30,7 @@ example.panels.button.Panel = goodshow.Panel.extend({
 												foreground: 'white',
 												align : 'left',
 												constrain : {
-													flex : 1,
+													extent : 'flex',
 													margin: {
 														left: 10
 													}
@@ -153,7 +153,7 @@ example.panels.button.Panel = goodshow.Panel.extend({
 													children : [
                                           new goodshow.Floater({
                                           	constrain : {
-                                          		flex : 1,
+                                          		extent : 'flex',
                                           		margin : {
                                           			top : 24,
                                           			bottom : 0,
