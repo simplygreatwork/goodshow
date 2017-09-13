@@ -210,3 +210,25 @@ goodshow.arranger.Polar = Class.extend({
 		
 	}
 });
+
+goodshow.Extent = Class.extend({
+	
+	initialize: function(entity, value) {
+		
+		this.entity = entity;
+		this.value = value;
+	},
+	
+	valueOf : function() {
+		
+		var extent = 0;
+		if (this.value) {
+			return this.value;
+		} else {
+			this.entity.children.forEach(function(child) {
+				
+			}.bind(this));
+			return 0;
+		}
+	}
+});
