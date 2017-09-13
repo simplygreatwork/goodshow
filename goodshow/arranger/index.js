@@ -16,60 +16,6 @@ goodshow.arranger.Planar = Class.extend({
 		var extent = entity.options.bounds[this.extent.major] - (padding[this.direction.north] + padding[this.direction.south]);
 		entity.children.forEach(function(child, index) {
 			if (child.options && child.options.constrain) {
-				if (child.options.constrain.extent !== undefined) {
-					extent = extent - child.options.constrain.extent;
-				}
-			}
-		}.bind(this));
-		var weight = this.getFullWeight(entity);
-		var subweight = extent / weight;
-		entity.children.forEach(function(child, index) {
-			if (child.options && child.options.constrain) {
-				var margin = goodshow.Utility.validate(child.options.constrain.margin);
-				child.options.bounds[this.axis.minor] = entity.options.bounds[this.axis.minor] + padding[this.direction.west] + margin[this.direction.west];
-				child.options.bounds[this.axis.major] = entity.options.bounds[this.axis.major] + counter + margin[this.direction.north];
-				child.options.bounds[this.extent.minor] = entity.options.bounds[this.extent.minor] - ((padding[this.direction.west] + padding[this.direction.east]) + (margin[this.direction.west] + margin[this.direction.east]));
-				if (child.options.constrain.extent !== undefined) {
-					child.options.bounds[this.extent.major] = child.options.constrain.extent - (margin[this.direction.north] + margin[this.direction.south]);
-					counter = counter + child.options.constrain.extent;
-				}
-				else {
-					child.options.bounds[this.extent.major] = (child.options.constrain.flex * subweight) - (margin[this.direction.north] + margin[this.direction.south]);
-					counter = counter + margin[this.direction.north];
-					counter = counter + child.options.bounds[this.extent.major];
-					counter = counter + margin[this.direction.south];
-				}
-			}
-		}.bind(this));
-	},
-	
-	getFullWeight: function(entity) {
-		
-		var result = 0;
-		entity.children.forEach(function(child, index) {
-			if (child.visible && child.options && child.options.constrain && child.options.constrain.flex) {
-				var constrain = child.options.constrain;
-				result = result + constrain.flex;
-			}
-		}.bind(this));
-		return result;
-	}
-});
-
-goodshow.arranger.Planar2 = Class.extend({
-	
-	initialize: function(options) {
-		
-		Object.assign(this, options);
-	},
-	
-	arrange: function(entity) {
-		
-		var padding = goodshow.Utility.validate(entity.options.constrain.padding);
-		var counter = padding[this.direction.north];
-		var extent = entity.options.bounds[this.extent.major] - (padding[this.direction.north] + padding[this.direction.south]);
-		entity.children.forEach(function(child, index) {
-			if (child.options && child.options.constrain) {
 				if (child.options.constrain.extent.kind == 'fixed') {
 					extent = extent - child.options.constrain.extent.value;
 				} else if (child.options.constrain.extent.kind == 'inherit') {
@@ -85,7 +31,7 @@ goodshow.arranger.Planar2 = Class.extend({
 				child.options.bounds[this.axis.minor] = entity.options.bounds[this.axis.minor] + padding[this.direction.west] + margin[this.direction.west];
 				child.options.bounds[this.axis.major] = entity.options.bounds[this.axis.major] + counter + margin[this.direction.north];
 				child.options.bounds[this.extent.minor] = entity.options.bounds[this.extent.minor] - ((padding[this.direction.west] + padding[this.direction.east]) + (margin[this.direction.west] + margin[this.direction.east]));
-				if (child.options.constrain.extent.kind == 'fixed') {
+				if (child.options.constrain.extent.kind == 'fixed') {				// change this to property lookup instead of if/else
 					child.options.bounds[this.extent.major] = child.options.constrain.extent.value - (margin[this.direction.north] + margin[this.direction.south]);
 					counter = counter + child.options.constrain.extent.value;
 				} else if (child.options.constrain.extent.kind == 'flow') {
@@ -100,7 +46,7 @@ goodshow.arranger.Planar2 = Class.extend({
 					counter = counter + child.options.bounds[this.extent.major];
 					counter = counter + margin[this.direction.south];
 				} else {
-					console.warn('Constrain extent in arranger is missing "kind": ' + child.options.constrain.extent.kind);
+					console.warn('Constrain extent in arranger is missing property "kind".');
 				}
 			}
 		}.bind(this));
@@ -121,7 +67,7 @@ goodshow.arranger.Planar2 = Class.extend({
 	}
 });
 
-goodshow.arranger.Horizontal = goodshow.arranger.Planar2.extend({
+goodshow.arranger.Horizontal = goodshow.arranger.Planar.extend({
 	
 	initialize: function(options) {
 		
@@ -144,7 +90,7 @@ goodshow.arranger.Horizontal = goodshow.arranger.Planar2.extend({
 	}
 });
 
-goodshow.arranger.Vertical = goodshow.arranger.Planar2.extend({
+goodshow.arranger.Vertical = goodshow.arranger.Planar.extend({
 	
 	initialize: function(options) {
 		

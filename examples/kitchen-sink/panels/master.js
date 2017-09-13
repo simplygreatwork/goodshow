@@ -149,11 +149,11 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									}
 								}),
 								new goodshow.ListItem({
-									text : 'Flow',
+									text : 'Arrange',
 									invoke : {
 										action : function() {
 											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
-											miller.advance(new example.panels.flow.Panel());
+											miller.advance(new example.panels.arrange.Panel());
 										}.bind(this)
 									}
 								}),

@@ -32,7 +32,6 @@ goodshow.TextArea = goodshow.Panel.extend({
 		this.text.y = this.options.bounds.y;
 		this.text.style.wordWrapWidth = this.options.bounds.width;
 		if ((this.options.constrain.extent.kind == 'flow') && (this.options.constrain.extent.value === undefined)) {
-			// this.options.constrain.extent.kind = 'fixed';
 			this.options.constrain.extent.value = this.text.height + this.options.constrain.margin.top + this.options.constrain.margin.bottom;
 			this.parent.options.contain.invalidate();
 			this.text.style = this.text.style;

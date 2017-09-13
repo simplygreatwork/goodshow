@@ -4,7 +4,11 @@ window.example.panels = {
 	master : {},
 	panel : {},
 	reveal : {},
-	flow : {},
+	arrange : {
+		text : {},
+		image : {},
+		inherit : {}
+	},
 	text : {},
 	image : {},
 	draw : {},
