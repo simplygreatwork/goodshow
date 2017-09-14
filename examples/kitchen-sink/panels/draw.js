@@ -56,7 +56,7 @@ example.panels.draw.Panel = goodshow.Panel.extend({
 					}),
 					new goodshow.Panel({
 						name: 'content',
-						background: 0xDDDDDD,
+						background: 0xFFFFFF,
 						paint : {
 							painters : [
 								new goodshow.painter.Canvas({
