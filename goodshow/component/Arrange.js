@@ -1,18 +1,17 @@
-
 goodshow.component.Arrange = goodshow.component.Component.extend({
-    
-    initialize : function(options) {
-        
+
+    initialize: function(options) {
+
         goodshow.component.Component.prototype.initialize.call(this, options);
     },
-    
-    install : function(entity) {
-        
-        
+
+    install: function(entity) {
+
+
     },
-    
-    draw : function(entity) {
-        
-        
+
+    draw: function(entity) {
+
+
     }
 });

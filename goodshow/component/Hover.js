@@ -1,11 +1,10 @@
-
 goodshow.component.Hover = goodshow.component.Component.extend({
-	
+
 	initialize: function(options) {
-		
+
 		goodshow.component.Component.prototype.initialize.call(this, options);
 	},
-	
+
 	install: function(entity) {
 
 		if (entity.options.paint === undefined) {
@@ -15,7 +14,7 @@ goodshow.component.Hover = goodshow.component.Component.extend({
 		}
 		entity.options.paint.painters.push(this.painter = new goodshow.painter.Hover({
 			color: 0x000000,
-			alpha : 0
+			alpha: 0
 		}));
 		entity.interactive = true;
 		entity.on('mouseover', function(event) {

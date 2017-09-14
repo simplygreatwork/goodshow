@@ -1,10 +1,9 @@
-
 goodshow.Miller = goodshow.Panel.extend({
-	
+
 	initialize: function(options) {
-		
+
 		goodshow.Panel.prototype.initialize.call(this, Object.assign({
-			contain : {
+			contain: {
 				arranger: new goodshow.arranger.Horizontal(),
 				children: [
 					this.primary = options.content,
@@ -15,9 +14,9 @@ goodshow.Miller = goodshow.Panel.extend({
 			}
 		}, options));
 	},
-	
+
 	advance: function(component) {
-		
+
 		this.secondary.removeChildren();
 		this.secondary.addChild(new goodshow.Miller({
 			content: component
@@ -25,19 +24,20 @@ goodshow.Miller = goodshow.Panel.extend({
 		this.secondary.draw();
 		this.advanced = true;
 	},
-	
+
 	retreat: function() {
-		
+
 		this.secondary.removeChildren();
 		this.secondary.draw();
 		this.advanced = false;
 	},
-	
+
 	toggle: function(component) {
-		
+
 		if (this.advanced) {
 			this.retreat();
-		} else {
+		}
+		else {
 			this.advance(component);
 		}
 	}

@@ -1,30 +1,29 @@
-
 goodshow.List = goodshow.Panel.extend({
-	
+
 	initialize: function(options) {
-		
+
 		goodshow.Panel.prototype.initialize.call(this, Object.assign({
 			background: 0xFFFFFF,
-			contain : {
-				arranger : new goodshow.arranger.Vertical(),
-				children : []
+			contain: {
+				arranger: new goodshow.arranger.Vertical(),
+				children: []
 			},
-			scroll : {},
-			mask : {
-				painters : [
+			scroll: {},
+			mask: {
+				painters: [
 					new goodshow.painter.Background({
-						color : 0xFFFFFF
+						color: 0xFFFFFF
 					})
 				]
 			},
-			selection : {
-				quantity : 0
+			selection: {
+				quantity: 0
 			}
 		}, options || {}));
 	},
-	
-	draw : function() {
-		
-	    goodshow.Panel.prototype.draw.call(this);
+
+	draw: function() {
+
+		goodshow.Panel.prototype.draw.call(this);
 	}
 });

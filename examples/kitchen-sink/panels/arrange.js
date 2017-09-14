@@ -388,7 +388,7 @@ example.panels.arrange.image.Panel = goodshow.Panel.extend({
 							arranger: new goodshow.arranger.Vertical(),
 							children: [
 								new goodshow.TextArea({
-									text: 'The images below will flow one after another and not overlap.',
+									text: 'The images below arrange to flow after each other without overlap.',
 									font: '1.8em Roboto',
 									foreground : '#333333',
 									constrain : {

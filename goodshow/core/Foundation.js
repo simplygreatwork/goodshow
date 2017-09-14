@@ -1,6 +1,5 @@
-
 goodshow.defaults = function(options) {
-	
+
 	goodshow.Broadcast.publish('entity-defaults', options || {});
 	return options;
 };
@@ -12,17 +11,17 @@ goodshow.enhance = function(options) {
 };
 
 goodshow.tween = {
-	
-	alpha : function(options) {
-		
+
+	alpha: function(options) {
+
 		var entity = options.entity;
 		var tweenable = new Tweenable();
 		tweenable.tween(Object.assign({
 			from: {
-				alpha : entity.alpha
+				alpha: entity.alpha
 			},
 			to: {
-				alpha : options.alpha
+				alpha: options.alpha
 			},
 			duration: 300,
 			easing: 'easeInOutCubic',
@@ -34,19 +33,19 @@ goodshow.tween = {
 			}
 		}, options || {}));
 	},
-	
-	position : function(options) {
-		
+
+	position: function(options) {
+
 		var entity = options.entity;
 		var tweenable = new Tweenable();
 		tweenable.tween(Object.assign({
 			from: {
-				x : entity.position.x,
-				y : entity.position.y
+				x: entity.position.x,
+				y: entity.position.y
 			},
 			to: {
-				x : options.position.x,
-				y : options.position.y
+				x: options.position.x,
+				y: options.position.y
 			},
 			duration: 300,
 			easing: 'easeInOutCubic',
@@ -58,19 +57,19 @@ goodshow.tween = {
 			}
 		}, options || {}));
 	},
-	
-	pivot : function(options) {
-		
+
+	pivot: function(options) {
+
 		var entity = options.entity;
 		var tweenable = new Tweenable();
 		tweenable.tween(Object.assign({
 			from: {
-				x : entity.pivot.x,
-				y : entity.pivot.y
+				x: entity.pivot.x,
+				y: entity.pivot.y
 			},
 			to: {
-				x : options.pivot.x,
-				y : options.pivot.y
+				x: options.pivot.x,
+				y: options.pivot.y
 			},
 			duration: 300,
 			easing: 'easeInOutCubic',

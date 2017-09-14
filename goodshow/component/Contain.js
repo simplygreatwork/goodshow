@@ -1,31 +1,30 @@
-
 goodshow.component.Contain = goodshow.component.Component.extend({
-    
-    initialize : function(options) {
-		
+
+	initialize: function(options) {
+
 		goodshow.component.Component.prototype.initialize.call(this, Object.assign({
-			arranger : new goodshow.arranger.Stack(),
-			children : []
+			arranger: new goodshow.arranger.Stack(),
+			children: []
 		}, options || {}));
-    },
-    
-    proxy : function(entity) {
-    	
-    	return this;
-    },
-    
-    install : function(entity) {
-		
+	},
+
+	proxy: function(entity) {
+
+		return this;
+	},
+
+	install: function(entity) {
+
 		this.entity = entity;
 		entity.removeChildren();
 		this.children = this.children || [];
 		this.children.forEach(function(child, index) {
 			entity.addChild(child);
 		}.bind(this));
-    },
-	
-    draw : function(entity) {
-		
+	},
+
+	draw: function(entity) {
+
 		if (this.arranger) {
 			this.arranger.arrange(entity);
 		}
@@ -34,24 +33,24 @@ goodshow.component.Contain = goodshow.component.Component.extend({
 				child.draw();
 			}
 		}.bind(this));
-    },
-    
-    invalidate : function() {
-		
-    	goodshow.Broadcast.publish('arranger.invalidate', {
-    		entity : this.entity
-    	});
-    },
-    
-    addChild : function(child) {			// perhaps instead of this function: use another proxy
-    	
-    	this.children.push(child);
-    	this.entity.addChild(child);
-    },
-    
-    removeChild : function(child) {			// perhaps instead of this function: use another proxy
-    	
+	},
+
+	invalidate: function() {
+
+		goodshow.Broadcast.publish('arranger.invalidate', {
+			entity: this.entity
+		});
+	},
+
+	addChild: function(child) { // perhaps instead of this function: use another proxy
+
+		this.children.push(child);
+		this.entity.addChild(child);
+	},
+
+	removeChild: function(child) { // perhaps instead of this function: use another proxy
+
 		goodshow.Utility.remove(this.children, child);
 		this.entity.removeChild(child);
-    }
+	}
 });

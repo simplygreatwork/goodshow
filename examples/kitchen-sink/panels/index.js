@@ -7,7 +7,8 @@ window.example.panels = {
 	arrange : {
 		text : {},
 		image : {},
-		inherit : {}
+		inherit : {},
+		responsive : {}
 	},
 	text : {},
 	image : {},
@@ -19,7 +20,9 @@ window.example.panels = {
 	list : {},
 	overlay : {},
 	ripple : {},
+	enhance : {},
 	responsive : {},
 	markup : {},
-	markdown : {}
+	markdown : {},
+	develop : {}
 };

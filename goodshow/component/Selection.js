@@ -1,23 +1,22 @@
-
 goodshow.component.Selection = goodshow.component.Component.extend({
-    
-    initialize : function(options) {
-        
+
+    initialize: function(options) {
+
         goodshow.component.Component.prototype.initialize.call(this, Object.assign({
-            selection : [],
-            quantity : 1,
-            foreground : 0xFFFFFF,
-            background : 0x4444FF
+            selection: [],
+            quantity: 1,
+            foreground: 0xFFFFFF,
+            background: 0x4444FF
         }, options || {}));
     },
-    
-    install : function(entity) {
-        
+
+    install: function(entity) {
+
         goodshow.component.Component.prototype.install.call(this);
         entity.options.contain.children.forEach(function(child) {
             child.options.select = new goodshow.component.Select({
-                foreground : this.foreground,
-                background : this.background,
+                foreground: this.foreground,
+                background: this.background,
             });
             child.options.select.install(child);
         }.bind(this));
@@ -31,20 +30,20 @@ goodshow.component.Selection = goodshow.component.Component.extend({
                         });
                         this.selection.splice(0, this.selection.length);
                     }
-                    options.entity.options.select.select(! options.entity.options.select.selected);
+                    options.entity.options.select.select(!options.entity.options.select.selected);
                     this.selection.push(options.entity);
                 }
             }
         }.bind(this));
     },
-    
-    draw : function(entity) {
-        
+
+    draw: function(entity) {
+
         goodshow.component.Component.prototype.draw.call(this);
     },
-    
-    clear : function() {
-        
-        
+
+    clear: function() {
+
+
     }
 });

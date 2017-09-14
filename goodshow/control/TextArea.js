@@ -1,8 +1,7 @@
-
 goodshow.TextArea = goodshow.Panel.extend({
-	
+
 	initialize: function(options) {
-		
+
 		options = Object.assign({
 			text: '',
 			background: 0xFFFFFF,
@@ -11,22 +10,22 @@ goodshow.TextArea = goodshow.Panel.extend({
 			fill: 'black',
 		}, options || {});
 		goodshow.Panel.prototype.initialize.call(this, Object.assign({
-			contain : {
-				arranger : new goodshow.arranger.Stack(),
-				children : [
+			contain: {
+				arranger: new goodshow.arranger.Stack(),
+				children: [
 					this.text = new PIXI.Text(options.text, {
 						font: options.font,
 						fill: options.foreground,
-						wordWrap : true
+						wordWrap: true
 					}, 2)
 				]
 			},
-			mask : {}
+			mask: {}
 		}, options || {}));
 	},
-	
+
 	draw: function() {
-		
+
 		goodshow.Panel.prototype.draw.call(this);
 		this.text.x = this.options.bounds.x;
 		this.text.y = this.options.bounds.y;

@@ -1,6 +1,6 @@
 
-example.panels.paint.Panel = goodshow.Panel.extend({
-    
+example.panels.enhance.Panel = goodshow.Panel.extend({
+   
 	initialize: function(options) {
 		
 		goodshow.Panel.prototype.initialize.call(this, Object.assign({
@@ -22,7 +22,7 @@ example.panels.paint.Panel = goodshow.Panel.extend({
 							children: [
 								new goodshow.Label({
 									name: 'header-text',
-									text: 'Paint',
+									text: 'Enhance',
 									foreground: 'white',
 									align : 'left',
 									constrain : {
@@ -61,7 +61,7 @@ example.panels.paint.Panel = goodshow.Panel.extend({
 							arranger: new goodshow.arranger.Vertical(),
 							children: [
 								new goodshow.TextArea({
-									text: 'Painters allow for composite drawing on a single entity. Paint backgrounds, borders, avatars, dividers, hovers, ripple effects, and more.',
+									text: 'Illustrate how to decorate any entity using an external enhancer based on traits. This technique can be used for defaults or for overrides.',
 									font: '1.8em Roboto',
 									foreground : '#333333',
 									constrain : {

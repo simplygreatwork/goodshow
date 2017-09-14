@@ -1,8 +1,7 @@
-
 goodshow.Text = goodshow.Component.extend({
-	
+
 	initialize: function(options) {
-		
+
 		goodshow.Component.prototype.initialize.call(this);
 		Object.assign(this.options, {
 			text: '',
@@ -18,9 +17,9 @@ goodshow.Text = goodshow.Component.extend({
 		}, 2);
 		this.addChild(this.text);
 	},
-	
+
 	draw: function() {
-		
+
 		goodshow.Broadcast.publish('component-will-draw', {
 			component: this
 		});
@@ -29,8 +28,8 @@ goodshow.Text = goodshow.Component.extend({
 		this.drawRectangle(rectangle);
 		this.text.x = this.getLocalBounds().x;
 		this.text.y = this.getLocalBounds().y;
-	   	this.text.pivot.x = this.text.width / 2;
-	   	this.text.pivot.y = this.text.height / 2;
+		this.text.pivot.x = this.text.width / 2;
+		this.text.pivot.y = this.text.height / 2;
 		goodshow.Utility.middle(this.text);
 	}
 });

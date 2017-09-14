@@ -1,28 +1,27 @@
-
 goodshow.component.Component = Class.extend({
-    
-    initialize : function(options) {
-        
+
+    initialize: function(options) {
+
         Object.assign(this, options);
     },
-    
-    proxy : function(entity) {
-        
+
+    proxy: function(entity) {
+
         return entity.proxy(this, entity);
     },
-    
-    install : function(entity) {
-        
-        
+
+    install: function(entity) {
+
+
     },
 
-    uninstall : function(entity) {
-        
-        
+    uninstall: function(entity) {
+
+
     },
-    
-    draw : function(entity) {
-        
-        
+
+    draw: function(entity) {
+
+
     }
 });

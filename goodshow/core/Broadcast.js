@@ -1,8 +1,7 @@
-
 goodshow.Broadcast = {
-	
+
 	channels: {},
-	
+
 	subscribe: function(key, handler) {
 
 		var channels = goodshow.Broadcast.channels;
@@ -10,15 +9,15 @@ goodshow.Broadcast = {
 			channels[key] = [];
 		}
 		channels[key].push(handler);
-		
+
 		return {
 			channel: channels[key],
 			handler: handler
 		};
 	},
-	
+
 	unsubscribe: function(handlers) {
-		
+
 		var channels = goodshow.Broadcast.channels;
 		var handler = handlers[0];
 		var subscribes = channels[handler];

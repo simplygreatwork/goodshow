@@ -1,4 +1,23 @@
 
+actually, the reveal component might be related to the invoke component
+
+work on change padding for Chnage display
+
+inertia (easeoutsine)
+scrollbars (boundedness/bound component)
+
+switch some grey backgrounds to white
+
+implement shadow painter to simplify card layout extent inherit
+
+be able to pass parameters (color, alpha) into hover
+
+switch to PIXI v4
+
+work on a writeup for PIXI github
+
+use pivot animation for revealer, revealing miller panels and expandable content/menus
+
 get padding working with text area
 
 get flow and inherit extents working horizontally

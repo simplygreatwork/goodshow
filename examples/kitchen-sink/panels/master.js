@@ -273,6 +273,24 @@ example.panels.master.Panel = goodshow.Panel.extend({
 											miller.advance(new example.panels.markdown.Panel());
 										}.bind(this)
 									}
+								}),
+								new goodshow.ListItem({
+									text : 'Enhance',
+									invoke : {
+										action : function() {
+											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
+											miller.advance(new example.panels.enhance.Panel());
+										}.bind(this)
+									}
+								}),
+								new goodshow.ListItem({
+									text : 'Develop',
+									invoke : {
+										action : function() {
+											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
+											miller.advance(new example.panels.develop.Panel());
+										}.bind(this)
+									}
 								})
 							]
 						},

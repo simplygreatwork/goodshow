@@ -1,13 +1,12 @@
-
-var components = [				// the ordering of these is so very important
-	'bound',							// pertaining to masking, hover, select, etc: study
+var components = [ // the ordering of these is so very important
+	'bound', // pertaining to masking, hover, select, etc: study
 	'invoke',
 	'contain',
 	'paint',
 	'mask',
 	'constrain',
 	'hover',
-	'selection',					// ordering: mask issue with select, selection
+	'selection', // ordering: mask issue with select, selection
 	'select',
 	'scroll',
 	'ripple',
@@ -17,15 +16,15 @@ var components = [				// the ordering of these is so very important
 ];
 
 goodshow.entity.Graphics = Class.extend({
-	
+
 	initialize: function(options) {
-		
+
 		PIXI.Graphics.call(this);
 		this.options = Object.assign({
 			bounds: new PIXI.Rectangle(0, 0, 0, 0),
-			alpha : 1,
-			contain : {},
-			constrain : {}
+			alpha: 1,
+			contain: {},
+			constrain: {}
 		}, options || {});
 		this.resolve();
 		this.options = this.proxy(this.options, this);
@@ -37,11 +36,11 @@ goodshow.entity.Graphics = Class.extend({
 			this.removeChildren();
 		});
 	},
-	
-	resolve : function() {
-		
+
+	resolve: function() {
+
 		Object.keys(this.options).forEach(function(key) {
-			if (this.options[key] !== null) {							// if an options has been reset to null, ignore
+			if (this.options[key] !== null) { // if an options has been reset to null, ignore
 				if (components.indexOf(key) > -1) {
 					var clazz = key.charAt(0).toUpperCase() + key.slice(1);
 					var component = new goodshow.component[clazz](this.options[key]);
@@ -50,52 +49,61 @@ goodshow.entity.Graphics = Class.extend({
 			}
 		}.bind(this));
 	},
-	
-	proxy : function(object, entity) {
-		
+
+	proxy: function(object, entity) {
+
 		if (false) {
 			return object;
-		} else {
+		}
+		else {
 			if (window.Proxy) {
 				return new Proxy(object, {
 					set: function(target, name, value) {
-						target[name] = value;								// todo: redraw only if the value changes
+						target[name] = value; // todo: redraw only if the value changes
 						window.setTimeout(function() {
-							if (entity.parent && entity.parent.draw) {			// review: why are these checks needed?
-								entity.parent.draw();							// review: queue redraws
-							} else if (entity.draw) {
-								entity.draw();									// performance issues?
+							if (entity.parent && entity.parent.draw) { // review: why are these checks needed?
+								entity.parent.draw(); // review: queue redraws
+							}
+							else if (entity.draw) {
+								entity.draw(); // performance issues?
 							};
 						}.bind(this), 1);
 						return true;
 					}
 				});
-			} else {
+			}
+			else {
 				return object;
 			}
 		}
 	},
-	
-	install : function() {
-		
+
+	install: function() {
+
 		components.forEach(function(component) {
 			if (this.options[component]) this.options[component].install(this);
 		}.bind(this));
 	},
-	
-   uninstall : function(entity) {
-		
+
+	uninstall: function(entity) {
+
 		components.forEach(function(component) {
 			if (this.options[component]) this.options[component].uninstall(this);
 		}.bind(this));
-   },
-	
+	},
+
 	draw: function() {
-		
+
 		this.clear();
 		components.forEach(function(component) {
 			if (this.options[component]) this.options[component].draw(this);
 		}.bind(this));
+		if ((this.options.constrain.extent.kind == 'inherit') && (this.options.constrain.extent.value === undefined)) {
+			if (this.options.constrain.extent.inherited) {
+				this.options.constrain.extent.value = this.options.constrain.extent.inherited;
+				this.parent.options.contain.invalidate();
+			}
+		}
 	}
-	
+
 }, PIXI.Graphics);

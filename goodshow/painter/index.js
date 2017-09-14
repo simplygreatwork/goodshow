@@ -1,38 +1,38 @@
-
 window.goodshow = window.goodshow || {};
 goodshow.painter = goodshow.painter || {};
 
 goodshow.painter.Root = Class.extend({
-	
+
 	initialize: function(options) {
-		
+
 		Object.assign(this, options);
 	},
-	
-	paint : function(entity) {},
-	
+
+	paint: function(entity) {},
+
 	drawRectangle: function(graphics, rectangle, corner) {
-		
+
 		if (corner) {
 			graphics.drawRoundedRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height, corner);
-		} else {
+		}
+		else {
 			graphics.drawRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
 		}
 	}
 });
 
 goodshow.painter.Background = goodshow.painter.Root.extend({
-	
+
 	initialize: function(options) {
-		
+
 		goodshow.painter.Root.prototype.initialize.call(this, Object.assign({
-			color : 0xFFFFFF,
-			alpha : 1
+			color: 0xFFFFFF,
+			alpha: 1
 		}, options || {}));
 	},
-	
-	paint : function(entity) {
-		
+
+	paint: function(entity) {
+
 		var color = entity.options.background;
 		var alpha = entity.options.alpha;
 		entity.beginFill(color, alpha);
@@ -41,17 +41,17 @@ goodshow.painter.Background = goodshow.painter.Root.extend({
 });
 
 goodshow.painter.Hover = goodshow.painter.Root.extend({
-	
+
 	initialize: function(options) {
-		
+
 		goodshow.painter.Root.prototype.initialize.call(this, Object.assign({
-			color : 0xFFFFFF,
-			alpha : 1
+			color: 0xFFFFFF,
+			alpha: 1
 		}, options || {}));
 	},
-	
-	paint : function(entity) {
-		
+
+	paint: function(entity) {
+
 		var color = this.color;
 		var alpha = this.alpha;
 		entity.beginFill(color, alpha);
@@ -59,18 +59,18 @@ goodshow.painter.Hover = goodshow.painter.Root.extend({
 	}
 });
 
-goodshow.painter.Select = goodshow.painter.Root.extend({						// dead code
-	
+goodshow.painter.Select = goodshow.painter.Root.extend({ // dead code
+
 	initialize: function(options) {
-		
+
 		goodshow.painter.Root.prototype.initialize.call(this, Object.assign({
-			color : 0x6666FF,
-			alpha : 1
+			color: 0x6666FF,
+			alpha: 1
 		}, options || {}));
 	},
-	
-	paint : function(entity) {
-		
+
+	paint: function(entity) {
+
 		if (entity.options.selected) {
 			entity.beginFill(this.color, this.alpha);
 			this.drawRectangle(entity, entity.options.bounds);
@@ -79,17 +79,17 @@ goodshow.painter.Select = goodshow.painter.Root.extend({						// dead code
 });
 
 goodshow.painter.Circular = goodshow.painter.Root.extend({
-	
+
 	initialize: function(options) {
-		
+
 		goodshow.painter.Root.prototype.initialize.call(this, Object.assign({
-			color : 0xDDDDDD,
-			alpha : 1
+			color: 0xDDDDDD,
+			alpha: 1
 		}, options || {}));
 	},
-	
-	paint : function(graphics) {
-		
+
+	paint: function(graphics) {
+
 		graphics.beginFill(this.color);
 		var bounds = graphics.options.bounds;
 		graphics.drawCircle(bounds.x + (bounds.width / 2), bounds.y + (bounds.height / 2), bounds.width / 2);
@@ -99,16 +99,16 @@ goodshow.painter.Circular = goodshow.painter.Root.extend({
 goodshow.painter.Avatar = goodshow.painter.Circular;
 
 goodshow.painter.Divider = goodshow.painter.Root.extend({
-	
+
 	initialize: function(options) {
-		
+
 		goodshow.painter.Root.prototype.initialize.call(this, Object.assign({
-			color : 0xE7E7E7
+			color: 0xE7E7E7
 		}, options || {}));
 	},
-	
-	paint : function(graphics) {
-		
+
+	paint: function(graphics) {
+
 		graphics.beginFill(this.color);
 		var bounds = graphics.options.bounds;
 		graphics.drawRect(bounds.x, bounds.y, bounds.width, 0.75);
@@ -116,16 +116,16 @@ goodshow.painter.Divider = goodshow.painter.Root.extend({
 });
 
 goodshow.painter.Ripple = goodshow.painter.Root.extend({
-	
+
 	initialize: function(options) {
-		
-        this.options = Object.assign({
-        	color : 0x999999
-        }, options || {});
+
+		this.options = Object.assign({
+			color: 0x999999
+		}, options || {});
 	},
-	
-	paint : function(entity) {
-		
+
+	paint: function(entity) {
+
 		var now = new Date().getTime();
 		if (entity.options.ripple && entity.options.ripple.events) {
 			var events = entity.options.ripple.events;
@@ -145,35 +145,35 @@ goodshow.painter.Ripple = goodshow.painter.Root.extend({
 });
 
 goodshow.painter.Shadow = goodshow.painter.Root.extend({
-	
+
 	initialize: function(options) {
-		
-        this.options = options;
+
+		this.options = options;
 	},
-	
-	paint : function(entity) {
-		
-		
+
+	paint: function(entity) {
+
+
 	}
 });
 
 goodshow.painter.Canvas = goodshow.painter.Root.extend({
-	
+
 	initialize: function(options) {
-		
-        this.options = options;
+
+		this.options = options;
 	},
-	
-	paint : function(entity) {
-		
+
+	paint: function(entity) {
+
 		this.options.draw(entity);
 	}
 });
 
 goodshow.painter.Pen = Class.extend({
-	
+
 	initialize: function(options) {
-		
+
 		PIXI.Container.call(this);
 		Object.assign(this, options || {});
 		this.disconnect();
@@ -187,11 +187,11 @@ goodshow.painter.Pen = Class.extend({
 		this.strokeWidth = 1;
 		this.fillStyle = '';
 	},
-	
+
 	begin: function() {
 		return this;
 	},
-    
+
 	end: function() {
 		return this;
 	},
@@ -214,7 +214,8 @@ goodshow.painter.Pen = Class.extend({
 		this.point.y = y;
 		if (this.connected == false) {
 			this.graphics.moveTo(x, y);
-		} else {
+		}
+		else {
 			this.graphics.lineTo(x, y);
 		}
 		return this;
@@ -236,7 +237,8 @@ goodshow.painter.Pen = Class.extend({
 		this.point.y = this.point.y + (distance * Math.sin(radians));
 		if (this.connected) {
 			this.graphics.lineTo(this.point.x, this.point.y);
-		} else {
+		}
+		else {
 			this.graphics.moveTo(this.point.x, this.point.y);
 		}
 		return this;
@@ -261,7 +263,7 @@ goodshow.painter.Pen = Class.extend({
 	left: function(distance) {
 		return this.goto(this.point.x - distance, this.point.y);
 	},
-	
+
 	right: function(distance) {
 		return this.goto(this.point.x + distance, this.point.y);
 	},
@@ -282,7 +284,8 @@ goodshow.painter.Pen = Class.extend({
 		this.point.y = this.origin.y + distance * Math.sin(radians);
 		if (this.connected) {
 			this.graphics.lineTo(this.point.x, this.point.y);
-		} else {
+		}
+		else {
 			this.graphics.moveTo(this.point.x, this.point.y);
 		}
 		return this;
@@ -302,7 +305,8 @@ goodshow.painter.Pen = Class.extend({
 
 		if (radius === undefined) {
 			return this.turnNow(degrees);
-		} else {
+		}
+		else {
 			return this.turnRounded(degrees, radius);
 		}
 	},
@@ -394,15 +398,15 @@ goodshow.painter.Pen = Class.extend({
 		this.strokeStyle = strokeStyle;
 		return this;
 	},
-	
+
 	text: function(string) {
-		
+
 		this.canvas.fillText(string, this.point.x, this.point.y);
 		return this;
 	},
-	
+
 	font: function(string) {
-		
+
 		this.canvas.font = string;
 		return this;
 	}
@@ -410,7 +414,7 @@ goodshow.painter.Pen = Class.extend({
 });
 
 goodshow.painter.PenUtility = {
-	
+
 	translate: function(point, angle, distance) {
 
 		var result = {};
@@ -419,13 +423,13 @@ goodshow.painter.PenUtility = {
 		result.y = point.y + (distance * Math.sin(radians));
 		return result;
 	},
-	
+
 	toRadians: function(degrees) {
 		return degrees * (Math.PI / 180.0);
 	},
-	
+
 	shiftAngle: function(angle, change) {
-		
+
 		return angle + change % 360;
 	}
 };
