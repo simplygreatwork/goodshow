@@ -36,7 +36,8 @@ example.panels.reveal.Panel = goodshow.Panel.extend({
 									name: 'header-menu',
 									text: '\uE5d4',
 									foreground: 'white',
-									font: '24px Material Icons',
+									fontFamily: 'Material Icons',
+									fontSize: '24px',
 									constrain : {
 										extent: 64
 									},
@@ -61,11 +62,12 @@ example.panels.reveal.Panel = goodshow.Panel.extend({
 							arranger: new goodshow.arranger.Vertical(),
 							children: [
 								new goodshow.TextArea({
-									text: 'Miller panels reveal inline panels, buttons reveal dialogs, buttons reveal inline expandable content and menus, tabs reveal inline content regions. Reveal is a component like painters and arrangers.',
-									font: '1.8em Roboto',
+									text: 'The concept is that miller panels reveal inline panels, buttons reveal dialogs, buttons reveal inline expandable content and menus, tabs reveal inline content regions. Reveal is a component like painters and arrangers.',
+									fontFamily: 'Roboto',
+									fontSize: '2.0em',
 									foreground : '#333333',
 									constrain : {
-										extent : 'flex',
+										extent : 'flow',
 										margin: {
 											top: 30,
 											bottom: 30,

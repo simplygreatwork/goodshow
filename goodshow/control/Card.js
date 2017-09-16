@@ -1,7 +1,8 @@
+
 goodshow.Card = goodshow.Panel.extend({
 
 	initialize: function(options) {
-
+		
 		options = options || {};
 		goodshow.Panel.prototype.initialize.call(this, {
 			constrain: options.constrain || {},

@@ -30,7 +30,7 @@ goodshow.component.Scroll = goodshow.component.Component.extend({
       }.bind(this), false);
       document.addEventListener('mouseup', function(event) {
          if (entity.options.bounds.contains(event.x, event.y)) {
-            console.log('mouseup');
+            if (false) console.log('mouseup');
             // https://www.npmjs.com/package/wheel-inertia
          }
       }.bind(this), false);

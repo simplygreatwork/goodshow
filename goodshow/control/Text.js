@@ -7,12 +7,14 @@ goodshow.Text = goodshow.Component.extend({
 			text: '',
 			background: 0xFFFFFF,
 			foreground: 'black',
-			font: '20px Roboto',
+			fontFamily: 'Roboto',
+			fontSize: '20px',
 			fill: 'black',
 		});
 		Object.assign(this.options, options);
 		this.text = new PIXI.Text(this.options.text, {
-			font: this.options.font,
+			fontFamily: this.options.fontFamily,
+			fontSize: this.options.fontSize,
 			fill: this.options.foreground,
 		}, 2);
 		this.addChild(this.text);

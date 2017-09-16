@@ -10,6 +10,7 @@ var components = [ // the ordering of these is so very important
 	'select',
 	'scroll',
 	'ripple',
+	'drag',
 	'filter',
 	'transform',
 	'markup',
@@ -51,7 +52,7 @@ goodshow.entity.Graphics = Class.extend({
 	},
 
 	proxy: function(object, entity) {
-
+		
 		if (false) {
 			return object;
 		}
@@ -59,7 +60,12 @@ goodshow.entity.Graphics = Class.extend({
 			if (window.Proxy) {
 				return new Proxy(object, {
 					set: function(target, name, value) {
-						target[name] = value; // todo: redraw only if the value changes
+						target[name] = value;			// todo: redraw only if the value changes
+						if (name == 'padding') {		// this belongs elsewhere, e.g. "option.changed"
+							if ((target.extent) && (target.extent.kind == 'flow')) {
+								delete target.extent.value;
+							}
+						}
 						window.setTimeout(function() {
 							if (entity.parent && entity.parent.draw) { // review: why are these checks needed?
 								entity.parent.draw(); // review: queue redraws

@@ -4,6 +4,7 @@
   "description": "GoodShow - a hackable entity-component UI system for WebGL.",
   "main": "index.html",
   "dependencies": {
+    "pixi-filters": "^2.0.2",
     "shifty": "^2.1.1"
   },
   "devDependencies": {},

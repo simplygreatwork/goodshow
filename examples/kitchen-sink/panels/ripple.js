@@ -36,7 +36,8 @@ example.panels.ripple.Panel = goodshow.Panel.extend({
 									name: 'header-menu',
 									text: '\uE5d4',
 									foreground: 'white',
-									font: '24px Material Icons',
+									fontFamily: 'Material Icons',
+									fontSize: '24px',
 									constrain : {
 										extent: 64
 									},
@@ -81,7 +82,7 @@ example.panels.ripple.Panel = goodshow.Panel.extend({
 						name: 'footer',
 						background: 0x3368d4,
 						constrain : {
-							extent: 64,
+							extent: 64
 						}
 					})
 				]

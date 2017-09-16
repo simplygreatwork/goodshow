@@ -36,7 +36,8 @@ example.panels.arrange.Panel = goodshow.Panel.extend({
 									name: 'header-menu',
 									text: '\uE5d4',
 									foreground: 'white',
-									font: '24px Material Icons',
+									fontFamily: 'Material Icons',
+									fontSize: '24px',
 									constrain : {
 										extent: 64
 									},
@@ -151,7 +152,8 @@ example.panels.arrange.text.Panel = goodshow.Panel.extend({
 									name: 'header-menu',
 									text: '\uE5d4',
 									foreground: 'white',
-									font: '24px Material Icons',
+									fontFamily: 'Material Icons',
+									fontSize: '24px',
 									constrain : {
 										extent: 64
 									},
@@ -185,7 +187,8 @@ example.panels.arrange.text.Panel = goodshow.Panel.extend({
 							children: [
 								new goodshow.TextArea({
 									text: 'Content which stacks vertically will reposition and expand their containers.',
-									font: '1.8em Roboto',
+									fontFamily: 'Roboto',
+									fontSize: '1.8em',
 									foreground : '#333333',
 									background : 0xFFEEEE,
 									constrain : {
@@ -198,7 +201,8 @@ example.panels.arrange.text.Panel = goodshow.Panel.extend({
 								}),
 								new goodshow.TextArea({
 									text: window.lorem,
-									font: '1.8em Roboto',
+									fontFamily: 'Roboto',
+									fontSize: '1.8em',
 									foreground : '#333333',
 									background : 0xEEFFEE,
 									constrain : {
@@ -211,7 +215,8 @@ example.panels.arrange.text.Panel = goodshow.Panel.extend({
 								}),
 								new goodshow.TextArea({
 									text: 'Need to use two nested vertical arrangers to fully test this.',
-									font: '1.8em Roboto',
+									fontFamily: 'Roboto',
+									fontSize: '1.8em',
 									foreground : '#333333',
 									background : 0xEEEEFF,
 									constrain : {
@@ -224,7 +229,8 @@ example.panels.arrange.text.Panel = goodshow.Panel.extend({
 								}),
 								new goodshow.TextArea({
 									text: 'Content which stacks vertically will reposition and expand their containers.',
-									font: '1.8em Roboto',
+									fontFamily: 'Roboto',
+									fontSize: '1.8em',
 									foreground : '#333333',
 									background : 0xFFEEEE,
 									constrain : {
@@ -237,7 +243,8 @@ example.panels.arrange.text.Panel = goodshow.Panel.extend({
 								}),
 								new goodshow.TextArea({
 									text: window.lorem,
-									font: '1.8em Roboto',
+									fontFamily: 'Roboto',
+									fontSize: '1.8em',
 									foreground : '#333333',
 									background : 0xEEFFEE,
 									constrain : {
@@ -250,7 +257,8 @@ example.panels.arrange.text.Panel = goodshow.Panel.extend({
 								}),
 								new goodshow.TextArea({
 									text: 'Need to use two nested vertical arrangers to fully test this.',
-									font: '1.8em Roboto',
+									fontFamily: 'Roboto',
+									fontSize: '1.8em',
 									foreground : '#333333',
 									background : 0xEEEEFF,
 									constrain : {
@@ -263,7 +271,8 @@ example.panels.arrange.text.Panel = goodshow.Panel.extend({
 								}),
 								new goodshow.TextArea({
 									text: 'Content which stacks vertically will reposition and expand their containers.',
-									font: '1.8em Roboto',
+									fontFamily: 'Roboto',
+									fontSize: '1.8em',
 									foreground : '#333333',
 									background : 0xFFEEEE,
 									constrain : {
@@ -276,7 +285,8 @@ example.panels.arrange.text.Panel = goodshow.Panel.extend({
 								}),
 								new goodshow.TextArea({
 									text: window.lorem,
-									font: '1.8em Roboto',
+									fontFamily: 'Roboto',
+									fontSize: '1.8em',
 									foreground : '#333333',
 									background : 0xEEFFEE,
 									constrain : {
@@ -289,7 +299,8 @@ example.panels.arrange.text.Panel = goodshow.Panel.extend({
 								}),
 								new goodshow.TextArea({
 									text: 'Need to use two nested vertical arrangers to fully test this.',
-									font: '1.8em Roboto',
+									fontFamily: 'Roboto',
+									fontSize: '1.8em',
 									foreground : '#333333',
 									background : 0xEEEEFF,
 									constrain : {
@@ -355,7 +366,8 @@ example.panels.arrange.image.Panel = goodshow.Panel.extend({
 									name: 'header-menu',
 									text: '\uE5d4',
 									foreground: 'white',
-									font: '24px Material Icons',
+									fontFamily: 'Material Icons',
+									fontSize: '24px',
 									constrain : {
 										extent: 64
 									},
@@ -389,7 +401,8 @@ example.panels.arrange.image.Panel = goodshow.Panel.extend({
 							children: [
 								new goodshow.TextArea({
 									text: 'The images below arrange to flow after each other without overlap.',
-									font: '1.8em Roboto',
+									fontFamily: 'Roboto',
+									fontSize: '1.8em',
 									foreground : '#333333',
 									constrain : {
 										extent : 'flow',
@@ -504,7 +517,8 @@ example.panels.arrange.inherit.Panel = goodshow.Panel.extend({
 									name: 'header-menu',
 									text: '\uE5d4',
 									foreground: 'white',
-									font: '24px Material Icons',
+									fontFamily: 'Material Icons',
+									fontSize: '24px',
 									constrain : {
 										extent: 64
 									},
@@ -538,7 +552,8 @@ example.panels.arrange.inherit.Panel = goodshow.Panel.extend({
 							children: [
 								new goodshow.TextArea({
 									text: 'This panel will illustrate layout extent (width/height) of a container (panel) inheriting from its children.',
-									font: '1.8em Roboto',
+									fontFamily: 'Roboto',
+									fontSize: '1.8em',
 									foreground : '#333333',
 									constrain : {
 										extent : 'flow',
@@ -550,7 +565,8 @@ example.panels.arrange.inherit.Panel = goodshow.Panel.extend({
 								}),
 								new goodshow.TextArea({
 									text: 'HEADER',
-									font: '1.8em Roboto',
+									fontFamily: 'Roboto',
+									fontSize: '1.8em',
 									foreground : '#333333',
 									constrain : {
 										extent : 'flow',
@@ -561,7 +577,7 @@ example.panels.arrange.inherit.Panel = goodshow.Panel.extend({
 									}
 								}),
 								new goodshow.Panel({
-									background : 0xFFEEEE,
+									background : 0xFF7777,
 									constrain : {
 										extent : 'inherit',
 										padding : {
@@ -580,7 +596,8 @@ example.panels.arrange.inherit.Panel = goodshow.Panel.extend({
 										children : [
 											new goodshow.TextArea({
 												text: 'SUBHEADER',
-												font: '1.8em Roboto',
+												fontFamily: 'Roboto',
+												fontSize: '1.8em',
 												foreground : '#333333',
 												constrain : {
 													extent : 'flow',
@@ -592,7 +609,8 @@ example.panels.arrange.inherit.Panel = goodshow.Panel.extend({
 											}),
 											new goodshow.TextArea({
 												text: 'CONTENT',
-												font: '1.8em Roboto',
+												fontFamily: 'Roboto',
+												fontSize: '1.8em',
 												foreground : '#333333',
 												constrain : {
 													extent : 'flow',
@@ -604,7 +622,8 @@ example.panels.arrange.inherit.Panel = goodshow.Panel.extend({
 											}),
 											new goodshow.TextArea({
 												text: 'SUBFOOTER',
-												font: '1.8em Roboto',
+												fontFamily: 'Roboto',
+												fontSize: '1.8em',
 												foreground : '#333333',
 												constrain : {
 													extent : 'flow',
@@ -619,7 +638,8 @@ example.panels.arrange.inherit.Panel = goodshow.Panel.extend({
 								}),
 								new goodshow.TextArea({
 									text: 'FOOTER',
-									font: '1.8em Roboto',
+									fontFamily: 'Roboto',
+									fontSize: '1.8em',
 									foreground : '#333333',
 									constrain : {
 										extent : 'flow',

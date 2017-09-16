@@ -1,3 +1,4 @@
+
 goodshow.ListItem = goodshow.Panel.extend({
 
 	initialize: function(options) {
@@ -23,7 +24,8 @@ goodshow.ListItem = goodshow.Panel.extend({
 						name: 'list-item-avatar',
 						text: '\uE838',
 						foreground: 'white',
-						font: '30px Material Icons',
+						fontFamily: 'Material Icons',
+						fontSize: '30px',
 						pivot: {
 							x: -1,
 							y: -4
@@ -49,8 +51,8 @@ goodshow.ListItem = goodshow.Panel.extend({
 							extent: 'flex',
 							margin: {
 								left: 10
-							},
-						},
+							}
+						}
 					})
 				]
 			},

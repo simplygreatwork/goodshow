@@ -163,9 +163,10 @@ goodshow.painter.Canvas = goodshow.painter.Root.extend({
 
 		this.options = options;
 	},
-
+	
 	paint: function(entity) {
-
+		
+		if (false) console.log('Canvas.paint');
 		this.options.draw(entity);
 	}
 });
@@ -173,8 +174,7 @@ goodshow.painter.Canvas = goodshow.painter.Root.extend({
 goodshow.painter.Pen = Class.extend({
 
 	initialize: function(options) {
-
-		PIXI.Container.call(this);
+		
 		Object.assign(this, options || {});
 		this.disconnect();
 		this.angle = -90;

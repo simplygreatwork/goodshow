@@ -27,12 +27,19 @@ example.Enhancer = Class.extend({
 			'basic-button' : {
 				foreground : 0xFFFFFF,
 				background : 0x3368d4,
-				font : '16px Roboto',
+				fontFamily: 'Roboto',
+				fontSize: '16px',
 				constrain : {
-					extent: 64,
+					extent: 'flow',
 					margin : {
 						top : 3,
 						bottom : 3
+					},
+					padding : {
+						top : 20,
+						bottom : 20,
+						left : 20,
+						right : 20
 					}
 				}
 			}

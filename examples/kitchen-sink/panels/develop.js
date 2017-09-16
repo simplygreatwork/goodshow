@@ -36,7 +36,8 @@ example.panels.develop.Panel = goodshow.Panel.extend({
 									name: 'header-menu',
 									text: '\uE5d4',
 									foreground: 'white',
-									font: '24px Material Icons',
+									fontFamily: 'Material Icons',
+									fontSize: '24px',
 									constrain : {
 										extent: 64
 									},
@@ -62,7 +63,8 @@ example.panels.develop.Panel = goodshow.Panel.extend({
 							children: [
 								new goodshow.TextArea({
 									text: 'New features currently being developed and tested reside here as to not clutter up the main list.',
-									font: '1.8em Roboto',
+									fontFamily: 'Roboto',
+									fontSize: '1.8em',
 									foreground : '#333333',
 									constrain : {
 										extent : 'flex',

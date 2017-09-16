@@ -343,14 +343,16 @@ example.layer.message.Panel = goodshow.Panel.extend({
 				children: [
 					new goodshow.Label({
 						text : options.text,
-						font : '16px Roboto',
+						fontFamily: 'Roboto',
+						fontSize: '16px',
 						foreground: 'white',
 						align : 'left'
 					}),
 					new goodshow.Panel(),
 					new goodshow.Label({
 						text : 'CLOSE',
-						font : '16px Roboto',
+						fontFamily: 'Roboto',
+						fontSize: '16px',
 						foreground: 'yellow',
 						align : 'right'
 					})

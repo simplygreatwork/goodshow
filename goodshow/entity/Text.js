@@ -1,13 +1,15 @@
 goodshow.entity.Text = Class.extend({
 
 	initialize: function(options) {
-
+		
+		delete options.font;
 		this.options = Object.assign({
 			bounds: new PIXI.Rectangle(0, 0, 0, 0),
 			text: '',
 			background: 0xFFFFFF,
 			foreground: 'black',
-			font: '20px Roboto',
+			fontFamily: 'Roboto',
+			fontSize: '20px',
 			fill: 'black',
 			constrain: {}
 		}, goodshow.enhance(options) || {});

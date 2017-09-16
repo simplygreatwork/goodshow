@@ -8,9 +8,9 @@ goodshow.component.Constrain = goodshow.component.Component.extend({
             padding: {}
         }, options || {}));
     },
-
+    
     install: function(entity) {
-
+        
         if (this.extent !== undefined) {
             if (typeof this.extent === 'number') {
                 this.extent = {
@@ -40,7 +40,19 @@ goodshow.component.Constrain = goodshow.component.Component.extend({
         if (false) this.extent = new goodshow.Extent(entity, this.extent);
         goodshow.component.Component.prototype.install.call(this, entity);
     },
-
+    
+    proxy : function(entity) {
+        
+        if ((entity) && (entity.options) && (entity.options.constrain) && (entity.options.constrain.extent)) {
+            var extent = entity.options.constrain.extent;
+            if (extent.kind == 'flow') {
+                console.log('kind of flow');
+        		delete extent.value;
+            }
+        }
+        return entity.proxy(this, entity);
+    },
+    
     draw: function(entity) {
 
         goodshow.component.Component.prototype.draw.call(this, entity);

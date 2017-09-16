@@ -36,7 +36,8 @@ example.panels.enhance.Panel = goodshow.Panel.extend({
 									name: 'header-menu',
 									text: '\uE5d4',
 									foreground: 'white',
-									font: '24px Material Icons',
+									fontFamily: 'Material Icons',
+									fontSize: '24px',
 									constrain : {
 										extent: 64
 									},
@@ -62,7 +63,8 @@ example.panels.enhance.Panel = goodshow.Panel.extend({
 							children: [
 								new goodshow.TextArea({
 									text: 'Illustrate how to decorate any entity using an external enhancer based on traits. This technique can be used for defaults or for overrides.',
-									font: '1.8em Roboto',
+									fontFamily: 'Roboto',
+									fontSize: '1.8em',
 									foreground : '#333333',
 									constrain : {
 										extent : 'flex',

@@ -36,7 +36,8 @@ example.panels.paint.Panel = goodshow.Panel.extend({
 									name: 'header-menu',
 									text: '\uE5d4',
 									foreground: 'white',
-									font: '24px Material Icons',
+									fontFamily: 'Material Icons',
+									fontSize: '24px',
 									constrain : {
 										extent: 64
 									},
@@ -61,8 +62,9 @@ example.panels.paint.Panel = goodshow.Panel.extend({
 							arranger: new goodshow.arranger.Vertical(),
 							children: [
 								new goodshow.TextArea({
-									text: 'Painters allow for composite drawing on a single entity. Paint backgrounds, borders, avatars, dividers, hovers, ripple effects, and more.',
-									font: '1.8em Roboto',
+									text: 'Painters allow for composite drawing on a single entity. Paint backgrounds, borders, shadows, shapes, avatars, dividers, hovers, ripple effects, and more.',
+									fontFamily: 'Roboto',
+									fontSize: '1.8em',
 									foreground : '#333333',
 									constrain : {
 										extent : 'flex',

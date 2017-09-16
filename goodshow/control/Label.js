@@ -1,9 +1,10 @@
 goodshow.Label = goodshow.entity.Graphics.extend({
 
 	initialize: function(options) {
-
+		
 		options = Object.assign({
-			font: '20px Roboto',
+			fontFamily: 'Roboto',
+			fontSize: '20px',
 			foreground: new goodshow.Value(0x000000),
 			align: 'center'
 		}, goodshow.enhance(options) || {});
@@ -21,7 +22,8 @@ goodshow.Label = goodshow.entity.Graphics.extend({
 				children: [
 					this.text = new goodshow.entity.Text({
 						text: options.text,
-						font: options.font,
+						fontFamily: options.fontFamily,
+						fontSize: options.fontSize,
 						fill: options.foreground,
 						constrain: {
 							extent: 'flex'
@@ -60,6 +62,11 @@ goodshow.Label = goodshow.entity.Graphics.extend({
 		}
 		if (this.options.pivot && this.options.pivot.y) {
 			this.text.pivot.y = this.text.pivot.y + this.options.pivot.y;
+		}
+		if ((this.options.constrain.extent.kind == 'flow') && (this.options.constrain.extent.value === undefined)) {
+			this.options.constrain.extent.value = this.text.height + this.options.constrain.margin.top + this.options.constrain.margin.bottom + this.options.constrain.padding.top + this.options.constrain.padding.bottom;;
+			this.parent.options.contain.invalidate();
+			this.text.style = this.text.style;
 		}
 	}
 });

@@ -1,6 +1,6 @@
 
 example.panels.change.Panel = goodshow.Panel.extend({
-    
+   
 	initialize: function(options) {
 		
 		goodshow.Panel.prototype.initialize.call(this, Object.assign({
@@ -36,7 +36,8 @@ example.panels.change.Panel = goodshow.Panel.extend({
 									name: 'header-menu',
 									text: '\uE5d4',
 									foreground: 'white',
-									font: '24px Material Icons',
+									fontFamily: 'Material Icons',
+									fontSize: '24px',
 									constrain : {
 										extent: 64
 									},
@@ -70,6 +71,15 @@ example.panels.change.Panel = goodshow.Panel.extend({
 							children: [
 								new goodshow.Button({
 									trait : 'basic-button',
+									text : 'CHANGE BACKGROUND',
+									invoke : {
+										action : function(entity) {
+											entity.options.background = 0xFF9900;
+										}.bind(this)
+									}
+								}),
+								new goodshow.Button({
+									trait : 'basic-button',
 									text : 'CHANGE MARGIN',
 									invoke : {
 										action : function(entity) {
@@ -82,27 +92,32 @@ example.panels.change.Panel = goodshow.Panel.extend({
 										}.bind(this)
 									}
 								}),
-								// new goodshow.Button({
-								// 	trait : 'basic-button',
-								// 	text : 'CHANGE PADDING',
-								// 	visible : false,
-								// 	invoke : {
-								// 		action : function(entity) {
-								// 			entity.options.constrain.padding = {
-								// 				top : 10,
-								// 				bottom : 10,
-								// 				left : 10,
-								// 				right : 10
-								// 			};
-								// 		}.bind(this)
-								// 	}
-								// }),
 								new goodshow.Button({
 									trait : 'basic-button',
-									text : 'CHANGE BACKGROUND',
+									text : 'CHANGE EXTENT',
+									constrain : {
+										extent : 64
+									},
 									invoke : {
 										action : function(entity) {
-											entity.options.background = 0xFF9900;
+											entity.options.constrain.extent.value = 200;
+										}.bind(this)		
+									}
+								}),
+								new goodshow.Button({
+									trait : 'basic-button',
+									text : 'CHANGE PADDING',
+									constrain : {
+										extent : 'flow'
+									},
+									invoke : {
+										action : function(entity) {
+											entity.options.constrain.padding = {
+												top : 30,
+												bottom : 30,
+												left : 30,
+												right : 30
+											};
 										}.bind(this)
 									}
 								}),
@@ -114,7 +129,7 @@ example.panels.change.Panel = goodshow.Panel.extend({
 						name: 'footer',
 						background: 0x3368d4,
 						constrain : {
-							extent: 64,
+							extent: 64
 						}
 					})
 				]

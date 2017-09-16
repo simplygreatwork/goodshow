@@ -36,7 +36,8 @@ example.panels.card.Panel = goodshow.Panel.extend({
 									name: 'header-menu',
 									text: '\uE5d4',
 									foreground: 'white',
-									font: '24px Material Icons',
+									fontFamily: 'Material Icons',
+									fontSize: '24px',
 									constrain : {
 										extent: 64
 									},
@@ -85,7 +86,8 @@ example.panels.card.Panel = goodshow.Panel.extend({
 											new goodshow.TextArea({
 												name : 'two-card-b-text',
 												text: window.lorem,
-												font: '1.8em Roboto',
+												fontFamily: 'Roboto',
+												fontSize: '1.8em',
 												foreground : '#333333',
 												constrain : {
 													extent : 'flex',
@@ -135,7 +137,8 @@ example.panels.card.Panel = goodshow.Panel.extend({
 											new goodshow.TextArea({
 												name : 'two-card-b-text',
 												text: window.lorem,
-												font: '1.8em Roboto',
+												fontFamily: 'Roboto',
+												fontSize: '1.8em',
 												foreground : '#333333',
 												constrain : {
 													extent : 'flex',

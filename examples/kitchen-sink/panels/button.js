@@ -40,7 +40,8 @@ example.panels.button.Panel = goodshow.Panel.extend({
 												name: 'header-menu',
 												text: '\uE5d4',
 												foreground: 'white',
-												font: '24px Material Icons',
+												fontFamily: 'Material Icons',
+												fontSize: '24px',
 												constrain : {
 													extent: 64
 												},
@@ -163,7 +164,8 @@ example.panels.button.Panel = goodshow.Panel.extend({
                                           	},
 															background : 0xff4281,
 															foreground : 0xFFFFFF,
-															font: '36px Material Icons',
+															fontFamily: 'Material Icons',
+															fontSize: '36px',
 															text : '\uE145',
 															pivot : {
 																y : -5
@@ -189,7 +191,7 @@ example.panels.button.Panel = goodshow.Panel.extend({
 									constrain : {
 										extent: 80
 									}
-								}),
+								})
 							]
 						},
 					})

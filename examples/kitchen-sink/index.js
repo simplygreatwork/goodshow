@@ -66,7 +66,8 @@ Structure = goodshow.Panel.extend({
 							children : [
 								new goodshow.Label({
 									text : 'This is a "kitchen sink" demo of GoodShow - a hackable entity-component UI system for WebGL.',
-									font : '16px Roboto',
+									fontFamily: 'Roboto',
+									fontSize: '16px',
 									foreground: 'black',
 									constrain : {
 										extent : 'flex',

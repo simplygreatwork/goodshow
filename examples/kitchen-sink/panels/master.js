@@ -28,7 +28,8 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									name: 'header-menu',
 									text: '\uE5D2',
 									foreground: 'white',
-									font: '24px Material Icons',
+									fontFamily: 'Material Icons',
+									fontSize: '24px',
 									constrain : {
 										extent: 44,
 									},
@@ -57,7 +58,8 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									name: 'header-search',
 		        					text: '\uE8B6',
 									foreground: 'white',
-									font: '24px Material Icons',
+									fontFamily: 'Material Icons',
+									fontSize: '24px',
 									constrain : {
 										extent: 44
 									},
@@ -81,7 +83,8 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									name: 'header-print',
 									text: '\uE8AD',
 									foreground: 'white',
-									font: '24px Material Icons',
+									fontFamily: 'Material Icons',
+									fontSize: '24px',
 									constrain : {
 										extent: 44
 									},
@@ -100,7 +103,8 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									name: 'header-menu',
 									text: '\uE5d4',
 									foreground: 'white',
-									font: '24px Material Icons',
+									fontFamily: 'Material Icons',
+									fontSize: '24px',
 									constrain : {
 										extent: 44
 									},

@@ -1,4 +1,18 @@
 
+text: 'The concept is that miller panels reveal inline panels, buttons reveal dialogs, buttons reveal inline expandable content and menus, tabs reveal inline content regions. Reveal is a component like painters and arrangers.',
+text: 'When an entity is added to a panel, how does it reveal itself? Does its alpha begin at zero? Does its pivot begin obscured and then slide out? Does its height begin at zero and then grow?',
+text: 'More and more its looking like tween is the major factor to reveal. And maybe visible is the reality. And layout is going to',
+
+
+
+aspects of a revealer? invoke, add, tween 
+    can all revealer reverse their actions?
+
+could text be a component of an entity?
+could image be a component of an entity?
+
+be able to drag the shapes (Drag component)
+
 actually, the reveal component might be related to the invoke component
 
 work on change padding for Chnage display
