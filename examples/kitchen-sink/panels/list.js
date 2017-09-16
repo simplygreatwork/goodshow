@@ -116,7 +116,7 @@ example.panels.list.Panel = goodshow.Panel.extend({
 						name: 'footer',
 						background: 0x3368d4,
 						constrain : {
-							extent: 64,
+							extent: 64
 						}
 					})
 				]

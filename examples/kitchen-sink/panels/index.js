@@ -8,7 +8,8 @@ window.example.panels = {
 		text : {},
 		image : {},
 		inherit : {},
-		responsive : {}
+		responsive : {},
+		animate : {}
 	},
 	text : {},
 	image : {},

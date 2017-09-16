@@ -132,7 +132,8 @@ example.panels.draw.Panel = goodshow.Panel.extend({
 									drag : {},
 								}),
 							]
-						}
+						},
+						mask : {}
 					}),
 					new goodshow.Panel({
 						name: 'footer',

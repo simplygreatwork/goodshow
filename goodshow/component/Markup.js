@@ -8,7 +8,7 @@ goodshow.component.Markup = goodshow.component.Component.extend({
     },
 
     install: function(entity) {
-
+        
         goodshow.component.Component.prototype.install.call(this, entity);
         this.element = document.createElement('div');
         this.element.className = 'element';

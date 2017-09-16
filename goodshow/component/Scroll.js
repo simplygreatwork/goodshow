@@ -18,29 +18,45 @@ goodshow.component.Scroll = goodshow.component.Component.extend({
    },
 
    install: function(entity) {
-
+      
       goodshow.component.Component.prototype.install.call(this);
       document.addEventListener('mousewheel', function(event) {
          if (entity.options.bounds.contains(event.x, event.y)) {
-            var delta = event[this.delta[this.axis]];
             if (this.scrollable(entity)) {
+               var delta = event[this.delta[this.axis]];
                this.scroll(entity, delta);
+               if (this.timeout) {
+                  this.reset();
+               }
+               this.timeout = window.setTimeout(function() {
+                  this.counter = 0;
+                  this.interval = window.setInterval(function() {
+                     delta = delta * 0.9;                     // very basic inertial easing
+                     this.scroll(entity, delta);
+                     if (this.counter > 50) {
+                        this.reset();
+                     }
+                     this.counter++;
+                  }.bind(this), 1);
+               }.bind(this), 10);
             }
          }
       }.bind(this), false);
-      document.addEventListener('mouseup', function(event) {
-         if (entity.options.bounds.contains(event.x, event.y)) {
-            if (false) console.log('mouseup');
-            // https://www.npmjs.com/package/wheel-inertia
-         }
-      }.bind(this), false);
    },
-
+   
    draw: function(entity) {
-
+      
       goodshow.component.Component.prototype.draw.call(this);
    },
-
+   
+   reset : function() {
+      
+      window.clearTimeout(this.timeout);
+      window.clearInterval(this.interval);
+      delete this.timeout;
+      delete this.interval;
+   },
+   
    scroll: function(entity, delta) {
 
       if (delta > 0) {
@@ -60,11 +76,7 @@ goodshow.component.Scroll = goodshow.component.Component.extend({
          }
       }
    },
-
-   easeOutQuad: function(t) {
-      return t * (2 - t);
-   },
-
+   
    scrollable: function(entity) {
 
       var result = false;
@@ -80,5 +92,9 @@ goodshow.component.Scroll = goodshow.component.Component.extend({
       goodshow.Utility.children.iterate(entity, function(child) {
          child.pivot[this.axis] = child.pivot[this.axis] + delta;
       }.bind(this));
+   },
+   
+   easeOutQuad: function(t) {
+      return t * (2 - t);
    }
 });
