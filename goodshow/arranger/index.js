@@ -36,6 +36,8 @@ goodshow.arranger.Planar = Class.extend({
 				} else {
 					console.warn('Constrain extent in arranger is missing property "kind".');
 				}
+				child.position[this.axis.major] = child.options.bounds[this.axis.major] - child.parent.options.bounds[this.axis.major];
+				child.position[this.axis.minor] = child.options.bounds[this.axis.minor] - child.parent.options.bounds[this.axis.minor];
 			}
 		}.bind(this));
 		if (entity.options.constrain.extent.kind == 'inherit') {
@@ -173,22 +175,24 @@ goodshow.arranger.Stack = Class.extend({
 	initialize: function(options) {},
 
 	arrange: function(entity) {
-
+		
 		entity.children.forEach(function(child, index) {
 			if (child.options && child.options.constrain) {
 				child.options.bounds['x'] = entity.options.bounds['x'];
 				child.options.bounds['y'] = entity.options.bounds['y'];
 				child.options.bounds['width'] = entity.options.bounds['width'];
 				child.options.bounds['height'] = entity.options.bounds['height'];
+				child.position.x = child.options.bounds['x'] - child.parent.options.bounds['x'];
+				child.position.y = child.options.bounds['y'] - child.parent.options.bounds['y'];
 			}
 		}.bind(this));
 	}
 });
 
 goodshow.arranger.Center = Class.extend({
-
+	
 	initialize: function(options) {},
-
+	
 	arrange: function(entity) {
 
 
@@ -231,7 +235,7 @@ goodshow.Extent = Class.extend({
 		}
 		else {
 			this.entity.children.forEach(function(child) {
-
+				
 			}.bind(this));
 			return 0;
 		}

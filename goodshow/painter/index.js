@@ -11,12 +11,12 @@ goodshow.painter.Root = Class.extend({
 	paint: function(entity) {},
 
 	drawRectangle: function(graphics, rectangle, corner) {
-
+		
 		if (corner) {
-			graphics.drawRoundedRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height, corner);
+			graphics.drawRoundedRect(0, 0, rectangle.width, rectangle.height, corner);
 		}
 		else {
-			graphics.drawRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
+			graphics.drawRect(0, 0, rectangle.width, rectangle.height);
 		}
 	}
 });
@@ -43,7 +43,7 @@ goodshow.painter.Background = goodshow.painter.Root.extend({
 goodshow.painter.Hover = goodshow.painter.Root.extend({
 
 	initialize: function(options) {
-
+		
 		goodshow.painter.Root.prototype.initialize.call(this, Object.assign({
 			color: 0xFFFFFF,
 			alpha: 1
@@ -89,10 +89,10 @@ goodshow.painter.Circular = goodshow.painter.Root.extend({
 	},
 
 	paint: function(graphics) {
-
+		
 		graphics.beginFill(this.color);
 		var bounds = graphics.options.bounds;
-		graphics.drawCircle(bounds.x + (bounds.width / 2), bounds.y + (bounds.height / 2), bounds.width / 2);
+		graphics.drawCircle((bounds.width / 2), (bounds.height / 2), bounds.width / 2);
 	}
 });
 
@@ -111,7 +111,7 @@ goodshow.painter.Divider = goodshow.painter.Root.extend({
 
 		graphics.beginFill(this.color);
 		var bounds = graphics.options.bounds;
-		graphics.drawRect(bounds.x, bounds.y, bounds.width, 0.75);
+		graphics.drawRect(0, 0, bounds.width, 0.75);
 	}
 });
 
@@ -158,9 +158,9 @@ goodshow.painter.Shadow = goodshow.painter.Root.extend({
 });
 
 goodshow.painter.Canvas = goodshow.painter.Root.extend({
-
+	
 	initialize: function(options) {
-
+		
 		this.options = options;
 	},
 	

@@ -26,14 +26,13 @@ goodshow.Miller = goodshow.Panel.extend({
 	
 	advance: function(entity) {		// todo: if miller.advanced is true, transition out using the Stack
 		
-		var slide = true;
-		this.secondary.removeChildren();
-		if (slide) entity.pivot.x = entity.options.constrain.extent.value;
-		this.secondary.addChild(new goodshow.Miller({
+		goodshow.Utility.children.remove(this.secondary);
+		entity.pivot.x = entity.options.constrain.extent.value;
+		this.secondary.addChildAt(new goodshow.Miller({
 			content: entity
-		}));
+		}), 0);
 		this.secondary.draw();
-		if (slide) goodshow.tween.pivot({
+		goodshow.tween.pivot({
 			entity : entity,
 			pivot : {
 				x : 0,
@@ -44,12 +43,12 @@ goodshow.Miller = goodshow.Panel.extend({
 	},
 	
 	retreat: function() {
-
-		this.secondary.removeChildren();
+		
+		goodshow.Utility.children.remove(this.secondary);
 		this.secondary.draw();
 		this.advanced = false;
 	},
-
+	
 	toggle: function(component) {
 		
 		if (this.advanced) {

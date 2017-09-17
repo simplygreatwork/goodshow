@@ -26,9 +26,19 @@ goodshow.component.Mask = goodshow.component.Component.extend({
     draw : function(entity) {
         
         this.mask.clear();
-        this.mask.bounds = entity.options.bounds;
+        this.mask.bounds = {
+            x : 0,
+            y : 0,
+            width : entity.options.bounds.width,
+            height : entity.options.bounds.height
+        };
         this.mask.options = {
-            bounds : entity.options.bounds,
+            bounds : {
+                x : 0,
+                y : 0,
+                width : entity.options.bounds.width,
+                height : entity.options.bounds.height
+            },
         };
 		if (this.painters) {
 			this.painters.forEach(function(painter) {

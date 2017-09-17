@@ -71,7 +71,7 @@ example.panels.draw.Panel = goodshow.Panel.extend({
 													});
 													graphics.beginFill(0x009900);
 													if (false) graphics.lineStyle(3, 0x007700);		// issue: bad lines
-													pen.goto(graphics.options.bounds.x, graphics.options.bounds.y);
+													pen.goto(0, 0);
 													pen.down(100).right(150).connect();
 													pen.setAngle(28);
 													for (var i = 0; i < 6; i++) {
@@ -95,7 +95,7 @@ example.panels.draw.Panel = goodshow.Panel.extend({
 													});
 													graphics.beginFill(0x009900);
 													if (false) graphics.lineStyle(3, 0x007700);		// issue: bad lines
-													pen.goto(graphics.options.bounds.x, graphics.options.bounds.y);
+													pen.goto(0, 0);
 													pen.down(300).right(100).connect();
 													pen.setAngle(0);
 													for (var i = 0; i < 4; i++) {
@@ -118,7 +118,7 @@ example.panels.draw.Panel = goodshow.Panel.extend({
 													});
 													graphics.beginFill(0x009900);
 													if (false) graphics.lineStyle(3, 0x007700);		// issue: bad lines
-													pen.goto(graphics.options.bounds.x, graphics.options.bounds.y);
+													pen.goto(0, 0);
 													pen.down(300).right(300).connect();
 													pen.setAngle(0);
 													for (var i = 0; i < 4; i++) {

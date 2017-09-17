@@ -100,17 +100,26 @@ goodshow.Utility = {
 				}
 			}
 		},
-
+		
 		iterate: function(entity, handler) {
-
+			
 			entity.children.forEach(function(child) {
 				if (child.options && child.options.constrain) {
 					handler.call(this, child);
 				}
 			}.bind(this));
+		},
+		
+		remove : function(entity) {
+			
+			entity.children.forEach(function(child) {
+				if (child.options.constrain) {
+					entity.removeChild(child);
+				}
+			}.bind(this));
 		}
 	},
-
+	
 	loadText: function(options) {
 
 		var request = new XMLHttpRequest();

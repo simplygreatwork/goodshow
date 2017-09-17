@@ -20,8 +20,8 @@ goodshow.Image = Class.extend({
 
 	draw: function() {
 
-		this.position.x = this.options.bounds.x;
-		this.position.y = this.options.bounds.y;
+		this.position.x = 0;
+		this.position.y = 0;
 		this.width = this.options.bounds.width;
 		this.height = this.texture.height / (this.texture.width / this.width);
 	}

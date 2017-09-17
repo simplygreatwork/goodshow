@@ -15,11 +15,11 @@ goodshow.Image = goodshow.Panel.extend({
 			}.bind(this));
 		}
 	},
-
+	
 	reposition: function() {
-
-		this.sprite.position.x = this.options.bounds.x;
-		this.sprite.position.y = this.options.bounds.y;
+		
+		this.sprite.position.x = 0;
+		this.sprite.position.y = 0;
 		this.sprite.width = this.options.bounds.width;
 		this.sprite.height = this.texture.height / (this.texture.width / this.sprite.width);
 		if ((this.options.constrain.extent.kind == 'flow') && (this.options.constrain.extent.value === undefined) && (this.sprite.height > 0)) {

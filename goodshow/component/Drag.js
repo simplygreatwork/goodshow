@@ -29,11 +29,13 @@ goodshow.component.Drag = goodshow.component.Component.extend({
             this.dragging = false;
             this.data = null;
         }.bind(this));
-        entity.on('pointermove', function() {
+        entity.on('pointermove', function() {           // todo: why does the painted graphic snap back?
             if (this.dragging) {
                 var position = this.data.getLocalPosition(entity.parent);
-                entity.position.x = -(this.offset.x - position.x);
-                entity.position.y = -(this.offset.y - position.y);
+                entity.options.bounds.x = -(this.offset.x - position.x);
+                entity.options.bounds.y = -(this.offset.y - position.y);
+                entity.position.x = entity.options.bounds.x;
+                entity.position.y = entity.options.bounds.y;
             }
         }.bind(this));
     },
