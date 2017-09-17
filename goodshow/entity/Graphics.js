@@ -1,12 +1,13 @@
-var components = [ // the ordering of these is so very important
-	'bound', // pertaining to masking, hover, select, etc: study
-	'invoke',
+
+var components = [
+	'bound',			// the ordering of these is so very important
+	'invoke',		// pertaining to masking, hover, select, etc: study
 	'contain',
 	'paint',
 	'mask',
 	'constrain',
 	'hover',
-	'selection', // ordering: mask issue with select, selection
+	'selection',	// ordering: mask issue with select, selection
 	'select',
 	'scroll',
 	'ripple',
@@ -100,7 +101,7 @@ goodshow.entity.Graphics = Class.extend({
 	},
 
 	draw: function() {
-
+		
 		this.clear();
 		components.forEach(function(component) {
 			if (this.options[component]) this.options[component].draw(this);

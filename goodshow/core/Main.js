@@ -1,3 +1,4 @@
+
 goodshow.Main = Class.extend({
 
 	initialize: function(options) {

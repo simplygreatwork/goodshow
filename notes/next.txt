@@ -1,4 +1,9 @@
 
+change base elements to extend from the word Root
+    e.g. component.Root
+
+review: might be redrawing everything on each cycle
+    look at Main- what's the difference between render and draw?
 
 miller panels need to be contained in a stack,
     so if content is replaced, the original content can slide out or fade away

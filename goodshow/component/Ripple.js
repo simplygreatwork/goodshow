@@ -32,7 +32,7 @@ goodshow.component.Ripple = goodshow.component.Component.extend({
 			}
 			if (this.interval === undefined) {
 				this.interval = window.setInterval(function() {
-					entity.draw(); // review: using requestAnimFrame instead
+					entity.draw(); // review: using requestAnimFrame or Ticker instead
 				}.bind(this), 1); // also need to stop interval when empty
 			}
 			if (this.timeout) {

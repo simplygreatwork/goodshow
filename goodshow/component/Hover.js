@@ -1,3 +1,4 @@
+
 goodshow.component.Hover = goodshow.component.Component.extend({
 
 	initialize: function(options) {
