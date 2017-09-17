@@ -72,7 +72,9 @@ example.panels.arrange.Panel = goodshow.Panel.extend({
 									invoke : {
 										action : function() {
 											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
-											miller.advance(new example.panels.arrange.text.Panel());
+											window.setTimeout(function() {
+												miller.advance(new example.panels.arrange.text.Panel());
+											});
 										}.bind(this)
 									}
 								}),
@@ -81,7 +83,9 @@ example.panels.arrange.Panel = goodshow.Panel.extend({
 									invoke : {
 										action : function() {
 											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
-											miller.advance(new example.panels.arrange.image.Panel());
+											window.setTimeout(function() {
+												miller.advance(new example.panels.arrange.image.Panel());
+											});
 										}.bind(this)
 									}
 								}),
@@ -90,7 +94,9 @@ example.panels.arrange.Panel = goodshow.Panel.extend({
 									invoke : {
 										action : function() {
 											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
-											miller.advance(new example.panels.arrange.inherit.Panel());
+											window.setTimeout(function() {
+												miller.advance(new example.panels.arrange.inherit.Panel());
+											});
 										}.bind(this)
 									}
 								})

@@ -20,11 +20,13 @@ goodshow.Image = goodshow.Panel.extend({
 		
 		this.sprite.position.x = 0;
 		this.sprite.position.y = 0;
-		this.sprite.width = this.options.bounds.width;
-		this.sprite.height = this.texture.height / (this.texture.width / this.sprite.width);
-		if ((this.options.constrain.extent.kind == 'flow') && (this.options.constrain.extent.value === undefined) && (this.sprite.height > 0)) {
-			this.options.constrain.extent.value = this.sprite.height + this.options.constrain.margin.top + this.options.constrain.margin.bottom;
-			this.parent.options.contain.invalidate();
+		if (this.options.bounds.width > 0) {
+			this.sprite.width = this.options.bounds.width;
+			this.sprite.height = this.texture.height / (this.texture.width / this.sprite.width);
+			if ((this.options.constrain.extent.kind == 'flow') && (this.options.constrain.extent.value === undefined) && (this.sprite.height > 0)) {
+				this.options.constrain.extent.value = this.sprite.height + this.options.constrain.margin.top + this.options.constrain.margin.bottom;
+				this.parent.options.contain.invalidate();
+			}
 		}
 	},
 
