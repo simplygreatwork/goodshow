@@ -1,3 +1,4 @@
+
 goodshow.defaults = function(options) {
 
 	goodshow.Broadcast.publish('entity-defaults', options || {});
@@ -5,13 +6,13 @@ goodshow.defaults = function(options) {
 };
 
 goodshow.enhance = function(options) {
-
+	
 	goodshow.Broadcast.publish('entity-enhance', options || {});
 	return options;
 };
 
 goodshow.tween = {
-
+	
 	alpha: function(options) {
 
 		var entity = options.entity;
@@ -29,7 +30,7 @@ goodshow.tween = {
 				entity.alpha = state.alpha;
 			}.bind(this),
 			finish: function() {
-				console.log('Tweenable.finish');
+				if (false) console.log('Tweenable.finish');
 			}
 		}, options || {}));
 	},
@@ -50,14 +51,37 @@ goodshow.tween = {
 			duration: 300,
 			easing: 'easeInOutCubic',
 			step: function(state) {
-				console.log('Tweenable.step');
+				if (false) console.log('Tweenable.step');
 			}.bind(this),
 			finish: function() {
-				console.log('Tweenable.finish');
+				if (false) console.log('Tweenable.finish');
 			}
 		}, options || {}));
 	},
 
+	extent: function(options) {
+		
+		var entity = options.entity;
+		var tweenable = new Tweenable();
+		tweenable.tween(Object.assign({
+			from: {
+				extent : entity.options.constrain.extent.value
+			},
+			to: {
+				extent : options.extent
+			},
+			duration: 300,
+			easing: 'easeInOutCubic',
+			step: function(state) {
+				entity.options.constrain.extent.value = state.extent;
+				entity.options.constrain.extent = entity.options.constrain.extent;
+			}.bind(this),
+			finish: function() {
+				if (false) console.log('Tweenable.finish');
+			}
+		}, options || {}));
+	},
+	
 	pivot: function(options) {
 
 		var entity = options.entity;
@@ -78,7 +102,7 @@ goodshow.tween = {
 				entity.pivot.y = state.y;
 			}.bind(this),
 			finish: function() {
-				console.log('Tweenable.finish');
+				if (false) console.log('Tweenable.finish');
 			}
 		}, options || {}));
 	}

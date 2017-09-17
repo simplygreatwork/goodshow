@@ -46,9 +46,9 @@ example.panels.reveal.Panel = goodshow.Panel.extend({
 									},
 									invoke : {
 										action : function() {
-											application.layer.message.display(new example.layer.message.Panel({
-												text : 'Menu!'
-											}));
+											goodshow.Broadcast.publish('reveal', {
+												name : 'panel'
+											});
 										}.bind(this)
 									}
 								})
@@ -61,6 +61,16 @@ example.panels.reveal.Panel = goodshow.Panel.extend({
 						contain : {
 							arranger: new goodshow.arranger.Vertical(),
 							children: [
+								new goodshow.Panel({
+									name : 'panel',
+									background : 0x3368d4,
+									constrain : {
+										extent : 0
+									},
+									reveal : {
+										revealer : new goodshow.revealer.Extent()
+									}
+								}),
 								new goodshow.TextArea({
 									text: 'The concept is that miller panels reveal inline panels, buttons reveal dialogs, buttons reveal inline expandable content and menus, tabs reveal inline content regions. Reveal is a component like painters and arrangers.',
 									fontFamily: 'Roboto',

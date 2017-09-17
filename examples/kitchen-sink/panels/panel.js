@@ -10,7 +10,7 @@ example.panels.panel.Panel = goodshow.Panel.extend({
 			},
 			invoke : {
 				action : function() {
-					var miller = this.parent;
+					var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
 					miller.toggle(new example.panels.panel.Two());
 				}.bind(this)
 			}
@@ -33,7 +33,7 @@ example.panels.panel.Two = goodshow.Panel.extend({
 			},
 			invoke : {
 				action : function() {
-					var miller = this.parent;
+					var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
 					miller.toggle(new example.panels.panel.Three());
 				}.bind(this)
 			}
@@ -52,7 +52,7 @@ example.panels.panel.Three = goodshow.Panel.extend({
 			},
 			invoke : {
 				action : function() {
-					var miller = this.parent;
+					var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
 					miller.toggle(new example.panels.panel.Four());
 				}.bind(this)
 			}
@@ -71,7 +71,7 @@ example.panels.panel.Four = goodshow.Panel.extend({
 			},
 			invoke : {
 				action : function() {
-					var miller = this.parent;
+					var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
 					miller.toggle(new example.panels.panel.Five());
 				}.bind(this)
 			}
@@ -90,7 +90,7 @@ example.panels.panel.Five = goodshow.Panel.extend({
 			},
 			invoke : {
 				action : function() {
-					var miller = this.parent;
+					var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
 					miller.toggle(new example.panels.panel.One());
 				}.bind(this)
 			}

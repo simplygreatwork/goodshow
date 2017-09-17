@@ -1,4 +1,42 @@
 
+
+miller panels need to be contained in a stack,
+    so if content is replaced, the original content can slide out or fade away
+    but then the lower stack must be removed
+
+use emitter "view-has entered" for markup showing
+
+need revealers for miller, drawer, accordian, dialog, toolbar menu
+
+need to tighten up arranger code again: for cases of flow, inherit, flex, fixed, etc
+
+explore use of Proxy object for a simple, complete reactive UI
+    already using Proxy to listen for simple options changes
+
+change "reveal" to "morph"
+this allows for morph.in and morph.out
+which is better than reveal.in reveal.out or reveal.reveal & reveal.conceal
+also consider just using tween: tween.in and tween.out
+maybe just stick with reveal.in reveal.out
+
+consider being able to fade in layout/arranger/extent changes (after reveal arrangement shifting)
+    like what chrome will often do when resizing the window
+
+example:
+    for hidden panel
+    shift pivot up 100
+    increase extent to 100
+    then tween pivot down for it and lower panels
+
+when installing reveal on an entity
+    need to cache it's normal extent and set it to fixed: 0
+    
+move responsive list item into Arrange list item
+
+maybe reveal has do to with visibility tweening
+a default reveal has no tweening
+maybe reveal should be named as component "visible"
+
 really need to use ticker here for scrolling
 see also: https://www.npmjs.com/package/wheel-inertia
 
@@ -133,7 +171,7 @@ if a component is declared with a primitive and not an object,
 
 make a separate test page for arranger height determination
     
-switch to pixi v4
+switch to pixi v4 (done)
 ripples, hovers, and actions for toolbar buttons
 hover effects for toolbar buttons
 ripple painters actually need to paint above and not behind

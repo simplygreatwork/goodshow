@@ -10,6 +10,7 @@ var components = [ // the ordering of these is so very important
 	'select',
 	'scroll',
 	'ripple',
+	'reveal',
 	'drag',
 	'filter',
 	'transform',
