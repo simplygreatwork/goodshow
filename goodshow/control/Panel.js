@@ -16,10 +16,17 @@ goodshow.Panel = goodshow.entity.Graphics.extend({
 			}));
 		}
 		goodshow.entity.Graphics.prototype.initialize.call(this, options);
+		if (options.pivot) {
+			this.pivot = options.pivot;
+		}
+		if (options.position) {
+			this.position = options.position;
+			delete options.position;
+		}
 	},
 
 	draw: function() {
-
+		
 		goodshow.entity.Graphics.prototype.draw.call(this);
 	}
 });

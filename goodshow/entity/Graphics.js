@@ -21,7 +21,7 @@ var components = [
 goodshow.entity.Graphics = Class.extend({
 
 	initialize: function(options) {
-
+		
 		PIXI.Graphics.call(this);
 		this.options = Object.assign({
 			bounds: new PIXI.Rectangle(0, 0, 0, 0),
@@ -87,14 +87,14 @@ goodshow.entity.Graphics = Class.extend({
 	},
 
 	install: function() {
-
+		
 		components.forEach(function(component) {
 			if (this.options[component]) this.options[component].install(this);
 		}.bind(this));
 	},
-
+	
 	uninstall: function(entity) {
-
+		
 		components.forEach(function(component) {
 			if (this.options[component]) this.options[component].uninstall(this);
 		}.bind(this));

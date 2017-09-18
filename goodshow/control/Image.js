@@ -1,7 +1,7 @@
 goodshow.Image = goodshow.Panel.extend({
-
+	
 	initialize: function(options) {
-
+		
 		this.texture = PIXI.Texture.fromImage(options.path);
 		this.sprite = new PIXI.Sprite(this.texture);
 		goodshow.Panel.prototype.initialize.call(this, Object.assign({}, options));
@@ -29,9 +29,9 @@ goodshow.Image = goodshow.Panel.extend({
 			}
 		}
 	},
-
+	
 	draw: function() {
-
+		
 		goodshow.Panel.prototype.draw.call(this);
 		this.reposition();
 	}

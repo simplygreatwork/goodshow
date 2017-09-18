@@ -42,7 +42,7 @@ goodshow.entity.Text = Class.extend({
 	},
 
 	draw: function() {
-
+		
 		if (this.options.bound) this.options.bound.draw(this);
 		if (this.options.constrain) this.options.constrain.draw(this);
 		if (this.options.contain) this.options.contain.draw(this);
@@ -52,7 +52,7 @@ goodshow.entity.Text = Class.extend({
 		if (this.options.ripple) this.options.ripple.draw(this);
 		if (this.options.invoke) this.options.invoke.draw(this);
 		if (this.options.transform) this.options.transform.draw(this);
-
+		
 		if (this.options.pivot && this.options.pivot.x) {
 			this.pivot.x = this.pivot.x + this.options.pivot.x;
 		}

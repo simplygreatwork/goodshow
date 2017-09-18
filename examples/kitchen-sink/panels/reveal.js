@@ -74,13 +74,13 @@ example.panels.reveal.Panel = goodshow.Panel.extend({
 								new goodshow.TextArea({
 									text: 'The concept is that miller panels reveal inline panels, buttons reveal dialogs, buttons reveal inline expandable content and menus, tabs reveal inline content regions. Reveal is a component like painters and arrangers.',
 									fontFamily: 'Roboto',
-									fontSize: '2.0em',
+									fontSize: '1.8em',
 									foreground : '#333333',
 									constrain : {
 										extent : 'flow',
 										margin: {
 											top: 30,
-											bottom: 30,
+											bottom: 0,
 											left: 30,
 											right: 30
 										}
@@ -89,7 +89,7 @@ example.panels.reveal.Panel = goodshow.Panel.extend({
 								new goodshow.TextArea({
 									text: 'The menu button in the toolbar above is a very basic example of a revealer.',
 									fontFamily: 'Roboto',
-									fontSize: '2.0em',
+									fontSize: '1.8em',
 									foreground : '#333333',
 									constrain : {
 										extent : 'flow',

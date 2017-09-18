@@ -38,10 +38,10 @@ goodshow.Miller = goodshow.Panel.extend({
 					this.stack.addChild(this.secondary = new goodshow.Panel({
 						mask : {}
 					}));
+					entity.pivot.x = entity.options.constrain.extent.value;
 					this.secondary.addChildAt(new goodshow.Miller({
 						content: entity
 					}), 0);
-					entity.pivot.x = entity.options.constrain.extent.value;
 					this.secondary.draw();
 					goodshow.tween.pivot({
 						entity : entity,

@@ -8,13 +8,13 @@ goodshow.component.Drag = goodshow.component.Component.extend({
 		}, options || {}));
     },
     
-    install: function(entity) {
-        
+    install: function(entity) {     // anything draggable doesn't need layout manare
+                                    // else simply pivoy instead
         goodshow.component.Component.prototype.install.call(this, entity);
         entity.interactive = true;
         entity.on('pointerdown', function(event) {
             this.data = event.data;
-            var position = JSON.parse(JSON.stringify(this.data.getLocalPosition(entity.parent)));
+            var position = this.data.getLocalPosition(entity.parent);
             this.offset = {
                 x : position.x - entity.position.x,
                 y : position.y - entity.position.y,

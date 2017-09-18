@@ -1,3 +1,4 @@
+
 goodshow.TextArea = goodshow.Panel.extend({
 	
 	initialize: function(options) {
@@ -25,7 +26,7 @@ goodshow.TextArea = goodshow.Panel.extend({
 			mask: {}
 		}, options || {}));
 	},
-
+	
 	draw: function() {
 		
 		goodshow.Panel.prototype.draw.call(this);

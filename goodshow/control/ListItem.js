@@ -1,8 +1,8 @@
 
 goodshow.ListItem = goodshow.Panel.extend({
-
+	
 	initialize: function(options) {
-
+		
 		options = Object.assign({
 			foreground: 'black',
 			background: 0xFFFFFF,

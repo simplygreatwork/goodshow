@@ -557,7 +557,7 @@ example.panels.arrange.inherit.Panel = goodshow.Panel.extend({
 							arranger: new goodshow.arranger.Vertical(),
 							children: [
 								new goodshow.TextArea({
-									text: 'This panel will illustrate layout extent (width/height) of a container (panel) inheriting from its children.',
+									text: 'The content of the innermost panel determines its height (extent) within its container.',
 									fontFamily: 'Roboto',
 									fontSize: '1.8em',
 									foreground : '#333333',
@@ -583,14 +583,14 @@ example.panels.arrange.inherit.Panel = goodshow.Panel.extend({
 									}
 								}),
 								new goodshow.Panel({
-									background : 0xFF7777,
+									background : 0xEEEEEE,
 									constrain : {
 										extent : 'inherit',
 										padding : {
-											top : 10,
-											bottom : 10,
-											left : 10,
-											right : 10
+											top : 5,
+											bottom : 5,
+											left : 5,
+											right : 5
 										},
 										margin: {
 											top: 5,

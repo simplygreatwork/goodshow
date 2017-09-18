@@ -1,4 +1,7 @@
 
+consider: text and images as a component
+    but might need to allow multiple like painters and filters
+
 change base elements to extend from the word Root
     e.g. component.Root
 

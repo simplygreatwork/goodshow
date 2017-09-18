@@ -22,7 +22,7 @@ example.panels.draw.Panel = goodshow.Panel.extend({
 							children: [
 								new goodshow.Label({
 									name: 'header-text',
-									text: 'Draw: Pen Vector',
+									text: 'Draw with a Vector Pen',
 									foreground: 'white',
 									align : 'left',
 									constrain : {
@@ -59,7 +59,7 @@ example.panels.draw.Panel = goodshow.Panel.extend({
 						name: 'content',
 						background: 0xFFFFFF,
 						contain : {
-							arranger : new goodshow.arranger.Stack(),
+							arranger : null,
 							children : [
 								new goodshow.Panel({
 									paint : {
@@ -72,7 +72,7 @@ example.panels.draw.Panel = goodshow.Panel.extend({
 													graphics.beginFill(0x009900);
 													if (false) graphics.lineStyle(3, 0x007700);		// issue: bad lines
 													pen.goto(0, 0);
-													pen.down(100).right(150).connect();
+													pen.down(0).right(0).connect();
 													pen.setAngle(28);
 													for (var i = 0; i < 6; i++) {
 														pen.turn(60, 10);
@@ -83,28 +83,9 @@ example.panels.draw.Panel = goodshow.Panel.extend({
 											})
 										]
 									},
-									drag : {},
-								}),
-								new goodshow.Panel({
-									paint : {
-										painters : [
-											new goodshow.painter.Canvas({
-												draw : function(graphics) {
-													var pen = new goodshow.painter.Pen({
-														graphics : graphics
-													});
-													graphics.beginFill(0x009900);
-													if (false) graphics.lineStyle(3, 0x007700);		// issue: bad lines
-													pen.goto(0, 0);
-													pen.down(300).right(100).connect();
-													pen.setAngle(0);
-													for (var i = 0; i < 4; i++) {
-														pen.go(20).turn(90, 5).go(20).turn(90, 5).go(20).turn(-90, 5);
-													}
-													graphics.endFill();
-												}
-											})
-										]
+									position : {
+										x : 100,
+										y : 50
 									},
 									drag : {},
 								}),
@@ -119,7 +100,34 @@ example.panels.draw.Panel = goodshow.Panel.extend({
 													graphics.beginFill(0x009900);
 													if (false) graphics.lineStyle(3, 0x007700);		// issue: bad lines
 													pen.goto(0, 0);
-													pen.down(300).right(300).connect();
+													pen.down(0).right(0).connect();
+													pen.setAngle(0);
+													for (var i = 0; i < 4; i++) {
+														pen.go(20).turn(90, 5).go(20).turn(90, 5).go(20).turn(-90, 5);
+													}
+													graphics.endFill();
+												}
+											})
+										]
+									},
+									position : {
+										x : 250,
+										y : 200
+									},
+									drag : {},
+								}),
+								new goodshow.Panel({
+									paint : {
+										painters : [
+											new goodshow.painter.Canvas({
+												draw : function(graphics) {
+													var pen = new goodshow.painter.Pen({
+														graphics : graphics
+													});
+													graphics.beginFill(0x009900);
+													if (false) graphics.lineStyle(3, 0x007700);		// issue: bad lines
+													pen.goto(0, 0);
+													pen.down(0).right(0).connect();
 													pen.setAngle(0);
 													for (var i = 0; i < 4; i++) {
 														pen.go(40).turn(90, 5).go(20).turn(90, 5).go(20).turn(-90, 5);
@@ -128,6 +136,10 @@ example.panels.draw.Panel = goodshow.Panel.extend({
 												}
 											})
 										]
+									},
+									position : {
+										x : 100,
+										y : 350
 									},
 									drag : {},
 								}),
