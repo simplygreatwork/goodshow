@@ -1,6 +1,6 @@
 
 example.panels.button.Panel = goodshow.Panel.extend({
-    
+   
 	initialize: function(options) {
 		
 		goodshow.Panel.prototype.initialize.call(this, Object.assign({
@@ -139,7 +139,7 @@ example.panels.button.Panel = goodshow.Panel.extend({
 								new goodshow.Panel(),
 								new goodshow.Panel({
 									constrain : {
-										extent: 80,
+										extent: 100,
 									},
 									contain : {
 										arranger : new goodshow.arranger.Horizontal(),
@@ -147,7 +147,7 @@ example.panels.button.Panel = goodshow.Panel.extend({
 											new goodshow.Panel(),
 											new goodshow.Panel({
 												constrain : {
-													extent: 80
+													extent: 100
 												},
 												contain : {
 													arranger : new goodshow.arranger.Vertical(),
@@ -162,13 +162,14 @@ example.panels.button.Panel = goodshow.Panel.extend({
                                           			right : 10
                                           		}
                                           	},
-															background : 0xff4281,
+															background : 0xff5555,
 															foreground : 0xFFFFFF,
 															fontFamily: 'Material Icons',
-															fontSize: '36px',
+															fontSize: '50px',
 															text : '\uE145',
 															pivot : {
-																y : -5
+																x : 0,
+																y : -7
 															},
 															invoke : {
 																action : function() {

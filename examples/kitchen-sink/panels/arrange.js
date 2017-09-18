@@ -99,6 +99,17 @@ example.panels.arrange.Panel = goodshow.Panel.extend({
 											});
 										}.bind(this)
 									}
+								}),
+								new goodshow.ListItem({
+									text : 'Responsive',
+									invoke : {
+										action : function() {
+											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
+											window.setTimeout(function() {
+												miller.advance(new example.panels.arrange.responsive.Panel());
+											});
+										}.bind(this)
+									}
 								})
 							]
 						},
@@ -557,7 +568,7 @@ example.panels.arrange.inherit.Panel = goodshow.Panel.extend({
 							arranger: new goodshow.arranger.Vertical(),
 							children: [
 								new goodshow.TextArea({
-									text: 'The content of the innermost panel determines its height (extent) within its container.',
+									text: 'The content of the innermost panel below determines its height (extent) within its container.',
 									fontFamily: 'Roboto',
 									fontSize: '1.8em',
 									foreground : '#333333',
@@ -644,6 +655,107 @@ example.panels.arrange.inherit.Panel = goodshow.Panel.extend({
 								}),
 								new goodshow.TextArea({
 									text: 'FOOTER',
+									fontFamily: 'Roboto',
+									fontSize: '1.8em',
+									foreground : '#333333',
+									constrain : {
+										extent : 'flow',
+										margin: {
+											top: 5,
+											bottom: 25
+										}
+									}
+								})
+							]
+						},
+						mask : {},
+						scroll : {}
+					}),
+					new goodshow.Panel({
+						name: 'footer',
+						background: 0x3368d4,
+						constrain : {
+							extent: 64,
+						}
+					})
+				]
+			}
+		}, options || {}));
+	}
+});
+
+example.panels.arrange.responsive.Panel = goodshow.Panel.extend({
+	
+	initialize: function(options) {
+		
+		goodshow.Panel.prototype.initialize.call(this, Object.assign({
+			background: 0xFFFFFF,
+			constrain : {
+				extent: 350
+			},
+			contain : {
+				arranger: new goodshow.arranger.Vertical(),
+				children: [
+					new goodshow.Panel({
+						name: 'header',
+						background: 0x3368d4,
+						constrain : {
+							extent: 64
+						},
+						contain : {
+							arranger: new goodshow.arranger.Horizontal(),
+							children: [
+								new goodshow.Label({
+									name: 'header-text',
+									text: 'Responsive',
+									foreground: 'white',
+									align : 'left',
+									constrain : {
+										extent : 'flex',
+										margin: {
+											left: 10
+										}
+									}
+								}),
+								new goodshow.Label({
+									name: 'header-menu',
+									text: '\uE5d4',
+									foreground: 'white',
+									fontFamily: 'Material Icons',
+									fontSize: '24px',
+									constrain : {
+										extent: 64
+									},
+									pivot : {
+										y : -4
+									},
+									invoke : {
+										action : function() {
+											application.layer.message.display(new example.layer.message.Panel({
+												text : 'Menu!'
+											}));
+										}.bind(this)
+									}
+								})
+							]
+						},
+					}),
+					new goodshow.Panel({
+						name: 'content',
+						background: 0xFFFFFF,
+						constrain : {
+							padding : {
+								top : 25,
+								bottom : 25,
+								left : 30,
+								right : 30
+							}
+						},
+						contain : {
+							arranger: new goodshow.arranger.Vertical(),
+							children: [
+								new goodshow.TextArea({
+									text: 'This panel will illustrate entities with constraints which define wrapping - initially for horizontal arrangers.',
 									fontFamily: 'Roboto',
 									fontSize: '1.8em',
 									foreground : '#333333',
