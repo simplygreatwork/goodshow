@@ -28,7 +28,7 @@ goodshow.component.Markup = goodshow.component.Component.extend({
             this.element.style.display = 'none';
         }.bind(this));
 		goodshow.Broadcast.subscribe('entity-has-entered', function(options) {
-			if (goodshow.Utility.hasAncestor(entity, options.entity)) {
+			if (goodshow.Utility.ancestor.has(entity, options.entity)) {
 			    this.entered = true;
                 this.present();
 			}

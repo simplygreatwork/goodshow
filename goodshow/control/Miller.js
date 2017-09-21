@@ -51,7 +51,7 @@ goodshow.Miller = goodshow.Panel.extend({
 						},
 						finish : function() {
 							goodshow.Broadcast.publish('entity-has-entered', {
-								entity : goodshow.Utility.ancestor(entity, goodshow.Miller)
+								entity : goodshow.Utility.ancestor.find(entity, goodshow.Miller)
 							});
 						}.bind(this)
 					});
@@ -72,7 +72,7 @@ goodshow.Miller = goodshow.Panel.extend({
 				},
 				finish : function() {
 					goodshow.Broadcast.publish('entity-has-entered', {
-						entity : goodshow.Utility.ancestor(entity, goodshow.Miller)
+						entity : goodshow.Utility.ancestor.find(entity, goodshow.Miller)
 					});
 				}.bind(this)
 			});

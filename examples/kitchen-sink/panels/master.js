@@ -138,7 +138,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									text : 'Mill',
 									invoke : {
 										action : function() {
-											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
+											var miller = goodshow.Utility.ancestor.find(this, goodshow.Miller);
 											miller.advance(new example.panels.panel.Panel());
 										}.bind(this)
 									}
@@ -147,7 +147,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									text : 'Reveal',
 									invoke : {
 										action : function() {
-											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
+											var miller = goodshow.Utility.ancestor.find(this, goodshow.Miller);
 											miller.advance(new example.panels.reveal.Panel());
 										}.bind(this)
 									}
@@ -156,7 +156,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									text : 'Arrange',
 									invoke : {
 										action : function() {
-											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
+											var miller = goodshow.Utility.ancestor.find(this, goodshow.Miller);
 											miller.advance(new example.panels.arrange.Panel());
 										}.bind(this)
 									}
@@ -165,7 +165,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									text : 'Text',
 									invoke : {
 										action : function() {
-											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
+											var miller = goodshow.Utility.ancestor.find(this, goodshow.Miller);
 											miller.advance(new example.panels.text.Panel());
 										}.bind(this)
 									}
@@ -174,7 +174,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									text : 'Image',
 									invoke : {
 										action : function() {
-											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
+											var miller = goodshow.Utility.ancestor.find(this, goodshow.Miller);
 											miller.advance(new example.panels.image.Panel());
 										}.bind(this)
 									}
@@ -183,7 +183,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									text : 'Draw',
 									invoke : {
 										action : function() {
-											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
+											var miller = goodshow.Utility.ancestor.find(this, goodshow.Miller);
 											miller.advance(new example.panels.draw.Panel());
 										}.bind(this)
 									}
@@ -192,7 +192,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									text : 'Change',
 									invoke : {
 										action : function() {
-											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
+											var miller = goodshow.Utility.ancestor.find(this, goodshow.Miller);
 											miller.advance(new example.panels.change.Panel());
 										}.bind(this)
 									}
@@ -201,7 +201,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									text : 'Paint',
 									invoke : {
 										action : function() {
-											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
+											var miller = goodshow.Utility.ancestor.find(this, goodshow.Miller);
 											miller.advance(new example.panels.paint.Panel());
 										}.bind(this)
 									}
@@ -210,7 +210,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									text : 'Card',
 									invoke : {
 										action : function() {
-											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
+											var miller = goodshow.Utility.ancestor.find(this, goodshow.Miller);
 											miller.advance(new example.panels.card.Panel());
 										}.bind(this)
 									}
@@ -219,7 +219,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									text : 'Button',
 									invoke : {
 										action : function() {
-											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
+											var miller = goodshow.Utility.ancestor.find(this, goodshow.Miller);
 											miller.advance(new example.panels.button.Panel());
 										}.bind(this)
 									}
@@ -228,7 +228,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									text : 'List',
 									invoke : {
 										action : function() {
-											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
+											var miller = goodshow.Utility.ancestor.find(this, goodshow.Miller);
 											miller.advance(new example.panels.list.Panel());
 										}.bind(this)
 									}
@@ -237,7 +237,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									text : 'Overlay',
 									invoke : {
 										action : function() {
-											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
+											var miller = goodshow.Utility.ancestor.find(this, goodshow.Miller);
 											miller.advance(new example.panels.overlay.Panel());
 										}.bind(this)
 									}
@@ -246,7 +246,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									text : 'Ripple',
 									invoke : {
 										action : function() {
-											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
+											var miller = goodshow.Utility.ancestor.find(this, goodshow.Miller);
 											miller.advance(new example.panels.ripple.Panel());
 										}.bind(this)
 									}
@@ -255,7 +255,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									text : 'Markup',
 									invoke : {
 										action : function() {
-											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
+											var miller = goodshow.Utility.ancestor.find(this, goodshow.Miller);
 											miller.advance(new example.panels.markup.Panel());
 										}.bind(this)
 									}
@@ -264,7 +264,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									text : 'Markdown',
 									invoke : {
 										action : function() {
-											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
+											var miller = goodshow.Utility.ancestor.find(this, goodshow.Miller);
 											miller.advance(new example.panels.markdown.Panel());
 										}.bind(this)
 									}
@@ -273,7 +273,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									text : 'Enhance',
 									invoke : {
 										action : function() {
-											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
+											var miller = goodshow.Utility.ancestor.find(this, goodshow.Miller);
 											miller.advance(new example.panels.enhance.Panel());
 										}.bind(this)
 									}
@@ -282,7 +282,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 									text : 'Develop',
 									invoke : {
 										action : function() {
-											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
+											var miller = goodshow.Utility.ancestor.find(this, goodshow.Miller);
 											miller.advance(new example.panels.develop.Panel());
 										}.bind(this)
 									}

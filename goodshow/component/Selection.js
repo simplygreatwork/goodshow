@@ -22,7 +22,7 @@ goodshow.component.Selection = goodshow.component.Component.extend({
 			child.options.select.install(child);
 		}.bind(this));
 		goodshow.Broadcast.subscribe('select', function(options) {
-			var related = goodshow.Utility.related(options.entity, entity);
+			var related = goodshow.Utility.ancestor.has(options.entity, entity);
 			if (related) {
 				if (this.quantity !== 0) {
 					if (this.quantity === 1) {
@@ -37,14 +37,14 @@ goodshow.component.Selection = goodshow.component.Component.extend({
 			}
 		}.bind(this));
 	},
-
+	
 	draw: function(entity) {
-
+		
 		goodshow.component.Component.prototype.draw.call(this);
 	},
-
+	
 	clear: function() {
-
-
+		
+		
 	}
 });

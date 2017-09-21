@@ -43,54 +43,41 @@ goodshow.Utility = {
 
 		return begin + Math.floor(Math.random() * (end - begin));
 	},
-
-	ancestor: function(entity, clazz) {
+	
+	ancestor : {
 		
-		var result = null;
-		while (entity.parent) {
-			if (entity.parent instanceof clazz) {
-				result = entity.parent;
-				break;
+		find: function(entity, clazz) {
+			
+			var result = null;
+			while (entity.parent) {
+				if (entity.parent instanceof clazz) {
+					result = entity.parent;
+					break;
+				}
+				else {
+					component = entity.parent;
+				}
 			}
-			else {
-				component = entity.parent;
+			
+			return result;
+		},
+		
+		has: function(entity, ancestor) {
+			
+			var result = false;
+			while (entity.parent) {
+				if (entity.parent == ancestor) {
+					result = true;
+					break;
+				}
+				else {
+					entity = entity.parent;
+				}
 			}
+			return result;
 		}
-		
-		return result;
 	},
 	
-	hasAncestor: function(entity, ancestor) {
-		
-		var result = null;
-		while (entity.parent) {
-			if (entity.parent == ancestor) {
-				result = ancestor;
-				break;
-			}
-			else {
-				entity = entity.parent;
-			}
-		}
-		
-		return result;
-	},
-	
-	related: function(lower, upper) {
-
-		var result = false;
-		while (lower.parent) {
-			if (lower.parent == upper) {
-				result = true;
-				break;
-			}
-			else {
-				lower = lower.parent;
-			}
-		}
-		return result;
-	},
-
 	children: {
 
 		first: function(entity) {

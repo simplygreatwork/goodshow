@@ -1,4 +1,8 @@
 
+change Utility.ancestor.find to Utility.ancestor.find.find
+change Utility.hasAncestor to Utility.ancestor.find.has
+change Utility.related to to Utility.ancestor.find.has
+
 dialog might need shadow
 
 use an expander (component?) to expand option primitives to objects

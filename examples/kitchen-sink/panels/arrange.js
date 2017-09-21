@@ -71,7 +71,7 @@ example.panels.arrange.Panel = goodshow.Panel.extend({
 									text : 'Text',
 									invoke : {
 										action : function() {
-											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
+											var miller = goodshow.Utility.ancestor.find(this, goodshow.Miller);
 											window.setTimeout(function() {
 												miller.advance(new example.panels.arrange.text.Panel());
 											});
@@ -82,7 +82,7 @@ example.panels.arrange.Panel = goodshow.Panel.extend({
 									text : 'Image',
 									invoke : {
 										action : function() {
-											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
+											var miller = goodshow.Utility.ancestor.find(this, goodshow.Miller);
 											window.setTimeout(function() {
 												miller.advance(new example.panels.arrange.image.Panel());
 											});
@@ -93,7 +93,7 @@ example.panels.arrange.Panel = goodshow.Panel.extend({
 									text : 'Inherit',
 									invoke : {
 										action : function() {
-											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
+											var miller = goodshow.Utility.ancestor.find(this, goodshow.Miller);
 											window.setTimeout(function() {
 												miller.advance(new example.panels.arrange.inherit.Panel());
 											});
@@ -104,7 +104,7 @@ example.panels.arrange.Panel = goodshow.Panel.extend({
 									text : 'Responsive',
 									invoke : {
 										action : function() {
-											var miller = goodshow.Utility.ancestor(this, goodshow.Miller);
+											var miller = goodshow.Utility.ancestor.find(this, goodshow.Miller);
 											window.setTimeout(function() {
 												miller.advance(new example.panels.arrange.responsive.Panel());
 											});
