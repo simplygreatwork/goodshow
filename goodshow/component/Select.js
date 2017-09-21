@@ -11,7 +11,7 @@ goodshow.component.Select = goodshow.component.Component.extend({
 	},
 
 	install: function(entity) {
-
+		
 		goodshow.component.Component.prototype.install.call(this);
 		this.entity = entity;
 		this.entity.interactive = true;
@@ -23,14 +23,14 @@ goodshow.component.Select = goodshow.component.Component.extend({
 			}.bind(this), 500);
 		}.bind(this));
 	},
-
+	
 	draw: function(entity) {
 		
 		goodshow.component.Component.prototype.draw.call(this);
 	},
-
+	
 	select: function(selected) {
-
+		
 		this.selected = selected;
 		if (this.selected) {
 			this.entity.options.background.wrap(this.background);

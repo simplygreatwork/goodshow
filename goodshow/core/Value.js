@@ -1,3 +1,4 @@
+
 goodshow.Value = Class.extend({
 
 	initialize: function(value) {
