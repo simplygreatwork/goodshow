@@ -29,10 +29,8 @@ goodshow.component.Selection = goodshow.component.Component.extend({
 						if (this.selectable(entity, options.entity)) {
 							this.selection.forEach(function(entity) {
 								entity.options.select.select(false);
-								entity.options.invoke.enabled.unwrap();
 							});
 							this.selection.splice(0, this.selection.length);
-							options.entity.options.invoke.enabled.wrap(false);
 							options.entity.options.select.select(!options.entity.options.select.selected);
 							this.selection.push(options.entity);
 						}

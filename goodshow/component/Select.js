@@ -35,10 +35,11 @@ goodshow.component.Select = goodshow.component.Component.extend({
 		if (this.selected) {
 			this.entity.options.background.wrap(this.background);
 			this.entity.options.foreground.wrap(this.foreground);
-		}
-		else {
+			this.entity.options.invoke.enabled.wrap(false);
+		} else {
 			this.entity.options.background.unwrap();
 			this.entity.options.foreground.unwrap();
+			this.entity.options.invoke.enabled.unwrap();
 		}
 		this.entity.draw();
 	}
