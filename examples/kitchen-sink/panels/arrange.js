@@ -568,7 +568,7 @@ example.panels.arrange.inherit.Panel = goodshow.Panel.extend({
 							arranger: new goodshow.arranger.Vertical(),
 							children: [
 								new goodshow.TextArea({
-									text: 'The content of the innermost panel below determines its height (extent) within its container.',
+									text: 'The content of the innermost panel below determines its height (extent) within its own container.',
 									fontFamily: 'Roboto',
 									fontSize: '1.8em',
 									foreground : '#333333',

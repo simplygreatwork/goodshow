@@ -39,7 +39,7 @@ goodshow.entity.Graphics = Class.extend({
 			this.removeChildren();
 		});
 	},
-
+	
 	resolve: function() {
 
 		Object.keys(this.options).forEach(function(key) {

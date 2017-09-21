@@ -8,8 +8,8 @@ goodshow.component.Drag = goodshow.component.Component.extend({
 		}, options || {}));
     },
     
-    install: function(entity) {     // anything draggable doesn't need layout manare
-                                    // else simply pivoy instead
+    install: function(entity) {     // anything draggable doesn't need layout management
+                                    // otherwise pivot instead
         goodshow.component.Component.prototype.install.call(this, entity);
         entity.interactive = true;
         entity.on('pointerdown', function(event) {

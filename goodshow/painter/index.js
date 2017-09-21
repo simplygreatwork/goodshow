@@ -1,3 +1,4 @@
+
 window.goodshow = window.goodshow || {};
 goodshow.painter = goodshow.painter || {};
 
@@ -7,7 +8,7 @@ goodshow.painter.Root = Class.extend({
 
 		Object.assign(this, options);
 	},
-
+	
 	paint: function(entity) {},
 
 	drawRectangle: function(graphics, rectangle, corner) {

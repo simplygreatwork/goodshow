@@ -84,7 +84,6 @@ example.panels.card.Panel = goodshow.Panel.extend({
 										arranger: new goodshow.arranger.Vertical(),
 										children: [
 											new goodshow.TextArea({
-												name : 'two-card-b-text',
 												text: window.lorem,
 												fontFamily: 'Roboto',
 												fontSize: '1.8em',

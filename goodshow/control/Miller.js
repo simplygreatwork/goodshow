@@ -48,7 +48,10 @@ goodshow.Miller = goodshow.Panel.extend({
 						pivot : {
 							x : 0,
 							y : 0
-						}
+						},
+						finish : function() {
+							entity.emit('entered');
+						}.bind(this)
 					});
 					this.advanced = true;
 				}.bind(this)
@@ -64,7 +67,10 @@ goodshow.Miller = goodshow.Panel.extend({
 				pivot : {
 					x : 0,
 					y : 0
-				}
+				},
+				finish : function() {
+					entity.emit('entered');
+				}.bind(this)
 			});
 			this.advanced = true;
 		}

@@ -165,11 +165,11 @@ example.panels.button.Panel = goodshow.Panel.extend({
 															background : 0xff5555,
 															foreground : 0xFFFFFF,
 															fontFamily: 'Material Icons',
-															fontSize: '50px',
+															fontSize: '42px',
 															text : '\uE145',
 															pivot : {
-																x : 0,
-																y : -7
+																x : -1,
+																y : -6
 															},
 															invoke : {
 																action : function() {

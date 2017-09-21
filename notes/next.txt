@@ -1,4 +1,6 @@
 
+dialog might need shadow
+
 use an expander (component?) to expand option primitives to objects
 
 consider: text and images as a component

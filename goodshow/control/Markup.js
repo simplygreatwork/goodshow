@@ -1,3 +1,4 @@
+
 goodshow.Markup = goodshow.Panel.extend({
 
 	initialize: function(options) {
@@ -13,7 +14,7 @@ goodshow.Markup = goodshow.Panel.extend({
 	},
 
 	draw: function() {
-
+		
 		goodshow.Panel.prototype.draw.call(this);
 	}
 });
