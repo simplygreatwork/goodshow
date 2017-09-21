@@ -24,7 +24,7 @@ goodshow.Panel = goodshow.entity.Graphics.extend({
 			delete options.position;
 		}
 	},
-
+	
 	draw: function() {
 		
 		goodshow.entity.Graphics.prototype.draw.call(this);

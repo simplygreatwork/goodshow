@@ -50,7 +50,9 @@ goodshow.Miller = goodshow.Panel.extend({
 							y : 0
 						},
 						finish : function() {
-							entity.emit('entered');
+							goodshow.Broadcast.publish('entity-has-entered', {
+								entity : goodshow.Utility.ancestor(entity, goodshow.Miller)
+							});
 						}.bind(this)
 					});
 					this.advanced = true;
@@ -69,7 +71,9 @@ goodshow.Miller = goodshow.Panel.extend({
 					y : 0
 				},
 				finish : function() {
-					entity.emit('entered');
+					goodshow.Broadcast.publish('entity-has-entered', {
+						entity : goodshow.Utility.ancestor(entity, goodshow.Miller)
+					});
 				}.bind(this)
 			});
 			this.advanced = true;

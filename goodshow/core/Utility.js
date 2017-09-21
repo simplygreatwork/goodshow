@@ -44,22 +44,38 @@ goodshow.Utility = {
 		return begin + Math.floor(Math.random() * (end - begin));
 	},
 
-	ancestor: function(component, clazz) {
-
+	ancestor: function(entity, clazz) {
+		
 		var result = null;
-		while (component.parent) {
-			if (component.parent instanceof clazz) {
-				result = component.parent;
+		while (entity.parent) {
+			if (entity.parent instanceof clazz) {
+				result = entity.parent;
 				break;
 			}
 			else {
-				component = component.parent;
+				component = entity.parent;
 			}
 		}
-
+		
 		return result;
 	},
-
+	
+	hasAncestor: function(entity, ancestor) {
+		
+		var result = null;
+		while (entity.parent) {
+			if (entity.parent == ancestor) {
+				result = ancestor;
+				break;
+			}
+			else {
+				entity = entity.parent;
+			}
+		}
+		
+		return result;
+	},
+	
 	related: function(lower, upper) {
 
 		var result = false;

@@ -6,7 +6,7 @@ goodshow.component.Markup = goodshow.component.Component.extend({
         goodshow.component.Component.prototype.initialize.call(this, Object.assign({
             
         }, options || {}));
-        this.entered = true;
+        this.entered = false;
         this.loaded = false;
     },
     
@@ -19,30 +19,27 @@ goodshow.component.Markup = goodshow.component.Component.extend({
         goodshow.Utility.loadText({
             url: '../assets/templates/index.html',
             callback: function(html) {
-                console.log('component.Markup.loaded');
                 this.html = html;
                 this.loaded = true;
-        		if (this.loaded & this.entered) {
-        		    this.present();
-        		}
+    		    this.present();
             }.bind(this)
         });
         entity.on('removed', function() {
             this.element.style.display = 'none';
         }.bind(this));
-    	entity.on('entered', function() {
-            console.log('Component.Markup.entered');
-            this.entered = true;
-    		if (this.loaded & this.entered) {
-    		    this.present();
-    		}
-    	});
+		goodshow.Broadcast.subscribe('entity-has-entered', function(options) {
+			if (goodshow.Utility.hasAncestor(entity, options.entity)) {
+			    this.entered = true;
+                this.present();
+			}
+		}.bind(this));
     },
     
     present : function() {
         
-        console.log('present');
-        this.element.innerHTML = this.html;
+    	if (this.loaded & this.entered) {
+            this.element.innerHTML = this.html;
+    	}
     },
     
     draw: function(entity) {
