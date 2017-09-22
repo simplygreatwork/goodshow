@@ -219,25 +219,29 @@ goodshow.arranger.Polar = Class.extend({
 	}
 });
 
-goodshow.Extent = Class.extend({
-	
-	initialize: function(entity, value) {
+goodshow.Extent = Class.extend({				// not actually currently in use
+														// extent is currently managed entirely by Constrain & Arranger without wrapping
+	initialize: function(options) {
 		
-		this.entity = entity;
-		this.value = value;
+		Object.assign(this, options || {});
+	},
+	
+	wrap : function(extent) {
+		
+		this.wrapped = extent;
+	},
+	
+	unwrap : function() {
+		
+		delete this.wrapped;
 	},
 	
 	valueOf: function() {
 		
-		var extent = 0;
-		if (this.value) {
-			return this.value;
-		}
-		else {
-			this.entity.children.forEach(function(child) {
-				
-			}.bind(this));
-			return 0;
+		if (this.wrapped != undefined) {
+			return this.wrapped;
+		} else {
+			return this;
 		}
 	}
 });

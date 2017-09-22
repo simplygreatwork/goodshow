@@ -1,16 +1,18 @@
-goodshow.component.Ripple = goodshow.component.Component.extend({
+
+goodshow.component.Ripple = goodshow.component.Root.extend({
 
 	initialize: function(options) {
 
-		goodshow.component.Component.prototype.initialize.call(this, Object.assign({
+		goodshow.component.Root.prototype.initialize.call(this, Object.assign({
 			maximum: 10,
 			events: [],
 			color: 0x999999
 		}, options || {}));
 	},
-
+	
 	install: function(entity) {
 		
+		goodshow.component.Root.prototype.install.call(this, entity);
 		if (entity.options.paint === undefined) {
 			entity.options.paint = new goodshow.component.Paint({
 				painters: []
@@ -45,5 +47,10 @@ goodshow.component.Ripple = goodshow.component.Component.extend({
 				}
 			}.bind(this), 1000);
 		}.bind(this));
+	},
+	
+	draw: function(entity) {
+		
+		goodshow.component.Root.prototype.draw.call(this, entity);
 	}
 });

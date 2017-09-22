@@ -1,6 +1,6 @@
 
 goodshow.Card = goodshow.Panel.extend({
-
+	
 	initialize: function(options) {
 		
 		options = options || {};

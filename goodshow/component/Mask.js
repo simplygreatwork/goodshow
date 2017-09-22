@@ -1,9 +1,9 @@
 
-goodshow.component.Mask = goodshow.component.Component.extend({
+goodshow.component.Mask = goodshow.component.Root.extend({
     
     initialize : function(options) {
         
-        goodshow.component.Component.prototype.initialize.call(this, Object.assign({
+        goodshow.component.Root.prototype.initialize.call(this, Object.assign({
 			painters : [
 				new goodshow.painter.Background({
 				    color : 0x000000
@@ -14,6 +14,7 @@ goodshow.component.Mask = goodshow.component.Component.extend({
     
     install : function(entity) {
         
+        goodshow.component.Root.prototype.install.call(this, entity);
         this.mask = new PIXI.Graphics();
         entity.addChild(this.mask);
     },
@@ -25,6 +26,7 @@ goodshow.component.Mask = goodshow.component.Component.extend({
     
     draw : function(entity) {
         
+        goodshow.component.Root.prototype.draw.call(this, entity);
         this.mask.clear();
         this.mask.bounds = {
             x : 0,

@@ -1,7 +1,8 @@
+
 goodshow.Image = Class.extend({
 
 	initialize: function(options) {
-
+		
 		this.texture = PIXI.Texture.fromImage(options.path);
 		PIXI.Sprite.call(this, this.texture);
 		this.options = {

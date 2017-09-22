@@ -1,3 +1,4 @@
+
 goodshow.Label = goodshow.entity.Graphics.extend({
 	
 	initialize: function(options) {

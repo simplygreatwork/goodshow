@@ -1,8 +1,9 @@
-goodshow.component.Constrain = goodshow.component.Component.extend({
+
+goodshow.component.Constrain = goodshow.component.Root.extend({
 
     initialize: function(options) {
-
-        goodshow.component.Component.prototype.initialize.call(this, Object.assign({
+        
+        goodshow.component.Root.prototype.initialize.call(this, Object.assign({
             extent: 'flex',
             margin: {},
             padding: {}
@@ -37,12 +38,11 @@ goodshow.component.Constrain = goodshow.component.Component.extend({
                 }
             }
         }
-        if (false) this.extent = new goodshow.Extent(entity, this.extent);
-        goodshow.component.Component.prototype.install.call(this, entity);
+        goodshow.component.Root.prototype.install.call(this, entity);
     },
     
     draw: function(entity) {
         
-        goodshow.component.Component.prototype.draw.call(this, entity);
+        goodshow.component.Root.prototype.draw.call(this, entity);
     }
 });

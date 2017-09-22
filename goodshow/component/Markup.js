@@ -1,9 +1,9 @@
 
-goodshow.component.Markup = goodshow.component.Component.extend({
+goodshow.component.Markup = goodshow.component.Root.extend({
     
     initialize: function(options) {
 
-        goodshow.component.Component.prototype.initialize.call(this, Object.assign({
+        goodshow.component.Root.prototype.initialize.call(this, Object.assign({
             
         }, options || {}));
         this.entered = false;
@@ -12,7 +12,7 @@ goodshow.component.Markup = goodshow.component.Component.extend({
     
     install: function(entity) {
         
-        goodshow.component.Component.prototype.install.call(this, entity);
+        goodshow.component.Root.prototype.install.call(this, entity);
         this.element = document.createElement('div');
         this.element.className = 'element';
         document.body.appendChild(this.element);
@@ -44,7 +44,7 @@ goodshow.component.Markup = goodshow.component.Component.extend({
     
     draw: function(entity) {
         
-        goodshow.component.Component.prototype.draw.call(this, entity);
+        goodshow.component.Root.prototype.draw.call(this, entity);
         Object.assign(this.element.style, {
             top: entity.options.bounds.y,
             left: entity.options.bounds.x,

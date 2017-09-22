@@ -1,16 +1,16 @@
 
-goodshow.component.Drag = goodshow.component.Component.extend({
+goodshow.component.Drag = goodshow.component.Root.extend({
     
     initialize: function(options) {
         
-		goodshow.component.Component.prototype.initialize.call(this, Object.assign({
+		goodshow.component.Root.prototype.initialize.call(this, Object.assign({
 			boundary: new PIXI.Rectangle(0, 0, 0, 0)
 		}, options || {}));
     },
     
-    install: function(entity) {     // anything draggable doesn't need layout management
-                                    // otherwise pivot instead
-        goodshow.component.Component.prototype.install.call(this, entity);
+    install: function(entity) {     // any draggable entity doesn't need arranger layout management - use position instead
+        
+        goodshow.component.Root.prototype.install.call(this, entity);
         entity.interactive = true;
         entity.on('pointerdown', function(event) {
             this.data = event.data;
@@ -29,7 +29,7 @@ goodshow.component.Drag = goodshow.component.Component.extend({
             this.dragging = false;
             this.data = null;
         }.bind(this));
-        entity.on('pointermove', function() {           // todo: why does the painted graphic snap back?
+        entity.on('pointermove', function() {
             if (this.dragging) {
                 var position = this.data.getLocalPosition(entity.parent);
                 entity.options.bounds.x = -(this.offset.x - position.x);
@@ -42,6 +42,6 @@ goodshow.component.Drag = goodshow.component.Component.extend({
     
     draw: function(entity) {
         
-        goodshow.component.Component.prototype.draw.call(this, entity);
+        goodshow.component.Root.prototype.draw.call(this, entity);
     }
 });

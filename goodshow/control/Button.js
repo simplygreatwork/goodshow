@@ -1,5 +1,6 @@
-goodshow.Button = goodshow.Label.extend({
 
+goodshow.Button = goodshow.Label.extend({
+	
 	initialize: function(options) {
 
 		goodshow.Label.prototype.initialize.call(this, Object.assign({
@@ -11,14 +12,14 @@ goodshow.Button = goodshow.Label.extend({
 			}
 		}, options || {}));
 	},
-
+	
 	install: function(entity) {
-
+		
 		goodshow.Label.prototype.install.call(this, entity);
 	},
-
+	
 	draw: function(entity) {
-
+		
 		goodshow.Label.prototype.draw.call(this, entity);
 	}
 });

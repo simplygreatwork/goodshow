@@ -1,13 +1,14 @@
 
-goodshow.component.Hover = goodshow.component.Component.extend({
+goodshow.component.Hover = goodshow.component.Root.extend({
 
 	initialize: function(options) {
 
-		goodshow.component.Component.prototype.initialize.call(this, options);
+		goodshow.component.Root.prototype.initialize.call(this, options);
 	},
 
 	install: function(entity) {
-
+		
+		goodshow.component.Root.prototype.install.call(this, entity);
 		if (entity.options.paint === undefined) {
 			entity.options.paint = new goodshow.component.Paint({
 				painters: []
@@ -26,5 +27,10 @@ goodshow.component.Hover = goodshow.component.Component.extend({
 			this.painter.alpha = 0;
 			entity.draw();
 		}.bind(this));
+	},
+	
+	draw: function(entity) {
+		
+		goodshow.component.Root.prototype.draw.call(this, entity);
 	}
 });

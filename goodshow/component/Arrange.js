@@ -1,8 +1,9 @@
-goodshow.component.Arrange = goodshow.component.Component.extend({
+
+goodshow.component.Arrange = goodshow.component.Root.extend({
 
     initialize: function(options) {
 
-        goodshow.component.Component.prototype.initialize.call(this, options);
+        goodshow.component.Root.prototype.initialize.call(this, options);
     },
 
     install: function(entity) {

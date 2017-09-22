@@ -1,4 +1,238 @@
 
+consider changing Ripple component to Effect component
+
+review: might be able to use built-in emitter instead of Broadcast
+    if I 'emit' on the ancestor.find() and also 'on' on the ancestor.find() 
+
+change Utility.ancestor.find to Utility.ancestor.find.find
+change Utility.hasAncestor to Utility.ancestor.has
+change Utility.related to to Utility.ancestor.has
+
+dialog could use a shadow
+    try using a the drop shadow filter
+    else draw using a painter
+    in general, want to try to keep using drop shadow filter overall because drop shadow filter supports any sort of shape
+    
+use an expander (component?) to expand option primitives to objects
+
+consider: text and images as a component
+    and even Graphics
+    and might need to allow multiple text/images - as such like painters and filters
+    because even Markup now is a component
+
+change base elements to extend from the word Root
+    e.g. component.Root
+
+review: might be redrawing everything on each cycle
+    look at Main- what's the difference between render and draw?
+
+miller panels need to be contained in a stack,
+    so if content is replaced, the original content can slide out or fade away
+    but then the lower stack must be removed
+
+use emitter "view-has entered" for markup showing
+
+need revealers for miller, drawer, accordian, dialog, toolbar menu
+
+need to tighten up arranger code again: for cases of flow, inherit, flex, fixed, etc
+
+explore use of Proxy object for a simple, complete reactive UI
+    already using Proxy to listen for simple options changes
+
+change "reveal" to "morph"
+this allows for morph.in and morph.out
+which is better than reveal.in reveal.out or reveal.reveal & reveal.conceal
+also consider just using tween: tween.in and tween.out
+maybe just stick with reveal.in reveal.out
+
+consider being able to fade in layout/arranger/extent changes (after reveal arrangement shifting)
+    like what chrome will often do when resizing the window
+
+example:
+    for hidden panel
+    shift pivot up 100
+    increase extent to 100
+    then tween pivot down for it and lower panels
+
+when installing reveal on an entity
+    need to cache it's normal extent and set it to fixed: 0
+    
+move responsive list item into Arrange list item
+
+maybe reveal has do to with visibility tweening
+a default reveal has no tweening
+maybe reveal should be named as component "visible"
+
+really need to use ticker here for scrolling
+see also: https://www.npmjs.com/package/wheel-inertia
+
+text: 'The concept is that miller panels reveal inline panels, buttons reveal dialogs, buttons reveal inline expandable content and menus, tabs reveal inline content regions. Reveal is a component like painters and arrangers.',
+text: 'When an entity is added to a panel, how does it reveal itself? Does its alpha begin at zero? Does its pivot begin obscured and then slide out? Does its height begin at zero and then grow?',
+text: 'More and more its looking like tween is the major factor to reveal. And maybe visible is the reality. And layout is going to',
+
+aspects of a revealer? invoke, add, tween 
+    can all revealer reverse their actions?
+
+could text be a component of an entity?
+could image be a component of an entity?
+
+be able to drag the shapes (Drag component)
+
+actually, the reveal component might be related to the invoke component
+
+work on change padding for Chnage display
+
+inertia (easeoutsine)
+scrollbars (boundedness/bound component)
+
+switch some grey backgrounds to white
+
+implement shadow painter to simplify card layout extent inherit
+
+be able to pass parameters (color, alpha) into hover
+
+switch to PIXI v4
+
+work on a writeup for PIXI github
+
+use pivot animation for revealer, revealing miller panels and expandable content/menus
+
+get padding working with text area
+
+get flow and inherit extents working horizontally
+
+idea: extent could be
+    'inherit', or 'flex' 'flex2', 'flex3', 'flex4', (if flex)
+    or numeric
+
+in general, the arranger code, want to work with extent objects and not primitives
+
+    extent : {
+        kind : 'fixed',
+        value : 100
+    }
+    extent : {
+        fixed : 100
+    }
+    extent : 100
+    extent : {
+        kind : 'flex',
+        value : 4
+    }
+    extent : {
+        flex : 4
+    }
+    extent : {
+        kind : 'inherited'
+    }
+    extent : {
+        inherit : true
+    }
+
+scrolling needs to take into account: container padding
+
+scrolling issue: if content is shorter that viewport
+    scrolling jumps
+
+buttons need hover behavior, buttons need press behavior
+
+important: add some sort of hyperlink to the top header.
+
+work on all matters and concerns of revealing
+
+work on drag component
+    work on drag + scroll component eventually
+
+realize every reason to employ Object.assign combining
+
+I could use a variant of Object.assign which retains history
+    then components such as Invoker, Paint, Filter can individually combine their childen
+
+issue: mouse interaction issue after scrolling
+    example: scroll a list and the toolbar buttons stop working (are covered)
+    example: an animating ripple of a list item can affect other riiples
+
+if a list item is selected, change ripple color
+    maybe use goodshow.Value
+
+be able to transform a ripple into a selection
+
+Selection needs to select Select and not Select selecting itself
+    this may be helpful with zero selection
+    this may be helpful with zero, one, and multiple selection
+    think this is complete
+
+when clicking on a message it actually needs to fade away
+    but should really be clicking on "CLOSE"
+
+for lists allow to click/tap and drag
+
+issue: unable to re-select a prior selected item (complete)
+
+use a proxy for selection colors? 
+
+need to clip (mouse) interaction in addition to drawing
+
+scrollbars don't need to be a child
+    can be an overlay
+
+distinction: entity alpha vs. painter alpha
+
+still a problem with alpha being zero and not being detected
+
+goodshow Card needs updating/modernization (complete)
+
+investigate using Kefir/FRP for trait/enhancer processing
+
+allow for enhancing in other controls besides Label
+allow options for enhancers to be "provided" e.g. theming, font sizes
+
+use some key bindings - particularly escape to exit from dialogs and drawers
+    maybe back arrow as well for milling
+
+be able to register additional component types on Graphics entity
+
+if a component is declared with a primitive and not an object,
+    convert to an object Graphics resolve
+
+make a separate test page for arranger height determination
+    
+switch to pixi v4 (done)
+ripples, hovers, and actions for toolbar buttons
+hover effects for toolbar buttons
+ripple painters actually need to paint above and not behind
+handle omission of arranger property, children property, flex property (and so forth)
+basic mousewheel scrolling with bounds and maybe even simple inertia easing and bounce
+basic text editor overlay
+deterministic layout height for text, images, containers - and for parent containers
+
+move alignment from label into a component
+
+reimplement fab using components
+be able to show dialog, drawers, etc from buttons
+implement selection component
+paint shadows on each mill panel border to separate
+at least display message toasts in snackbar if a buttons does nothing
+master header
+move primary layers into nested stacks (for blur)
+more painters including shadow w/ elevation
+fix message panel margins
+fix message panel arranging when dismissing
+consolidate arrangers (horizonal and vertical) (minor/major for padding/margins)
+work on revealer consolidation for menus, drawers, tabs, dialogs, and miller panels
+demo styling cascade hooks
+very basic reactive UI (with diffsync)
+separate the projects into subprojects
+implement lazy providing of children (for when scrolling)
+tween drawer animation
+tween message animation
+tween dialog animation
+
+use revealers to help with state/history management
+
+DONE...
+
+
 change "draw" to "update"
 
 change Entity.draw to Entity.update?
@@ -45,12 +279,14 @@ try to consolidate the components: scroll and drag to -> "Move.js"
     because the user is moving the viewport
 
 need to be able to register new component types on Entity
-
+    right now they are defined at the top of goodshow.Graphics
+    should Graphics be an entity compoent just like Markup, Text, Images?
+    
 if constrain is missing flex or width/height/extent, maybe insert flex or width/height/extent 
 
-change sidebar layer to Drawer layer
+change sidebar layer to Drawer layer (done)
 
-for scrollable, the mask is actually moved within bounds
+consider: for scrollable, the mask/viewport is actually moved within bounds
 
 next up
     dialog blur
@@ -90,7 +326,7 @@ I ought to create a reveal panel
     messages could slide of from under footers
     sidebars could slide in from the sides
 
-change properties to options
+change properties to options (done)
 ensure that every component has defaults
 
 my cascades and component will draw need to know the full (parent) path
@@ -109,111 +345,6 @@ commonality
     
 idea: transition an inline card to a dialog card
 
-why acn't I just attach a message to the top of the content?
-why do I gace to frame things? do I need to add a new Panel just to frame new vertical/horizontal content?
+why can't I just attach a message to the top of the content?
+why do I have to frame things? do I need to add a new Panel just to frame new vertical/horizontal content?
 
-inset+cleanroom+impart+playset+playscape+workspace+workscape+pathscape
-
-goodshow
-goodshow.io
-showplace
-goodplace
-showgood
-goodshow (could be goods how?) problem
-good
-goodwork
-show
-SHOWPLACE
-showroom
-pathmaker
-goodshow
-goodstuff
-showcase
-showboat
-showoff
-showman
-goodshow
-showspot
-spotlight
-blacklight
-cleanlight
-inspot
-goodspot
-shower
-showscape
-showspace
-showpalace
-showplace
-sideshow
-slideshow
-foreshow
-airshow
-showdown
-showplace
-room
-showroom
-showlight
-goodroom
-goodlight
-goodplace
-goodspace
-goodlines
-goodspot
-hotlight
-simple
-unit
-showup
-showit
-cleanshow
-spotspace
-
-pray
-study
-shadow
-foreshadow
-
-hard
-easy
-please
-pleasure
-
-block
-stone
-corner
-cornerstone
-blockplace
-placeblock
-showblock
-pad
-margin
-vite
-magic
-mage
-imagine
-imag-ine
-shrine
-maging
-dragon
-fireplace
-hotplace
-firespot
-
-real
-realplace
-realworld
-
-showworld
-reality
-store
-rect
-
-peat
-repeat
-ensure
-sureplace
-surething
-
-insight
-masterplan
-blueprint
-pixistix

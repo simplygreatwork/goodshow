@@ -1,3 +1,4 @@
+
 goodshow.Utility = {
 
 	assign: function(to, from) {
@@ -81,7 +82,7 @@ goodshow.Utility = {
 	children: {
 
 		first: function(entity) {
-
+			
 			var i;
 			for (i = 0; i < entity.children.length; i++) {
 				var child = entity.children[i];

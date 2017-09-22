@@ -1,4 +1,5 @@
-goodshow.component.Component = Class.extend({
+
+goodshow.component.Root = Class.extend({
 
     initialize: function(options) {
 
@@ -12,16 +13,16 @@ goodshow.component.Component = Class.extend({
 
     install: function(entity) {
 
-
+        
     },
 
     uninstall: function(entity) {
 
-
+        
     },
 
     draw: function(entity) {
 
-
+        
     }
 });

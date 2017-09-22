@@ -1,9 +1,9 @@
 
-goodshow.component.Select = goodshow.component.Component.extend({
+goodshow.component.Select = goodshow.component.Root.extend({
 
 	initialize: function(options) {
 
-		goodshow.component.Component.prototype.initialize.call(this, Object.assign({
+		goodshow.component.Root.prototype.initialize.call(this, Object.assign({
 			selected: false,
 			foreground: 0xFFFFFF,
 			background: 0x4444FF
@@ -12,7 +12,7 @@ goodshow.component.Select = goodshow.component.Component.extend({
 
 	install: function(entity) {
 		
-		goodshow.component.Component.prototype.install.call(this);
+		goodshow.component.Root.prototype.install.call(this, entity);
 		this.entity = entity;
 		this.entity.interactive = true;
 		this.entity.on('mousedown', function(event) {
@@ -26,7 +26,7 @@ goodshow.component.Select = goodshow.component.Component.extend({
 	
 	draw: function(entity) {
 		
-		goodshow.component.Component.prototype.draw.call(this);
+		goodshow.component.Root.prototype.draw.call(this, entity);
 	},
 	
 	select: function(selected) {

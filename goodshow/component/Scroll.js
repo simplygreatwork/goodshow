@@ -1,8 +1,9 @@
-goodshow.component.Scroll = goodshow.component.Component.extend({
 
+goodshow.component.Scroll = goodshow.component.Root.extend({
+   
    initialize: function(options) {
-
-      goodshow.component.Component.prototype.initialize.call(this, Object.assign({
+      
+      goodshow.component.Root.prototype.initialize.call(this, Object.assign({
          axis: 'y',
          extent: 'height',
          direction: {
@@ -19,7 +20,7 @@ goodshow.component.Scroll = goodshow.component.Component.extend({
 
    install: function(entity) {
       
-      goodshow.component.Component.prototype.install.call(this);
+      goodshow.component.Root.prototype.install.call(this, entity);
       document.addEventListener('mousewheel', function(event) {
          if (entity.options.bounds.contains(event.x, event.y)) {
             if (this.scrollable(entity)) {
@@ -46,7 +47,7 @@ goodshow.component.Scroll = goodshow.component.Component.extend({
    
    draw: function(entity) {
       
-      goodshow.component.Component.prototype.draw.call(this);
+      goodshow.component.Root.prototype.draw.call(this, entity);
    },
    
    reset : function() {
@@ -88,7 +89,7 @@ goodshow.component.Scroll = goodshow.component.Component.extend({
    },
 
    scrollBy: function(entity, delta) {
-
+      
       goodshow.Utility.children.iterate(entity, function(child) {
          child.pivot[this.axis] = child.pivot[this.axis] + delta;
       }.bind(this));

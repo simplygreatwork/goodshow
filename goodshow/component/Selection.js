@@ -1,9 +1,9 @@
 
-goodshow.component.Selection = goodshow.component.Component.extend({
+goodshow.component.Selection = goodshow.component.Root.extend({
 	
 	initialize: function(options) {
 		
-		goodshow.component.Component.prototype.initialize.call(this, Object.assign({
+		goodshow.component.Root.prototype.initialize.call(this, Object.assign({
 			selection: [],
 			quantity: 1,
 			foreground: 0xFFFFFF,
@@ -13,7 +13,7 @@ goodshow.component.Selection = goodshow.component.Component.extend({
 	
 	install: function(entity) {
 		
-		goodshow.component.Component.prototype.install.call(this);
+		goodshow.component.Root.prototype.install.call(this, entity);
 		entity.options.contain.children.forEach(function(child) {
 			child.options.select = new goodshow.component.Select({
 				foreground: this.foreground,
@@ -22,8 +22,7 @@ goodshow.component.Selection = goodshow.component.Component.extend({
 			child.options.select.install(child);
 		}.bind(this));
 		goodshow.Broadcast.subscribe('select', function(options) {
-			var related = goodshow.Utility.ancestor.has(options.entity, entity);
-			if (related) {
+			if (goodshow.Utility.ancestor.has(options.entity, entity)) {
 				if (this.quantity !== 0) {
 					if (this.quantity === 1) {
 						if (this.selectable(entity, options.entity)) {
@@ -62,7 +61,7 @@ goodshow.component.Selection = goodshow.component.Component.extend({
 	
 	draw: function(entity) {
 		
-		goodshow.component.Component.prototype.draw.call(this);
+		goodshow.component.Root.prototype.draw.call(this, entity);
 	},
 	
 	clear: function() {

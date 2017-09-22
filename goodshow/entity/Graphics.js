@@ -1,6 +1,6 @@
 
 var components = [
-	'bound',			// the ordering of these is so very important
+	'bound',			// the ordering of these is so very important (actually until began using proxy.setTimeout)
 	'invoke',		// pertaining to masking, hover, select, etc: study
 	'contain',
 	'paint',
@@ -85,7 +85,7 @@ goodshow.entity.Graphics = Class.extend({
 			}
 		}
 	},
-
+	
 	install: function() {
 		
 		components.forEach(function(component) {

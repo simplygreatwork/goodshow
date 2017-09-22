@@ -1,8 +1,9 @@
-goodshow.component.Contain = goodshow.component.Component.extend({
+
+goodshow.component.Contain = goodshow.component.Root.extend({
 	
 	initialize: function(options) {
 		
-		goodshow.component.Component.prototype.initialize.call(this, Object.assign({
+		goodshow.component.Root.prototype.initialize.call(this, Object.assign({
 			arranger: new goodshow.arranger.Stack(),
 			children: []
 		}, options || {}));
@@ -12,9 +13,10 @@ goodshow.component.Contain = goodshow.component.Component.extend({
 
 		return this;
 	},
-
+	
 	install: function(entity) {
-
+		
+		goodshow.component.Root.prototype.install.call(this, entity);
 		this.entity = entity;
 		entity.removeChildren();
 		this.children = this.children || [];
@@ -25,6 +27,7 @@ goodshow.component.Contain = goodshow.component.Component.extend({
 
 	draw: function(entity) {
 		
+		goodshow.component.Root.prototype.draw.call(this, entity);
 		if (this.arranger) {
 			this.arranger.arrange(entity);
 		}

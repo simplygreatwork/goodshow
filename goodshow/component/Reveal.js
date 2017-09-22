@@ -1,9 +1,9 @@
 
-goodshow.component.Reveal = goodshow.component.Component.extend({
+goodshow.component.Reveal = goodshow.component.Root.extend({
     
     initialize: function(options) {
         
-		goodshow.component.Component.prototype.initialize.call(this, Object.assign({
+		goodshow.component.Root.prototype.initialize.call(this, Object.assign({
 		    direction : 'out',
 			revealer: new goodshow.revealer.Extent()
 		}, options || {}));
@@ -11,7 +11,7 @@ goodshow.component.Reveal = goodshow.component.Component.extend({
     
     install: function(entity) {
         
-        goodshow.component.Component.prototype.install.call(this);
+        goodshow.component.Root.prototype.install.call(this, entity);
         goodshow.Broadcast.subscribe('reveal', function(options) {
             if (entity.options.name == options.name) {
                 var direction = options.direction;
@@ -30,6 +30,6 @@ goodshow.component.Reveal = goodshow.component.Component.extend({
     
     draw: function(entity) {
         
-        goodshow.component.Component.prototype.draw.call(this);
+        goodshow.component.Root.prototype.draw.call(this, entity);
     }
 });
