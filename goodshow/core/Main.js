@@ -18,7 +18,7 @@ goodshow.Main = Class.extend({
 
 		WebFontConfig = {
 			google: {
-				families: ['Roboto', 'Material+Icons'],
+				families: ['Roboto', 'Material+Icons', 'FontAwesome'],
 			},
 			active: function() {
 				callback();

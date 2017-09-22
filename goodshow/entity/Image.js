@@ -20,7 +20,7 @@ goodshow.Image = Class.extend({
 	},
 
 	draw: function() {
-
+		
 		this.position.x = 0;
 		this.position.y = 0;
 		this.width = this.options.bounds.width;

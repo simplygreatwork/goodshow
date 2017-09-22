@@ -39,7 +39,7 @@ example.panels.image.Panel = goodshow.Panel.extend({
 									fontFamily: 'Material Icons',
 									fontSize: '24px',
 									constrain : {
-										extent: 64
+										extent: 44
 									},
 									pivot : {
 										y : -4
@@ -49,6 +49,21 @@ example.panels.image.Panel = goodshow.Panel.extend({
 											application.layer.message.display(new example.layer.message.Panel({
 												text : 'Menu!'
 											}));
+										}.bind(this)
+									}
+								}),
+								new goodshow.Label({
+									name: 'header-git',
+									text: '\uf09b',
+									foreground: 'white',
+									fontFamily: 'FontAwesome',
+									fontSize: '24px',
+									constrain : {
+										extent: 64
+									},
+									invoke : {
+										action : function() {
+											window.open('https://github.com/simplygreatwork/goodshow/blob/master/examples/kitchen-sink/panels/image.js', '_blank',);
 										}.bind(this)
 									}
 								})

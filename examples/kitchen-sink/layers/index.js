@@ -63,7 +63,11 @@ example.layer.drawer.Layer = goodshow.Panel.extend({
 							action : function() {
 								goodshow.tween.pivot({
 									entity : this.drawer.left,
-									pivot : {
+									from : {
+										x : this.drawer.left.pivot.x,
+										y : 0
+									},
+									to : {
 										x : 300,
 										y : 0
 									}
@@ -84,7 +88,11 @@ example.layer.drawer.Layer = goodshow.Panel.extend({
 							action : function() {
 								goodshow.tween.pivot({
 									entity : this.drawer.right,
-									pivot : {
+									from : {
+										x : this.drawer.right.pivot.x,
+										y : 0
+									},
+									to : {
 										x : -300,
 										y : 0
 									}
@@ -97,23 +105,31 @@ example.layer.drawer.Layer = goodshow.Panel.extend({
 		}, options || {}));
 		
     	goodshow.Broadcast.subscribe('open-left-drawer', function(object) {
-    		goodshow.tween.pivot({
-    			entity : application.layer.drawer.drawer.left,
-    			pivot : {
-    				x : 0,
-    				y : 0
-    			}
-    		});
+			goodshow.tween.pivot({
+				entity : application.layer.drawer.drawer.left,
+				from : {
+					x : application.layer.drawer.drawer.left.pivot.x,
+					y : 0
+				},
+				to : {
+					x : 0,
+					y : 0
+				}
+			});
     	});
 		
     	goodshow.Broadcast.subscribe('open-right-drawer', function(object) {
-    		goodshow.tween.pivot({
-    			entity : application.layer.drawer.drawer.right,
-    			pivot : {
-    				x : 0,
-    				y : 0
-    			}
-    		});
+			goodshow.tween.pivot({
+				entity : application.layer.drawer.drawer.right,
+				from : {
+					x : application.layer.drawer.drawer.right.pivot.x,
+					y : 0
+				},
+				to : {
+					x : 0,
+					y : 0
+				}
+			});
     	});
 	},
 });
@@ -139,7 +155,9 @@ example.layer.dialog.Layer = goodshow.Panel.extend({
 		if (this.visible) {
 			goodshow.tween.alpha({
 				entity : application.layer.dialog,
-				alpha : 0,
+				to : {
+					alpha : 0
+				},
 				duration : 300,
 				finish : function() {
 					this.visible = false;
@@ -150,7 +168,9 @@ example.layer.dialog.Layer = goodshow.Panel.extend({
 			this.visible = true;
 			goodshow.tween.alpha({
 				entity : application.layer.dialog,
-				alpha : 1,
+				to : {
+					alpha : 1
+				},
 				duration : 300,
 				finish : function() {
 
@@ -273,7 +293,9 @@ example.layer.message.Layer = goodshow.Panel.extend({
 		goodshow.Broadcast.subscribe('message.dismiss', function(message) {
 			goodshow.tween.alpha({
 				entity : message,
-				alpha : 0,
+				to : {
+					alpha : 0
+				},
 				finish : function() {
 					this.list.options.contain.removeChild(message);
 					this.list.draw();
@@ -294,16 +316,18 @@ example.layer.message.Layer = goodshow.Panel.extend({
 		if (this.managing !== true) {
 			if (this.queue.length > 0) {
 				var message = this.queue.shift();
-				var y = this.list.pivot.y;
-				this.list.pivot.y = this.list.pivot.y - 70;
 				this.list.options.contain.addChild(message);
 				this.list.draw();
 				this.managing = true;
 				goodshow.tween.pivot({
 					entity : this.list,
-					pivot : {
+					from : {
 						x : 0,
-						y : y
+						y : this.list.pivot.y - 70
+					},
+					to : {
+						x : 0,
+						y : this.list.pivot.y
 					},
 					finish : function() {
 						this.managing = false;

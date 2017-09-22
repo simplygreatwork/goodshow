@@ -27,76 +27,48 @@ goodshow.Miller = goodshow.Panel.extend({
 	advance: function(entity) {
 		
 		if (this.advanced) {
-			var old = this.secondary;
-			goodshow.tween.alpha({
-				entity : old,
-				alpha : 0,
-				duration : 200,
-				finish : function() {
-					goodshow.Utility.remove(this.stack.options.contain.children, old);
-					this.stack.removeChild(old);
-					this.stack.addChild(this.secondary = new goodshow.Panel({
-						mask : {}
-					}));
-					entity.pivot.x = entity.options.constrain.extent.value;
-					this.secondary.addChildAt(new goodshow.Miller({
-						content: entity
-					}), 0);
-					this.secondary.draw();
-					goodshow.tween.pivot({
-						entity : entity,
-						pivot : {
-							x : 0,
-							y : 0
-						},
-						finish : function() {
-							goodshow.Broadcast.publish('entity-has-entered', {
-								entity : goodshow.Utility.ancestor.find(entity, goodshow.Miller)
-							});
-						}.bind(this)
+			this.exit(this.secondary, function() {
+				goodshow.Utility.remove(this.stack.options.contain.children, this.secondary);
+				this.stack.removeChild(this.secondary);
+				this.stack.addChild(this.secondary = new goodshow.Panel({
+					mask : {}
+				}));
+				this.secondary.addChildAt(new goodshow.Miller({
+					content: entity
+				}), 0);
+				this.secondary.draw();
+				this.enter(entity, function() {
+					goodshow.Broadcast.publish('entity-has-entered', {
+						entity : goodshow.Utility.ancestor.find(entity, goodshow.Miller)
 					});
-					this.advanced = true;
-				}.bind(this)
-			});
+				}.bind(this));
+				this.advanced = true;
+			}.bind(this));
 		} else {
-			entity.pivot.x = entity.options.constrain.extent.value;
 			this.secondary.addChildAt(new goodshow.Miller({
 				content: entity
 			}), 0);
 			this.secondary.draw();
-			goodshow.tween.pivot({
-				entity : entity,
-				pivot : {
-					x : 0,
-					y : 0
-				},
-				finish : function() {
-					goodshow.Broadcast.publish('entity-has-entered', {
-						entity : goodshow.Utility.ancestor.find(entity, goodshow.Miller)
-					});
-				}.bind(this)
-			});
+			this.enter(entity, function() {
+				goodshow.Broadcast.publish('entity-has-entered', {
+					entity : goodshow.Utility.ancestor.find(entity, goodshow.Miller)
+				});
+			}.bind(this));
 			this.advanced = true;
 		}
 	},
 	
 	retreat: function() {
 		
-		var old = this.secondary;
-		goodshow.tween.alpha({
-			entity : old,
-			alpha : 0,
-			duration : 200,
-			finish : function() {
-				goodshow.Utility.remove(this.stack.options.contain.children, old);
-				this.stack.removeChild(old);
-				this.stack.addChild(this.secondary = new goodshow.Panel({
-					mask : {}
-				}));
-				this.secondary.draw();
-				this.advanced = false;
-			}.bind(this)
-		});
+		this.exit(this.secondary, function() {
+			goodshow.Utility.remove(this.stack.options.contain.children, this.secondary);
+			this.stack.removeChild(this.secondary);
+			this.stack.addChild(this.secondary = new goodshow.Panel({
+				mask : {}
+			}));
+			this.secondary.draw();
+			this.advanced = false;
+		}.bind(this));
 	},
 	
 	toggle: function(component) {
@@ -107,5 +79,37 @@ goodshow.Miller = goodshow.Panel.extend({
 		else {
 			this.advance(component);
 		}
+	},
+	
+	enter : function(entity, finish) {
+		
+		goodshow.tween.pivot({
+			entity : entity,
+			from : {
+				x : entity.options.constrain.extent.value,
+				y : 0,
+			},
+			to : {
+				x : 0,
+				y : 0
+			},
+			finish : function() {
+				goodshow.Broadcast.publish('entity-has-entered', {
+					entity : goodshow.Utility.ancestor.find(entity, goodshow.Miller)
+				});
+			}.bind(this)
+		});
+	},
+	
+	exit : function(entity, finish) {
+		
+		goodshow.tween.alpha({
+			entity : entity,
+			to : {
+				alpha : 0
+			},
+			duration : 200,
+			finish : finish
+		});
 	}
 });

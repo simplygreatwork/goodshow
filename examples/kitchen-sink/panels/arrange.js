@@ -39,7 +39,7 @@ example.panels.arrange.Panel = goodshow.Panel.extend({
 									fontFamily: 'Material Icons',
 									fontSize: '24px',
 									constrain : {
-										extent: 64
+										extent: 44
 									},
 									pivot : {
 										y : -4
@@ -49,6 +49,21 @@ example.panels.arrange.Panel = goodshow.Panel.extend({
 											application.layer.message.display(new example.layer.message.Panel({
 												text : 'Menu!'
 											}));
+										}.bind(this)
+									}
+								}),
+								new goodshow.Label({
+									name: 'header-git',
+									text: '\uf09b',
+									foreground: 'white',
+									fontFamily: 'FontAwesome',
+									fontSize: '24px',
+									constrain : {
+										extent: 64
+									},
+									invoke : {
+										action : function() {
+											window.open('https://github.com/simplygreatwork/goodshow/blob/master/examples/kitchen-sink/panels/arrange.js', '_blank',);
 										}.bind(this)
 									}
 								})
@@ -72,9 +87,7 @@ example.panels.arrange.Panel = goodshow.Panel.extend({
 									invoke : {
 										action : function() {
 											var miller = goodshow.Utility.ancestor.find(this, goodshow.Miller);
-											window.setTimeout(function() {
-												miller.advance(new example.panels.arrange.text.Panel());
-											});
+											miller.advance(new example.panels.arrange.text.Panel());
 										}.bind(this)
 									}
 								}),
@@ -83,9 +96,7 @@ example.panels.arrange.Panel = goodshow.Panel.extend({
 									invoke : {
 										action : function() {
 											var miller = goodshow.Utility.ancestor.find(this, goodshow.Miller);
-											window.setTimeout(function() {
-												miller.advance(new example.panels.arrange.image.Panel());
-											});
+											miller.advance(new example.panels.arrange.image.Panel());
 										}.bind(this)
 									}
 								}),
@@ -94,9 +105,7 @@ example.panels.arrange.Panel = goodshow.Panel.extend({
 									invoke : {
 										action : function() {
 											var miller = goodshow.Utility.ancestor.find(this, goodshow.Miller);
-											window.setTimeout(function() {
-												miller.advance(new example.panels.arrange.inherit.Panel());
-											});
+											miller.advance(new example.panels.arrange.inherit.Panel());
 										}.bind(this)
 									}
 								}),
@@ -105,9 +114,7 @@ example.panels.arrange.Panel = goodshow.Panel.extend({
 									invoke : {
 										action : function() {
 											var miller = goodshow.Utility.ancestor.find(this, goodshow.Miller);
-											window.setTimeout(function() {
-												miller.advance(new example.panels.arrange.responsive.Panel());
-											});
+											miller.advance(new example.panels.arrange.responsive.Panel());
 										}.bind(this)
 									}
 								})

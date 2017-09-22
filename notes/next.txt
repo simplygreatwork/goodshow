@@ -1,6 +1,9 @@
 
+finish refactoring alpha tween
+
 add icons in each master panel to link to the source
    identify the best icon to represent source code
+   started a few panels - need to finish
 
 switch from ancestor/Broadcast to ancestor/emit
 
@@ -12,12 +15,14 @@ use a single font styling config: font : {...}
 add more miller views to "Arrange" panel: flex, flow, fixed, in addition to the existing: inherit
    remove Text & Image
    
+illustrate enhance panel
+   
 change "draw" references to "update" for components and entities
 
 attempt to get cards to inherit extent and flow extent
 
 add many more robust examples to illustrate Markup
-   a basic rich document
+   a basic rich text document
    a text element for to allow editing
    incorporate other aspects such as scrolling, clipping, and even transforming
    and markdown
@@ -25,6 +30,8 @@ add many more robust examples to illustrate Markup
 be able to register component types for the Graphics entity
    
 work on more complex parts
-   list items, card items
+   list item layouts, card layouts, dialog layouts
 
 work on a realistic pharma filtering app with filtering right sidebar
+
+add escape to exit dialog, drawer, etc. (not really "next" material but pleasing anyway)

@@ -85,7 +85,11 @@ example.panels.overlay.Panel = goodshow.Panel.extend({
 										action : function() {
 											goodshow.tween.pivot({
 												entity : application.layer.drawer.drawer.left,
-												pivot : {
+												from : {
+													x : application.layer.drawer.drawer.left.pivot.x,
+													y : 0
+												},
+												to : {
 													x : 0,
 													y : 0
 												}
@@ -100,7 +104,11 @@ example.panels.overlay.Panel = goodshow.Panel.extend({
 										action : function() {
 											goodshow.tween.pivot({
 												entity : application.layer.drawer.drawer.right,
-												pivot : {
+												from : {
+													x : application.layer.drawer.drawer.right.pivot.x,
+													y : 0
+												},
+												to : {
 													x : 0,
 													y : 0
 												}

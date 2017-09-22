@@ -14,27 +14,45 @@ goodshow.enhance = function(options) {
 goodshow.tween = {
 	
 	alpha: function(options) {
-
-		var entity = options.entity;
+		
+		options = Object.assign({
+			from : {
+				alpha : options.entity.alpha
+			}
+		}, options || {});
 		var tweenable = new Tweenable();
 		tweenable.tween(Object.assign({
-			from: {
-				alpha: entity.alpha
-			},
-			to: {
-				alpha: options.alpha
-			},
+			from: options.from,
+			to: options.to,
 			duration: 300,
 			easing: 'easeInOutCubic',
 			step: function(state) {
-				entity.alpha = state.alpha;
+				options.entity.alpha = state.alpha;
 			}.bind(this),
 			finish: function() {
 				if (false) console.log('Tweenable.finish');
 			}
 		}, options || {}));
 	},
-
+	
+	pivot: function(options) {
+		
+		var tweenable = new Tweenable();
+		tweenable.tween(Object.assign({
+			from: options.from,
+			to: options.to,
+			duration: 300,
+			easing: 'easeInOutCubic',
+			step: function(state) {
+				options.entity.pivot.x = state.x;
+				options.entity.pivot.y = state.y;
+			}.bind(this),
+			finish: function() {
+				if (false) console.log('Tweenable.finish');
+			}
+		}, options || {}));
+	},
+	
 	position: function(options) {
 
 		var entity = options.entity;
@@ -75,31 +93,6 @@ goodshow.tween = {
 			step: function(state) {
 				entity.options.constrain.extent.value = state.extent;
 				entity.options.constrain.extent = entity.options.constrain.extent;
-			}.bind(this),
-			finish: function() {
-				if (false) console.log('Tweenable.finish');
-			}
-		}, options || {}));
-	},
-	
-	pivot: function(options) {
-
-		var entity = options.entity;
-		var tweenable = new Tweenable();
-		tweenable.tween(Object.assign({
-			from: {
-				x: entity.pivot.x,
-				y: entity.pivot.y
-			},
-			to: {
-				x: options.pivot.x,
-				y: options.pivot.y
-			},
-			duration: 300,
-			easing: 'easeInOutCubic',
-			step: function(state) {
-				entity.pivot.x = state.x;
-				entity.pivot.y = state.y;
 			}.bind(this),
 			finish: function() {
 				if (false) console.log('Tweenable.finish');
