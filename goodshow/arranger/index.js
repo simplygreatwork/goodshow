@@ -238,7 +238,7 @@ goodshow.Extent = Class.extend({				// not actually currently in use
 	
 	valueOf: function() {
 		
-		if (this.wrapped != undefined) {
+		if (this.wrapped !== undefined) {
 			return this.wrapped;
 		} else {
 			return this;
