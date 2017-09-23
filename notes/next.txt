@@ -1,9 +1,13 @@
 
+one mission of goodshow and simplygreatwork overall
+   avoid elaborate
+
 finish refactoring alpha tween (good and done)
 
 Panel control code looks messy
    any potential for more Object.assign goodness or some kind of resolver?
-
+   ideas at: https://stackoverflow.com/questions/11704267/in-javascript-how-to-conditionally-add-a-member-to-an-object/38483660
+   
 add icons in each master panel to link to the source
    identify the best icon to represent source code
    started a few panels - need to finish

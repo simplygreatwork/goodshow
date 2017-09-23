@@ -97,6 +97,7 @@ goodshow.Miller = goodshow.Panel.extend({
 				goodshow.Broadcast.publish('entity-has-entered', {
 					entity : goodshow.Utility.ancestor.find(entity, goodshow.Miller)
 				});
+				goodshow.Utility.ancestor.find(entity, goodshow.Miller).emit('has-entered', {});
 			}.bind(this)
 		});
 	},

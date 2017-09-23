@@ -1,8 +1,8 @@
 
 goodshow.Utility = {
-
+	
 	assign: function(to, from) {
-
+		
 		Object.keys(from).forEach(function(key) {
 			if (to.hasOwnProperty(key)) {
 				from[key].__prior = to[key];
@@ -10,17 +10,17 @@ goodshow.Utility = {
 		});
 		return Object.assign(to, from);
 	},
-
+	
 	remove: function(array, element) {
-
+		
 		var index = array.indexOf(element);
 		if (index > -1) {
 			array.splice(index, 1);
 		}
 	},
-
+	
 	validate: function(inset) {
-
+		
 		inset = inset || {};
 		inset.top = inset.top || 0;
 		inset.bottom = inset.bottom || 0;
@@ -28,9 +28,9 @@ goodshow.Utility = {
 		inset.right = inset.right || 0;
 		return inset;
 	},
-
+	
 	inset: function(rectangle, margin) {
-
+		
 		margin = goodshow.Utility.validate(margin);
 		rectangle.x = rectangle.x + margin.left;
 		rectangle.y = rectangle.y + margin.top;
@@ -39,7 +39,7 @@ goodshow.Utility = {
 
 		return rectangle;
 	},
-
+	
 	random: function(begin, end) {
 
 		return begin + Math.floor(Math.random() * (end - begin));
@@ -56,7 +56,7 @@ goodshow.Utility = {
 					break;
 				}
 				else {
-					component = entity.parent;
+					entity = entity.parent;
 				}
 			}
 			
@@ -125,7 +125,7 @@ goodshow.Utility = {
 	},
 	
 	loadText: function(options) {
-
+		
 		var request = new XMLHttpRequest();
 		request.onreadystatechange = function() {
 			var DONE = this.DONE || 4;

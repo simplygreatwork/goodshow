@@ -300,11 +300,6 @@ example.panels.master.Panel = goodshow.Panel.extend({
 						background: 0x3368d4,
 						constrain : {
 							extent: 64
-						},
-						invoke : {
-							action : function(entity) {
-								entity.options.background = 0xFF0000;
-							}.bind(this)
 						}
 					})
 				]

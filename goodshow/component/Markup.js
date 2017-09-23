@@ -33,6 +33,16 @@ goodshow.component.Markup = goodshow.component.Root.extend({
                 this.present();
 			}
 		}.bind(this));
+        entity.on('added', function() {
+            console.log('entity added');
+            var miller = goodshow.Utility.ancestor.find(entity, goodshow.Miller);
+            console.log('miller: ' + miller);
+            if (miller) {
+        		miller.on('has-entered', function() {
+        			console.log('has-entered');
+        		}.bind(this));
+            }
+        }.bind(this));
     },
     
     present : function() {

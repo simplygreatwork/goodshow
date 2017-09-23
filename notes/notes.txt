@@ -1,4 +1,8 @@
 
+concept of resolvers: e.g. resilve background presense into a painter, for example
+
+important accessibility factors: text editing, inline html, assistive, search engine optimization
+
 consider changing Ripple component to Effect component
 
 review: might be able to use built-in emitter instead of Broadcast

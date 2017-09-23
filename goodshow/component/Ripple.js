@@ -1,8 +1,8 @@
 
 goodshow.component.Ripple = goodshow.component.Root.extend({
-
+	
 	initialize: function(options) {
-
+		
 		goodshow.component.Root.prototype.initialize.call(this, Object.assign({
 			maximum: 10,
 			events: [],

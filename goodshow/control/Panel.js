@@ -1,12 +1,15 @@
+
 goodshow.Panel = goodshow.entity.Graphics.extend({
 
 	initialize: function(options) {
-
+		
 		options = options || {};
 		if (options.arranger === undefined) {
 			if (false) console.warn('Arranger was not specified.');
-			options.arranger = new goodshow.arranger.Vertical();
 		}
+		options = Object.assign({
+			arranger : new goodshow.arranger.Vertical()
+		}, options || {});
 		if (options.background) {
 			options.paint = options.paint || {
 				painters: []
