@@ -19,34 +19,42 @@ goodshow.component.Markup = goodshow.component.Root.extend({
         goodshow.Utility.loadText({
             url: '../assets/templates/index.html',
             callback: function(html) {
+                console.log('loaded');
                 this.html = html;
                 this.loaded = true;
     		    this.present();
             }.bind(this)
         });
         entity.on('removed', function() {
+            if (false) console.log('removed');
             this.element.style.display = 'none';
+            entity.shown = false;
         }.bind(this));
-		goodshow.Broadcast.subscribe('entity-has-entered', function(options) {
-			if (goodshow.Utility.ancestor.has(entity, options.entity)) {
-			    this.entered = true;
-                this.present();
-			}
-		}.bind(this));
-        entity.on('added', function() {
-            console.log('entity added');
-            var miller = goodshow.Utility.ancestor.find(entity, goodshow.Miller);
-            console.log('miller: ' + miller);
-            if (miller) {
-        		miller.on('has-entered', function() {
-        			console.log('has-entered');
-        		}.bind(this));
-            }
-        }.bind(this));
+        if (true) {
+            entity.on('shown', function() {
+                if (false) console.log('shown');
+                var miller = goodshow.Utility.ancestor.find(entity, goodshow.Miller);
+                if (miller) {
+            		miller.on('has-entered', function() {
+            			if (false) console.log('entered');
+        			    this.entered = true;
+                        this.present();
+            		}.bind(this));
+                }
+            }.bind(this));
+        } else {
+    		goodshow.Broadcast.subscribe('entity-has-entered', function(options) {
+    			if (goodshow.Utility.ancestor.has(entity, options.entity)) {
+    			    this.entered = true;
+                    this.present();
+    			}
+    		}.bind(this));
+        }
     },
     
     present : function() {
         
+        if (false) console.log('present');
     	if (this.loaded & this.entered) {
             this.element.innerHTML = this.html;
     	}

@@ -4,6 +4,7 @@ example.panels.markup.Panel = goodshow.Panel.extend({
 	initialize: function(options) {
 		
 		goodshow.Panel.prototype.initialize.call(this, Object.assign({
+			name: 'markup-panel',
 			background: 0xFFFFFF,
 			constrain : {
 				extent: 350
