@@ -1,7 +1,9 @@
 
+https://www.google.com/search?q=can+html+be+render+into+webgl&rlz=1CAACAV_enUS759US759&oq=can+html+be+render+into+webgl&aqs=chrome..69i57j69i64.21032j0j7&sourceid=chrome&ie=UTF-8
+
 pertaining to enhance vs transform
    in general, we always want to be able to tweak an entity after it has been rendered
-   so for enhnace options - go ahead and merge but then reinstall the entity
+   so for enhance options - go ahead and merge but then reinstall the entity
    
 one mission of goodshow and simplygreatwork overall
    avoid elaborate

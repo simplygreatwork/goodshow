@@ -14,6 +14,12 @@ goodshow.component.Markup = goodshow.component.Root.extend({
 		this.element = document.createElement('div');
 		this.element.className = 'element';
 		this.element.style.display = 'none';
+		this.element.style.clip = this.rect({
+			top : 0,
+			right : 90,
+			bottom : 100,
+			left : 50
+		});
 		document.body.appendChild(this.element);
 		goodshow.Utility.loadText({
 			url: this.url,
@@ -27,6 +33,21 @@ goodshow.component.Markup = goodshow.component.Root.extend({
 		this.watchTransform(entity);
 	},
 	
+	rect : function(rect) {
+		
+		var result = [];
+		result.push('rect(');
+		result.push(rect.top + 'px');
+		result.push(',');
+		result.push(rect.right + 'px');
+		result.push(',');
+		result.push(rect.bottom + 'px');
+		result.push(',');
+		result.push(rect.left + 'px');
+		result.push(')');
+		return result.join('');
+	},
+	
 	watchTransform : function(entity) {
 		
 		entity.updateTransform = function() {
@@ -38,6 +59,12 @@ goodshow.component.Markup = goodshow.component.Root.extend({
 				left: global.x,
 				width: entity.options.bounds.width,
 				height: entity.options.bounds.height
+			});
+			this.element.style.clip = this.rect({
+				top : 0,
+				right : entity.options.bounds.width,
+				bottom : entity.options.bounds.height,
+				left : entity.options.bounds.width - global.x
 			});
 		}.bind(this);
 	},

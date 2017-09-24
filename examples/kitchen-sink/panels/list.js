@@ -1,6 +1,6 @@
 
 example.panels.list.Panel = goodshow.Panel.extend({
-   
+	
 	initialize: function(options) {
 		
 		goodshow.Panel.prototype.initialize.call(this, Object.assign({
