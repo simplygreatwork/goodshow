@@ -38,9 +38,7 @@ goodshow.Miller = goodshow.Panel.extend({
 				}), 0);
 				this.secondary.draw();
 				this.enter(entity, function() {
-					goodshow.Broadcast.publish('entity-has-entered', {
-						entity : goodshow.Utility.ancestor.find(entity, goodshow.Miller)
-					});
+
 				}.bind(this));
 				this.advanced = true;
 			}.bind(this));
@@ -50,9 +48,7 @@ goodshow.Miller = goodshow.Panel.extend({
 			}), 0);
 			this.secondary.draw();
 			this.enter(entity, function() {
-				goodshow.Broadcast.publish('entity-has-entered', {
-					entity : goodshow.Utility.ancestor.find(entity, goodshow.Miller)
-				});
+				
 			}.bind(this));
 			this.advanced = true;
 		}
@@ -87,17 +83,15 @@ goodshow.Miller = goodshow.Panel.extend({
 			entity : entity,
 			from : {
 				x : entity.options.constrain.extent.value,
-				y : 0,
+				y : 0
 			},
 			to : {
 				x : 0,
 				y : 0
 			},
 			finish : function() {
-				goodshow.Broadcast.publish('entity-has-entered', {
-					entity : goodshow.Utility.ancestor.find(entity, goodshow.Miller)
-				});
 				goodshow.Utility.ancestor.find(entity, goodshow.Miller).emit('has-entered', {});
+				if (finish) finish();
 			}.bind(this)
 		});
 	},

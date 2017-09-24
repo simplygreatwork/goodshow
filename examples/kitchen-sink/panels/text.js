@@ -90,7 +90,7 @@ example.panels.text.Panel = goodshow.Panel.extend({
 											right: 30
 										}
 									}
-								}),
+								})
 							]
 						}
 					}),
