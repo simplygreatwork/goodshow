@@ -1,17 +1,17 @@
 
 goodshow.component.Markup = goodshow.component.Root.extend({
-    
+
     initialize: function(options) {
 
         goodshow.component.Root.prototype.initialize.call(this, Object.assign({
-            
+
         }, options || {}));
         this.entered = false;
         this.loaded = false;
     },
-    
+
     install: function(entity) {
-        
+
         goodshow.component.Root.prototype.install.call(this, entity);
         this.element = document.createElement('div');
         this.element.className = 'element';
@@ -22,7 +22,7 @@ goodshow.component.Markup = goodshow.component.Root.extend({
                 console.log('loaded');
                 this.html = html;
                 this.loaded = true;
-    		    this.present();
+                this.present();
             }.bind(this)
         });
         entity.on('removed', function() {
@@ -35,33 +35,34 @@ goodshow.component.Markup = goodshow.component.Root.extend({
                 if (false) console.log('shown');
                 var miller = goodshow.Utility.ancestor.find(entity, goodshow.Miller);
                 if (miller) {
-            		miller.on('has-entered', function() {
-            			if (false) console.log('entered');
-        			    this.entered = true;
+                    miller.on('has-entered', function() {
+                        if (false) console.log('entered');
+                        this.entered = true;
                         this.present();
-            		}.bind(this));
+                    }.bind(this));
                 }
             }.bind(this));
-        } else {
-    		goodshow.Broadcast.subscribe('entity-has-entered', function(options) {
-    			if (goodshow.Utility.ancestor.has(entity, options.entity)) {
-    			    this.entered = true;
+        }
+        else {
+            goodshow.Broadcast.subscribe('entity-has-entered', function(options) {
+                if (goodshow.Utility.ancestor.has(entity, options.entity)) {
+                    this.entered = true;
                     this.present();
-    			}
-    		}.bind(this));
+                }
+            }.bind(this));
         }
     },
-    
-    present : function() {
-        
+
+    present: function() {
+
         if (false) console.log('present');
-    	if (this.loaded & this.entered) {
+        if (this.loaded & this.entered) {
             this.element.innerHTML = this.html;
-    	}
+        }
     },
-    
+
     draw: function(entity) {
-        
+
         goodshow.component.Root.prototype.draw.call(this, entity);
         Object.assign(this.element.style, {
             top: entity.options.bounds.y,

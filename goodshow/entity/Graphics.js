@@ -1,13 +1,13 @@
 
 var components = [
-	'bound',			// the ordering of these is so very important (actually until began using proxy.setTimeout)
-	'invoke',		// pertaining to masking, hover, select, etc: study
+	'bound', // the ordering of these is so very important (actually until began using proxy.setTimeout)
+	'invoke', // pertaining to masking, hover, select, etc: study
 	'contain',
 	'paint',
 	'mask',
 	'constrain',
 	'hover',
-	'selection',	// ordering: mask issue with select, selection
+	'selection', // ordering: mask issue with select, selection
 	'select',
 	'scroll',
 	'ripple',
@@ -21,7 +21,7 @@ var components = [
 goodshow.entity.Graphics = Class.extend({
 
 	initialize: function(options) {
-		
+
 		PIXI.Graphics.call(this);
 		this.options = Object.assign({
 			bounds: new PIXI.Rectangle(0, 0, 0, 0),
@@ -39,7 +39,7 @@ goodshow.entity.Graphics = Class.extend({
 			this.removeChildren();
 		});
 	},
-	
+
 	resolve: function() {
 
 		Object.keys(this.options).forEach(function(key) {
@@ -54,7 +54,7 @@ goodshow.entity.Graphics = Class.extend({
 	},
 
 	proxy: function(object, entity) {
-		
+
 		if (false) {
 			return object;
 		}
@@ -62,8 +62,8 @@ goodshow.entity.Graphics = Class.extend({
 			if (window.Proxy) {
 				return new Proxy(object, {
 					set: function(target, name, value) {
-						target[name] = value;			// todo: redraw only if the value changes
-						if (name == 'padding') {		// this belongs elsewhere, e.g. "option.changed"
+						target[name] = value; // todo: redraw only if the value changes
+						if (name == 'padding') { // this belongs elsewhere, e.g. "option.changed"
 							if ((target.extent) && (target.extent.kind == 'flow')) {
 								delete target.extent.value;
 							}
@@ -85,29 +85,30 @@ goodshow.entity.Graphics = Class.extend({
 			}
 		}
 	},
-	
+
 	install: function() {
-		
+
 		components.forEach(function(component) {
 			if (this.options[component]) this.options[component].install(this);
 		}.bind(this));
 	},
-	
+
 	uninstall: function(entity) {
-		
+
 		components.forEach(function(component) {
 			if (this.options[component]) this.options[component].uninstall(this);
 		}.bind(this));
 	},
-	
+
 	draw: function() {
-		
+
 		if (true) {
 			this.emit('shown');
-		} else {
-			if (! this.shown) {
+		}
+		else {
+			if (!this.shown) {
 				this.emit('shown');
-				this.shown = true;			// issue: having trouble unsetting/resetting shown elsewhere
+				this.shown = true; // issue: having trouble unsetting/resetting shown elsewhere
 			}
 		}
 		this.clear();
@@ -121,5 +122,5 @@ goodshow.entity.Graphics = Class.extend({
 			}
 		}
 	}
-	
+
 }, PIXI.Graphics);
