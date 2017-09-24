@@ -92,25 +92,16 @@ goodshow.entity.Graphics = Class.extend({
 			if (this.options[component]) this.options[component].install(this);
 		}.bind(this));
 	},
-
+	
 	uninstall: function(entity) {
-
+		
 		components.forEach(function(component) {
 			if (this.options[component]) this.options[component].uninstall(this);
 		}.bind(this));
 	},
 
 	draw: function() {
-
-		if (true) {
-			this.emit('shown');
-		}
-		else {
-			if (!this.shown) {
-				this.emit('shown');
-				this.shown = true; // issue: having trouble unsetting/resetting shown elsewhere
-			}
-		}
+		
 		this.clear();
 		components.forEach(function(component) {
 			if (this.options[component]) this.options[component].draw(this);

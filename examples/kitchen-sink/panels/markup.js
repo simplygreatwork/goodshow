@@ -49,7 +49,7 @@ example.panels.markup.Panel = goodshow.Panel.extend({
 							]
 						},
 					}),
-					new goodshow.Markup({
+					this.markup = new goodshow.Markup({
 						name: 'markup-content',
 						path : 'http://'
 					}),
@@ -63,5 +63,16 @@ example.panels.markup.Panel = goodshow.Panel.extend({
 				]
 			}
 		}, options || {}));
+	},
+	
+	draw : function() {
+		
+		goodshow.Panel.prototype.draw.call(this);
+		var miller = goodshow.Utility.ancestor.find(this, goodshow.Miller);
+		if (miller) {
+			miller.on('has-entered', function() {
+				this.markup.options.markup.element.style.display = 'block';
+			}.bind(this));
+		}
 	}
 });
