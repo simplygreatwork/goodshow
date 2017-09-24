@@ -51,7 +51,15 @@ example.panels.markup.Panel = goodshow.Panel.extend({
 					}),
 					this.markup = new goodshow.Markup({
 						name: 'markup-content',
-						url : '../assets/templates/index.html'
+						url : '../assets/templates/index.html',
+						constrain : {
+							margin : {
+								top : 50,
+								bottom : 50,
+								left : 50,
+								right : 50
+							}
+						}
 					}),
 					new goodshow.Panel({
 						name: 'footer',

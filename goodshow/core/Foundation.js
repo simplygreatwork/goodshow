@@ -1,6 +1,6 @@
 
 goodshow.defaults = function(options) {
-
+	
 	goodshow.Broadcast.publish('entity-defaults', options || {});
 	return options;
 };
@@ -9,6 +9,12 @@ goodshow.enhance = function(options) {
 	
 	goodshow.Broadcast.publish('entity-enhance', options || {});
 	return options;
+};
+
+goodshow.transform = function(entity) {
+	
+	goodshow.Broadcast.publish('entity-transform', entity || {});
+	return entity;
 };
 
 goodshow.tween = {

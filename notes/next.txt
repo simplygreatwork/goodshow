@@ -1,4 +1,8 @@
 
+pertaining to enhance vs transform
+   in general, we always want to be able to tweak an entity after it has been rendered
+   so for enhnace options - go ahead and merge but then reinstall the entity
+   
 one mission of goodshow and simplygreatwork overall
    avoid elaborate
 

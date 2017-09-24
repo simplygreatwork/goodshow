@@ -67,7 +67,7 @@ example.panels.enhance.Panel = goodshow.Panel.extend({
 									fontSize: '1.8em',
 									foreground : '#333333',
 									constrain : {
-										extent : 'flex',
+										extent : 'flow',
 										margin: {
 											top: 30,
 											bottom: 30,
@@ -75,7 +75,65 @@ example.panels.enhance.Panel = goodshow.Panel.extend({
 											right: 30
 										}
 									}
-								})
+								}),
+								new goodshow.TextArea({
+									text: 'The colors of the icons in the list below were set externally using an enhancer.',
+									fontFamily: 'Roboto',
+									fontSize: '1.8em',
+									foreground : '#333333',
+									constrain : {
+										extent : 'flow',
+										margin: {
+											top: 0,
+											bottom: 30,
+											left: 30,
+											right: 30
+										}
+									}
+								}),
+								new goodshow.List({
+									constrain : {
+										extent : 'flex',
+										margin : {
+											top : 20,
+											bottom : 20,
+											left : 20,
+											right : 20
+										}
+									},
+									contain : {
+										arranger : new goodshow.arranger.Vertical(),
+										children : [
+											new goodshow.ListItem({
+												text : 'One',
+												trait : 'custom-icon',
+												invoke : {
+													action : function() {
+														console.log('one');
+													}
+												}
+											}),
+											new goodshow.ListItem({
+												text : 'Two',
+												trait : 'custom-icon',
+												invoke : {
+													action : function() {
+														console.log('two');
+													}
+												}
+											}),
+											new goodshow.ListItem({
+												text : 'Three',
+												trait : 'custom-icon',
+												invoke : {
+													action : function() {
+														console.log('three');
+													}
+												}
+											})
+										]
+									}
+								}),
 							]
 						}
 					}),
@@ -91,3 +149,6 @@ example.panels.enhance.Panel = goodshow.Panel.extend({
 		}, options || {}));
 	}
 });
+
+
+

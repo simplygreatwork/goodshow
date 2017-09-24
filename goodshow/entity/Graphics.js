@@ -39,7 +39,7 @@ goodshow.entity.Graphics = Class.extend({
 			this.removeChildren();
 		});
 	},
-
+	
 	resolve: function() {
 
 		Object.keys(this.options).forEach(function(key) {
@@ -85,9 +85,9 @@ goodshow.entity.Graphics = Class.extend({
 			}
 		}
 	},
-
+	
 	install: function() {
-
+		
 		components.forEach(function(component) {
 			if (this.options[component]) this.options[component].install(this);
 		}.bind(this));
@@ -99,9 +99,10 @@ goodshow.entity.Graphics = Class.extend({
 			if (this.options[component]) this.options[component].uninstall(this);
 		}.bind(this));
 	},
-
+	
 	draw: function() {
 		
+		goodshow.transform(this);
 		this.clear();
 		components.forEach(function(component) {
 			if (this.options[component]) this.options[component].draw(this);
