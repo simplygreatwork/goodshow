@@ -58,6 +58,14 @@ example.panels.enhance.Panel = goodshow.Panel.extend({
 					new goodshow.Panel({
 						name: 'content',
 						background: 0xFFFFFF,
+						constrain : {
+							padding : {
+								top : 30,
+								bottom : 30,
+								left : 30,
+								right : 30
+							}
+						},
 						contain : {
 							arranger: new goodshow.arranger.Vertical(),
 							children: [
@@ -69,10 +77,25 @@ example.panels.enhance.Panel = goodshow.Panel.extend({
 									constrain : {
 										extent : 'flow',
 										margin: {
-											top: 30,
-											bottom: 30,
-											left: 30,
-											right: 30
+											top: 0,
+											bottom: 0,
+											left: 0,
+											right: 0
+										}
+									}
+								}),
+								new goodshow.TextArea({
+									text: 'Inline styling should never trump external styling, OK? I\'m looking at you CSS.',
+									fontFamily: 'Roboto',
+									fontSize: '1.8em',
+									foreground : '#333333',
+									constrain : {
+										extent : 'flow',
+										margin: {
+											top: 20,
+											bottom: 0,
+											left: 0,
+											right: 0
 										}
 									}
 								}),
@@ -84,10 +107,10 @@ example.panels.enhance.Panel = goodshow.Panel.extend({
 									constrain : {
 										extent : 'flow',
 										margin: {
-											top: 0,
-											bottom: 30,
-											left: 30,
-											right: 30
+											top: 20,
+											bottom: 0,
+											left: 0,
+											right: 0
 										}
 									}
 								}),
@@ -95,10 +118,10 @@ example.panels.enhance.Panel = goodshow.Panel.extend({
 									constrain : {
 										extent : 'flex',
 										margin : {
-											top : 20,
-											bottom : 20,
-											left : 20,
-											right : 20
+											top : 40,
+											bottom : 0,
+											left : 0,
+											right : 0
 										}
 									},
 									contain : {
