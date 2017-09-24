@@ -51,7 +51,7 @@ example.panels.markup.Panel = goodshow.Panel.extend({
 					}),
 					this.markup = new goodshow.Markup({
 						name: 'markup-content',
-						path : 'http://'
+						url : '../assets/templates/index.html'
 					}),
 					new goodshow.Panel({
 						name: 'footer',
@@ -70,7 +70,7 @@ example.panels.markup.Panel = goodshow.Panel.extend({
 		goodshow.Panel.prototype.draw.call(this);
 		var miller = goodshow.Utility.ancestor.find(this, goodshow.Miller);
 		if (miller) {
-			miller.on('has-entered', function() {
+			miller.once('has-entered', function() {
 				this.markup.options.markup.element.style.display = 'block';
 			}.bind(this));
 		}

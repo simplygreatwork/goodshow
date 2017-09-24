@@ -9,7 +9,9 @@ goodshow.Markup = goodshow.Panel.extend({
 				arranger: new goodshow.arranger.Vertical(),
 				children: []
 			},
-			markup: {}
+			markup: {
+				url : options.url || null
+			}
 		}, options || {}));
 	},
 	
