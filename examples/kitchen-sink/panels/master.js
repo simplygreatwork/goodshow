@@ -291,8 +291,8 @@ example.panels.master.Panel = goodshow.Panel.extend({
 						},
 						selection : {
 							quantity : 1,
-				            foreground : 0xFFFFFF,
-				            background : 0x4444FF
+			            foreground : 0xFFFFFF,
+			            background : 0x4444FF
 						}
 					}),
 					new goodshow.Panel({

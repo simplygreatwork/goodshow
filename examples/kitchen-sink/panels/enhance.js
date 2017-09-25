@@ -1,6 +1,6 @@
 
 example.panels.enhance.Panel = goodshow.Panel.extend({
-   
+	
 	initialize: function(options) {
 		
 		goodshow.Panel.prototype.initialize.call(this, Object.assign({
@@ -70,7 +70,7 @@ example.panels.enhance.Panel = goodshow.Panel.extend({
 							arranger: new goodshow.arranger.Vertical(),
 							children: [
 								new goodshow.TextArea({
-									text: 'Illustrate how to decorate any entity using an external enhancer based on traits. This technique can be used for defaults or for overrides.',
+									text: 'Illustrate how to decorate any entity using an external enhancer based on traits. This technique can be used for defaults or for overrides. Entity substitution will be permitted as well.',
 									fontFamily: 'Roboto',
 									fontSize: '1.8em',
 									foreground : '#333333',
@@ -85,7 +85,7 @@ example.panels.enhance.Panel = goodshow.Panel.extend({
 									}
 								}),
 								new goodshow.TextArea({
-									text: 'Inline styling should never trump external styling, OK? I\'m looking at you CSS.',
+									text: 'The colors of the icons in the list below were set externally using an enhancer. The text was transformed to uppercase too.',
 									fontFamily: 'Roboto',
 									fontSize: '1.8em',
 									foreground : '#333333',
@@ -100,7 +100,7 @@ example.panels.enhance.Panel = goodshow.Panel.extend({
 									}
 								}),
 								new goodshow.TextArea({
-									text: 'The colors of the icons in the list below were set externally using an enhancer.',
+									text: 'Inline styling should never trump external styling, OK? I\'m looking at you CSS.',
 									fontFamily: 'Roboto',
 									fontSize: '1.8em',
 									foreground : '#333333',
@@ -129,7 +129,7 @@ example.panels.enhance.Panel = goodshow.Panel.extend({
 										children : [
 											new goodshow.ListItem({
 												text : 'One',
-												trait : 'custom-icon',
+												trait : 'customized-list-item',
 												invoke : {
 													action : function() {
 														console.log('one');
@@ -138,7 +138,7 @@ example.panels.enhance.Panel = goodshow.Panel.extend({
 											}),
 											new goodshow.ListItem({
 												text : 'Two',
-												trait : 'custom-icon',
+												trait : 'customized-list-item',
 												invoke : {
 													action : function() {
 														console.log('two');
@@ -147,7 +147,7 @@ example.panels.enhance.Panel = goodshow.Panel.extend({
 											}),
 											new goodshow.ListItem({
 												text : 'Three',
-												trait : 'custom-icon',
+												trait : 'customized-list-item',
 												invoke : {
 													action : function() {
 														console.log('three');
@@ -172,6 +172,3 @@ example.panels.enhance.Panel = goodshow.Panel.extend({
 		}, options || {}));
 	}
 });
-
-
-

@@ -15,7 +15,7 @@ example.Enhancer = Class.extend({
 			this.enhance(options);
 		}.bind(this));
 		goodshow.Broadcast.subscribe('entity-transform', function(entity) {
-			this.transform(entity);
+			return this.transform(entity);
 		}.bind(this));
 	},
 	
@@ -31,9 +31,11 @@ example.Enhancer = Class.extend({
 	
 	transform : function(entity) {
 		
-		if (entity.options.trait == 'custom-icon') {
+		if (entity.options.trait == 'customized-list-item') {
 			if (entity instanceof goodshow.ListItem) {
 				entity.icon.options.paint.painters[0].color = 0xFF0000;
+				entity.label.text.text = entity.label.text.text.toUpperCase();
+				entity.label.text.style = entity.label.text.style;
 			}
 		}
 		if (false) {
@@ -63,6 +65,8 @@ example.Enhancer = Class.extend({
 				}
 			}
 		}
+		
+		return entity;
 	},
 	
 	initializeEnhancements : function() {

@@ -16,9 +16,9 @@ goodshow.component.Markup = goodshow.component.Root.extend({
 		this.element.style.display = 'none';
 		this.element.style.clip = this.rect({
 			top : 0,
-			right : 90,
-			bottom : 100,
-			left : 50
+			right : 0,
+			bottom : 0,
+			left : 0
 		});
 		document.body.appendChild(this.element);
 		goodshow.Utility.loadText({
@@ -33,16 +33,13 @@ goodshow.component.Markup = goodshow.component.Root.extend({
 		this.watchTransform(entity);
 	},
 	
-	rect : function(rect) {
+	rect : function(rect) {					// this is one example of why CSS sucks pretty bad
 		
 		var result = [];
 		result.push('rect(');
-		result.push(rect.top + 'px');
-		result.push(',');
-		result.push(rect.right + 'px');
-		result.push(',');
-		result.push(rect.bottom + 'px');
-		result.push(',');
+		result.push(rect.top + 'px,');
+		result.push(rect.right + 'px,');
+		result.push(rect.bottom + 'px,');
 		result.push(rect.left + 'px');
 		result.push(')');
 		return result.join('');
@@ -60,11 +57,12 @@ goodshow.component.Markup = goodshow.component.Root.extend({
 				width: entity.options.bounds.width,
 				height: entity.options.bounds.height
 			});
+			var margin = entity.options.constrain.margin;
 			this.element.style.clip = this.rect({
 				top : 0,
 				right : entity.options.bounds.width,
 				bottom : entity.options.bounds.height,
-				left : entity.options.bounds.width - global.x
+				left : entity.options.bounds.width - global.x + margin.left + margin.right
 			});
 		}.bind(this);
 	},

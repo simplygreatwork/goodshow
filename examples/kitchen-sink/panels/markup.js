@@ -54,10 +54,10 @@ example.panels.markup.Panel = goodshow.Panel.extend({
 						url : '../assets/templates/index.html',
 						constrain : {
 							margin : {
-								top : 50,
-								bottom : 50,
-								left : 50,
-								right : 50
+								top : 20,
+								bottom : 20,
+								left : 20,
+								right : 20
 							}
 						}
 					}),

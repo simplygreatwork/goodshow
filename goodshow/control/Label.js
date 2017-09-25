@@ -34,7 +34,7 @@ goodshow.Label = goodshow.entity.Graphics.extend({
 			}
 		}, options || {}));
 	},
-
+	
 	draw: function() {
 		
 		goodshow.entity.Graphics.prototype.draw.call(this);
