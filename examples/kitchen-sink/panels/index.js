@@ -21,9 +21,12 @@ window.example.panels = {
 	list : {},
 	overlay : {},
 	ripple : {},
-	enhance : {},
 	responsive : {},
-	markup : {},
-	markdown : {},
+	markup : {
+		basic : {},
+		markdown : {},
+		editing : {}
+	},
+	enhance : {},
 	develop : {}
 };

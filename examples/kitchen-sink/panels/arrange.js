@@ -587,88 +587,120 @@ example.panels.arrange.inherit.Panel = goodshow.Panel.extend({
 										}
 									}
 								}),
-								new goodshow.TextArea({
+								new goodshow.Label({
 									text: 'HEADER',
 									fontFamily: 'Roboto',
 									fontSize: '1.8em',
 									foreground : '#333333',
+									align : 'left',
 									constrain : {
 										extent : 'flow',
 										margin: {
 											top: 5,
 											bottom: 5
+										},
+										padding : {
+											top : 20,
+											bottom : 20,
+											left : 20,
+											right : 20
 										}
 									}
 								}),
 								new goodshow.Panel({
-									background : 0xEEEEEE,
+									background : 0xEE0000,
 									constrain : {
 										extent : 'inherit',
 										padding : {
-											top : 5,
-											bottom : 5,
-											left : 5,
-											right : 5
+											top : 1,
+											bottom : 1,
+											left : 1,
+											right : 1
 										},
 										margin: {
-											top: 5,
-											bottom: 5
+											top: 1,
+											bottom: 1
 										}
 									},
 									contain : {
 										arranger : new goodshow.arranger.Vertical(),
 										children : [
-											new goodshow.TextArea({
+											new goodshow.Label({
 												text: 'SUBHEADER',
 												fontFamily: 'Roboto',
 												fontSize: '1.8em',
-												foreground : '#333333',
+												align : 'center',
+												foreground : 0x333333,
+												background : 0xFFFFFF,
 												constrain : {
 													extent : 'flow',
+													padding : {
+														top : 20,
+														bottom : 20,
+														left : 20,
+														right : 20
+													},
 													margin: {
-														top: 5,
-														bottom: 5
+														top: 1,
+														bottom: 0
 													}
 												}
 											}),
-											new goodshow.TextArea({
+											new goodshow.Label({
 												text: 'CONTENT',
 												fontFamily: 'Roboto',
 												fontSize: '1.8em',
-												foreground : '#333333',
+												align : 'center',
+												foreground : 0x333333,
+												background : 0xFFFFFF,
 												constrain : {
 													extent : 'flow',
+													padding : {
+														top : 20,
+														bottom : 20,
+														left : 20,
+														right : 20
+													},
 													margin: {
-														top: 5,
-														bottom: 5
+														top: 1,
+														bottom: 0
 													}
 												}
 											}),
-											new goodshow.TextArea({
+											new goodshow.Label({
 												text: 'SUBFOOTER',
 												fontFamily: 'Roboto',
 												fontSize: '1.8em',
-												foreground : '#333333',
+												align : 'center',
+												foreground : 0x333333,
+												background : 0xFFFFFF,
 												constrain : {
 													extent : 'flow',
+													padding : {
+														top : 20,
+														bottom : 20,
+														left : 20,
+														right : 20
+													},
 													margin: {
-														top: 5,
-														bottom: 5
+														top: 1,
+														bottom: 1
 													}
 												}
 											})
 										]
 									}
 								}),
-								new goodshow.TextArea({
+								new goodshow.Label({
 									text: 'FOOTER',
 									fontFamily: 'Roboto',
 									fontSize: '1.8em',
+									align : 'left',
 									foreground : '#333333',
 									constrain : {
 										extent : 'flow',
 										margin: {
-											top: 5,
+											top: 25,
 											bottom: 25
 										}
 									}

@@ -10,7 +10,8 @@ goodshow.Markup = goodshow.Panel.extend({
 				children: []
 			},
 			markup: {
-				url : options.url || null
+				url : options.url || null,
+				clip : options.clip || null
 			}
 		}, options || {}));
 	},

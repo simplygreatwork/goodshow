@@ -1,10 +1,10 @@
 
 example = example || {};
 
-goodshow.Main.ready(function(stage, renderer) {
+goodshow.Fonts.ready(function() {
 	
 	new Application({
-		stage : stage
+		stage : new goodshow.Main().stage
 	});
 });
 
@@ -14,8 +14,9 @@ Application = Class.extend({
 		
 		Object.assign(this, options);
 		this.initializeEnhancer();
-		this.initializeInterface();
+		this.initializeContent();
 		this.initializeMessages();
+		this.initializeLayers();
 	},
 	
 	initializeEnhancer : function() {
@@ -23,10 +24,10 @@ Application = Class.extend({
 		var enhancer = new example.Enhancer();
 	},
 	
-	initializeInterface : function() {
+	initializeContent : function() {
 	   
 		application.layer = {};
-		window.panel = new Structure({});
+		window.panel = new example.Content({});
 		this.stage.addChild(window.panel);
 		window.panel.draw();
 	},
@@ -44,10 +45,28 @@ Application = Class.extend({
 				text : 'Love is all you need.'
 			}));
 		}.bind(this), 1000);
+	},
+	
+	initializeLayers : function() {
+		
+		var layer = new example.Layer();
 	}
 });
 
-Structure = goodshow.Panel.extend({
+example.Layer = Class.extend({
+	
+	initialize : function() {
+		
+		this.show();
+	},
+	
+	show : function() {
+		
+		
+	}
+});
+
+example.Content = goodshow.Panel.extend({
 	
 	initialize: function(options) {
 		

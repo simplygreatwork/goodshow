@@ -114,11 +114,39 @@ example.panels.enhance.Panel = goodshow.Panel.extend({
 										}
 									}
 								}),
+								new goodshow.Button({
+									trait : 'enhanced-button',
+									text : 'ENHANCED BUTTON',
+									foreground : 0x000000,
+									background : 0xFFFFFF,
+									constrain : {
+										extent : 'flow',
+										margin : {
+											top : 10,
+											bottom : 10,
+											left : 0,
+											right : 0
+										},
+										padding : {
+											top : 20,
+											bottom : 20,
+											left : 20,
+											right : 20
+										}
+									},
+									invoke : {
+										action : function(entity) {
+											application.layer.message.display(new example.layer.message.Panel({
+												text : 'The button was pressed.'
+											}));
+										}.bind(this)
+									}
+								}),
 								new goodshow.List({
 									constrain : {
 										extent : 'flex',
 										margin : {
-											top : 40,
+											top : 0,
 											bottom : 0,
 											left : 0,
 											right : 0
@@ -128,29 +156,24 @@ example.panels.enhance.Panel = goodshow.Panel.extend({
 										arranger : new goodshow.arranger.Vertical(),
 										children : [
 											new goodshow.ListItem({
-												text : 'One',
-												trait : 'customized-list-item',
+												text : 'Enhanced List Item',
+												trait : 'enhanced-list-item',
 												invoke : {
 													action : function() {
-														console.log('one');
+														application.layer.message.display(new example.layer.message.Panel({
+															text : 'The list item was pressed.'
+														}));
 													}
 												}
 											}),
 											new goodshow.ListItem({
-												text : 'Two',
-												trait : 'customized-list-item',
+												text : 'Enhanced List Item',
+												trait : 'enhanced-list-item',
 												invoke : {
 													action : function() {
-														console.log('two');
-													}
-												}
-											}),
-											new goodshow.ListItem({
-												text : 'Three',
-												trait : 'customized-list-item',
-												invoke : {
-													action : function() {
-														console.log('three');
+														application.layer.message.display(new example.layer.message.Panel({
+															text : 'The list item was pressed.'
+														}));
 													}
 												}
 											})
@@ -158,7 +181,9 @@ example.panels.enhance.Panel = goodshow.Panel.extend({
 									}
 								}),
 							]
-						}
+						},
+						mask : {},
+						scroll : {}
 					}),
 					new goodshow.Panel({
 						name: 'footer',

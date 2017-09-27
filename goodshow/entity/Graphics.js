@@ -13,6 +13,7 @@ var components = [
 	'ripple',
 	'reveal',
 	'drag',
+	'edit',
 	'filter',
 	'transform',
 	'markup',

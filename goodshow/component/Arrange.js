@@ -5,12 +5,12 @@ goodshow.component.Arrange = goodshow.component.Root.extend({
 
         goodshow.component.Root.prototype.initialize.call(this, options);
     },
-
+    
     install: function(entity) {
 
-
+        
     },
-
+    
     draw: function(entity) {
 
 

@@ -1,4 +1,25 @@
 
+simplify Main.initialize with Fonts.ready instead of Main.ready
+   or better, each goodshow.Layer initializes its own renderer 
+   
+want an actual/true border painter for panel/arranger/inherit
+
+hover is tyically a background
+   but hover could be an underline
+
+TextArea alignment and padding implementation is having issues
+   Label works pretty OK
+
+label left/right align does not adhere to/within margins/padding
+
+need to dispose of entities properly
+
+"content builder" parts in Good Show
+
+with the hover component, tween the alpha of the hover in and out
+
+add some hover to lists and list items
+
 work out the concept of PIXI.Layer
    a layer will have a PIXI canvas paired with DOM floating above
    many of these layers can be stacked

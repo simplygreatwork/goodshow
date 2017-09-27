@@ -128,7 +128,7 @@ example.panels.master.Panel = goodshow.Panel.extend({
 							extent : 'flex',
 							margin : {
 								top : 10,
-								bottom : 10,
+								bottom : 10
 							}
 						},
 						contain : {
@@ -257,15 +257,6 @@ example.panels.master.Panel = goodshow.Panel.extend({
 										action : function() {
 											var miller = goodshow.Utility.ancestor.find(this, goodshow.Miller);
 											miller.advance(new example.panels.markup.Panel());
-										}.bind(this)
-									}
-								}),
-								new goodshow.ListItem({
-									text : 'Markdown',
-									invoke : {
-										action : function() {
-											var miller = goodshow.Utility.ancestor.find(this, goodshow.Miller);
-											miller.advance(new example.panels.markdown.Panel());
 										}.bind(this)
 									}
 								}),

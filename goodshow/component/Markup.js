@@ -14,12 +14,14 @@ goodshow.component.Markup = goodshow.component.Root.extend({
 		this.element = document.createElement('div');
 		this.element.className = 'element';
 		this.element.style.display = 'none';
-		this.element.style.clip = this.rect({
-			top : 0,
-			right : 0,
-			bottom : 0,
-			left : 0
-		});
+		if (this.clip) {
+			this.element.style.clip = this.rect({
+				top : 0,
+				right : 0,
+				bottom : 0,
+				left : 0
+			});
+		}
 		document.body.appendChild(this.element);
 		goodshow.Utility.loadText({
 			url: this.url,
@@ -29,6 +31,10 @@ goodshow.component.Markup = goodshow.component.Root.extend({
 		});
 		entity.on('removed', function() {
 			this.element.style.display = 'none';
+			document.body.removeChild(this.element);
+			this.element = null;
+			delete this.element;
+			delete entity.updateTransform;
 		}.bind(this));
 		this.watchTransform(entity);
 	},
@@ -48,7 +54,6 @@ goodshow.component.Markup = goodshow.component.Root.extend({
 	watchTransform : function(entity) {
 		
 		entity.updateTransform = function() {
-			this.element.style.display = 'block';
 			PIXI.DisplayObject.prototype.updateTransform.call(entity);
 			var global = entity.toGlobal(new PIXI.Point(0, 0));
 			Object.assign(this.element.style, {
@@ -57,13 +62,16 @@ goodshow.component.Markup = goodshow.component.Root.extend({
 				width: entity.options.bounds.width,
 				height: entity.options.bounds.height
 			});
-			var margin = entity.options.constrain.margin;
-			this.element.style.clip = this.rect({
-				top : 0,
-				right : entity.options.bounds.width,
-				bottom : entity.options.bounds.height,
-				left : entity.options.bounds.width - global.x + margin.left + margin.right
-			});
+			if (this.clip) {
+				this.element.style.display = 'block';
+				var margin = entity.options.constrain.margin;
+				this.element.style.clip = this.rect({
+					top : 0,
+					right : entity.options.bounds.width,
+					bottom : entity.options.bounds.height,
+					left : entity.options.bounds.x - global.x - margin.left
+				});
+			}
 		}.bind(this);
 	},
 	
