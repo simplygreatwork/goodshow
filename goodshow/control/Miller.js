@@ -90,7 +90,10 @@ goodshow.Miller = goodshow.Panel.extend({
 				y : 0
 			},
 			finish : function() {
-				goodshow.Utility.ancestor.find(entity, goodshow.Miller).emit('has-entered', {});
+				var miller = goodshow.Utility.ancestor.find(entity, goodshow.Miller);
+				if (miller) {
+					miller.emit('has-entered', {});
+				}
 				if (finish) finish();
 			}.bind(this)
 		});

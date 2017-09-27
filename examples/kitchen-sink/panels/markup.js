@@ -45,6 +45,21 @@ example.panels.markup.Panel = goodshow.Panel.extend({
 									pivot : {
 										y : -4
 									}
+								}),
+								new goodshow.Label({
+									name: 'header-git',
+									text: '\uf09b',
+									foreground: 'white',
+									fontFamily: 'FontAwesome',
+									fontSize: '24px',
+									constrain : {
+										extent: 64
+									},
+									invoke : {
+										action : function() {
+											window.open('https://github.com/simplygreatwork/goodshow/blob/master/examples/kitchen-sink/panels/markup.js', '_blank',);
+										}.bind(this)
+									}
 								})
 							]
 						},
@@ -376,6 +391,8 @@ example.panels.markup.editing.Panel = goodshow.Panel.extend({
 									text: 'You can edit this text.',
 									foreground: 'black',
 									align : 'left',
+									fontFamily: 'Roboto',
+									fontSize: '18px',
 									constrain : {
 										extent : 'flow',
 										margin: {
@@ -393,6 +410,8 @@ example.panels.markup.editing.Panel = goodshow.Panel.extend({
 									text: 'You will be able to edit this text inline soon.',
 									foreground: 'black',
 									align : 'left',
+									fontFamily: 'Roboto',
+									fontSize: '18px',
 									constrain : {
 										extent : 'flow',
 										margin: {
@@ -405,7 +424,7 @@ example.panels.markup.editing.Panel = goodshow.Panel.extend({
 									edit : {
 										inline : true
 									}
-								}),
+								})
 							]
 						},
 						mask : {},
@@ -415,7 +434,7 @@ example.panels.markup.editing.Panel = goodshow.Panel.extend({
 						name: 'footer',
 						background: 0x3368d4,
 						constrain : {
-							extent: 64,
+							extent: 64
 						}
 					})
 				]

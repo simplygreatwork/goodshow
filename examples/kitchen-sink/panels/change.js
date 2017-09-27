@@ -51,6 +51,21 @@ example.panels.change.Panel = goodshow.Panel.extend({
 											}));
 										}.bind(this)
 									}
+								}),
+								new goodshow.Label({
+									name: 'header-git',
+									text: '\uf09b',
+									foreground: 'white',
+									fontFamily: 'FontAwesome',
+									fontSize: '24px',
+									constrain : {
+										extent: 64
+									},
+									invoke : {
+										action : function() {
+											window.open('https://github.com/simplygreatwork/goodshow/blob/master/examples/kitchen-sink/panels/change.js', '_blank',);
+										}.bind(this)
+									}
 								})
 							]
 						},

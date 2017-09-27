@@ -4,7 +4,7 @@ example = example || {};
 goodshow.Fonts.ready(function() {
 	
 	new Application({
-		stage : new goodshow.Main().stage
+		container : new goodshow.Main().container
 	});
 });
 
@@ -28,7 +28,7 @@ Application = Class.extend({
 	   
 		application.layer = {};
 		window.panel = new example.Content({});
-		this.stage.addChild(window.panel);
+		this.container.addChild(window.panel);
 		window.panel.draw();
 	},
 	

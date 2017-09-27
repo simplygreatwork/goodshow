@@ -5,26 +5,26 @@ goodshow.Main = Class.extend({
 		
 		goodshow.application = this;
 		window.application = this;
-		this.initializeStage();
+		this.initializeRenderer();
 		this.animate();
 		this.initializeResizing();
 		this.initializeSubscribing();
 	},
 	
-	initializeStage: function() {
-
+	initializeRenderer: function() {
+		
 		this.renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight, {
 			resolution: window.devicePixelRatio || 1,
 			autoResize: true,
 			transparent: true,
 			antialias: true,
 		});
-		PIXI.RESOLUTION = window.devicePixelRatio;
+		PIXI.settings.RESOLUTION = window.devicePixelRatio;
 		this.renderer.resize(window.innerWidth, window.innerHeight);
 		document.body.appendChild(this.renderer.view);
-		this.stage = new PIXI.Container();
+		this.container = new PIXI.Container();
 	},
-
+	
 	animate: function() {
 		
 		var focused = true;
@@ -38,12 +38,12 @@ goodshow.Main = Class.extend({
 		(function loop(t) {
 			if (focused) {
 				requestAnimationFrame(loop);
-				self.renderer.render(self.stage);
+				self.renderer.render(self.container);
 			}
 			else {
 				window.setTimeout(function() {
 					requestAnimationFrame(loop);
-					self.renderer.render(self.stage);
+					self.renderer.render(self.container);
 				}.bind(this), 250);
 			}
 		}());
@@ -61,9 +61,8 @@ goodshow.Main = Class.extend({
 	initializeSubscribing: function() {
 		
 		goodshow.Broadcast.subscribe('arranger.invalidate', function(options) {
-			var entity = options.entity;
-			window.setTimeout(function() { // use Ticker?
-				entity.draw();
+			window.setTimeout(function() {				// use Ticker?
+				options.entity.draw();
 			}.bind(this), 1);
 		}.bind(this));
 	}
